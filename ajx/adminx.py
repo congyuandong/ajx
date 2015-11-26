@@ -14,6 +14,9 @@ class GlobalSetting(object):
 
 	def get_site_menu(self):
 		return (
+				{'title': '线路管理','menus':(
+					{'title': '出发地管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
+				)},
 				{'title': '用户管理','menus':(
 					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
 				)},
@@ -61,6 +64,13 @@ class UserInfoAdmin(object):
 	search_fields = ['account', 'phone', 'email', 'nick']
 	list_per_page = 20
 
+class DestinationAdmin(object):
+	list_display = ['name', 'types', 'sort']
+	list_editable = ['name', 'types', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -87,3 +97,4 @@ class UeditorPlugin(BaseAdminPlugin):
 xadmin.site.register_plugin(UeditorPlugin,DetailAdminView)
 xadmin.site.register_plugin(UeditorPlugin,ModelFormAdminView)
 xadmin.site.register(UserInfo,UserInfoAdmin)
+xadmin.site.register(Destination,DestinationAdmin)

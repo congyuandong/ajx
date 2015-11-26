@@ -8,6 +8,12 @@ SEX_CHOICES =(
 	(1,u'女'),
 	)
 
+DEST_CHOICES =(
+	(1,u'国内'),
+	(2,u'国外'),
+	)
+
+#用户表
 class UserInfo(models.Model):
 	account = models.CharField(max_length = 50, verbose_name = '账户')
 	password = models.CharField(max_length = 20, verbose_name = '密码', null = True, blank = True)
@@ -25,3 +31,20 @@ class UserInfo(models.Model):
 	class Meta:
 		verbose_name = '用户'
 		verbose_name_plural = '用户管理'
+
+#项目出发地
+class Destination(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	types = models.IntegerField(default=1,verbose_name='类型',choices=DEST_CHOICES)
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '线路目的地'
+		verbose_name_plural = '目的地管理'
+
+# #线路表
+# class Route(models.Model):
+# 	summary
