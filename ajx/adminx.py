@@ -12,6 +12,13 @@ class GlobalSetting(object):
 	#设置base_site.html的Title
 	site_title = '爱简行后台管理系统'
 
+	def get_site_menu(self):
+		return (
+				{'title': '用户管理','menus':(
+					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
+				)},
+			)
+
 	# def get_site_menu(self):
 
 	# 	return (
@@ -48,6 +55,11 @@ class GlobalSetting(object):
 
 xadmin.site.register(views.CommAdminView, GlobalSetting)
 
+class UserInfoAdmin(object):
+	list_display = ['account', 'phone', 'email', 'nick', 'sex', 'birthday']
+	list_editable = ['phone', 'email', 'nick', 'sex', 'birthday']
+	search_fields = ['account', 'phone', 'email', 'nick']
+	list_per_page = 20
 
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
@@ -74,3 +86,4 @@ class UeditorPlugin(BaseAdminPlugin):
 
 xadmin.site.register_plugin(UeditorPlugin,DetailAdminView)
 xadmin.site.register_plugin(UeditorPlugin,ModelFormAdminView)
+xadmin.site.register(UserInfo,UserInfoAdmin)
