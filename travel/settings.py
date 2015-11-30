@@ -97,7 +97,7 @@ TOOLBARS_SETTINGS={
 #Ueditor
 UEDITOR_SETTINGS={
     'config':{
-        "toolbars":TOOLBARS_SETTINGS["defaultMenu"],
+        "toolbars":TOOLBARS_SETTINGS["besttome"],
         "initialFrameWidth":'100%',
     },
     'upload':{

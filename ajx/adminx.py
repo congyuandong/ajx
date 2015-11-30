@@ -15,7 +15,17 @@ class GlobalSetting(object):
 	def get_site_menu(self):
 		return (
 				{'title': '线路管理','menus':(
-					{'title': '出发地管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
+					{'title': '线路管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Route, 'changelist')},
+					{'title': '行程管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(RouteDetail, 'changelist')},
+					{'title': '套餐管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Classification, 'changelist')},
+					{'title': '出发日期管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(GoDate, 'changelist')},
+					{'title': '出发地管理', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(SetOut, 'changelist')},
+					{'title': '目的地管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
+					{'title': '附加产品', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(Addition, 'changelist')},
+					{'title': '航班信息', 'icon': 'fa fa-plane', 'url': self.get_model_url(RouteAirplane, 'changelist')},
+				)},
+				{'title': '订单管理 ','menus':(
+					{'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
 				)},
 				{'title': '用户管理','menus':(
 					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
@@ -56,7 +66,12 @@ class GlobalSetting(object):
  #            )},
  #        )
 
-xadmin.site.register(views.CommAdminView, GlobalSetting)
+class RouteAdmin(object):
+	list_display = ['name', 'ifAct', 'marketPrice', 'realPrice', 'destination', 'setOut', 'adultLeft', 'day', 'night']
+	list_editable = ['name', 'ifAct', 'marketPrice', 'realPrice', 'destination', 'setOut', 'adultLeft', 'day', 'night']
+	style_fields = {'supplier':'ueditor', 'detail':'ueditor', 'cost':'ueditor', 'ship':'ueditor', 'traffic':'ueditor', 'visa':'ueditor', 'notice':'ueditor', 'netsign':'ueditor', 'hotel':'ueditor'}
+	search_fields = ['name']
+	list_per_page = 20
 
 class UserInfoAdmin(object):
 	list_display = ['account', 'phone', 'email', 'nick', 'sex', 'birthday']
@@ -64,12 +79,58 @@ class UserInfoAdmin(object):
 	search_fields = ['account', 'phone', 'email', 'nick']
 	list_per_page = 20
 
+class SetOutAdmin(object):
+	list_display = ['name', 'sort']
+	list_editable = ['name', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
 class DestinationAdmin(object):
 	list_display = ['name', 'types', 'sort']
 	list_editable = ['name', 'types', 'sort']
 	search_fields = ['name']
 	list_per_page = 20
 	ordering = ['sort']
+
+class AdditionAdmin(object):
+	list_display = ['name', 'types', 'price', 'sort']
+	list_editable = ['name', 'types', 'price', 'sort']
+	search_fields = ['name']
+	style_fields = {'summary':'ueditor'}
+	list_per_page = 20
+	ordering = ['sort']
+
+class RouteAirplaneAdmin(object):
+	list_display = ['route', 'isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace']
+	list_editable = ['isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace']
+	search_fields = ['route']
+	list_per_page = 20
+
+class ClassificationAdmin(object):
+	list_display = ['route', 'name']
+	list_editable = ['name']
+	search_fields = ['name']
+	list_per_page = 20
+
+class GoDateAdmin(object):
+	list_display = ['classification', 'date', 'price', 'childPrice', 'left', 'childLeft']
+	list_editable = ['date', 'price', 'childPrice', 'left', 'childLeft']
+	search_fields = ['classification']
+	list_per_page = 20
+
+class RouteDetailAdmin(object):
+	list_display = ['route', 'day', 'fromPlace', 'goType', 'endPlace']
+	list_editable = ['day', 'fromPlace', 'goType', 'endPlace']
+	search_fields = ['classification']
+	list_per_page = 20
+	style_fields = {'traffic':'ueditor', 'content':'ueditor'}
+
+class OrderAdmin(object):
+	list_display = ['orderID', 'user', 'route', 'username', 'phone', 'adult', 'child', 'amount', 'status', 'comment', 'date']
+	list_editable = ['status']
+	search_fields = ['orderID', 'username', 'phone']
+	list_per_page = 20
 
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
@@ -94,7 +155,16 @@ class UeditorPlugin(BaseAdminPlugin):
 		js += '<script type="text/javascript" src="%s"></script>' % (settings.STATIC_URL + "ueditor/ueditor.all.min.js")
 		nodes.append(js)
 
+xadmin.site.register(views.CommAdminView, GlobalSetting)
 xadmin.site.register_plugin(UeditorPlugin,DetailAdminView)
 xadmin.site.register_plugin(UeditorPlugin,ModelFormAdminView)
 xadmin.site.register(UserInfo,UserInfoAdmin)
 xadmin.site.register(Destination,DestinationAdmin)
+xadmin.site.register(SetOut,SetOutAdmin)
+xadmin.site.register(Route,RouteAdmin)
+xadmin.site.register(Addition,AdditionAdmin)
+xadmin.site.register(RouteAirplane,RouteAirplaneAdmin)
+xadmin.site.register(Classification,ClassificationAdmin)
+xadmin.site.register(GoDate,GoDateAdmin)
+xadmin.site.register(RouteDetail,RouteDetailAdmin)
+xadmin.site.register(Order,OrderAdmin)
