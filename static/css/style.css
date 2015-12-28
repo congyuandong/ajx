@@ -1,0 +1,491 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*
+KISSY CSS Reset
+理念：清除和重置是紧密不可分的
+特色：1.适应中文 2.基于最新主流浏览器
+维护：白骨
+*/
+
+/* 清除内外边距 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset,  button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+
+/* 设置默认字体 */
+
+del{
+    color: #909090;
+}
+.bule{
+    color: #19AABD;
+}
+.blue:hover{
+    color: #19AABD;
+}
+address, cite, dfn, em, var,i,b { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp, tt { font-family: "Courier New", Courier, monospace; } /* 统一等宽字体 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/* 重置列表元素 */
+ul, ol { list-style: none; }
+
+/* 重置文本格式元素 */
+a { text-decoration: none; outline: none;color: inherit; *color: #afaeae;}
+
+abbr[title], acronym[title] { /* 注：1.ie6 不支持 abbr; 2.这里用了属性选择符，ie6 下无效果 */
+    border-bottom: 1px dotted;
+    cursor: help;
+}
+
+
+/* 重置表单元素 */
+fieldset, img { border: none; } /* img 搭车：让链接里的 img 无边框 */
+/* 注：optgroup 无法扶正 */
+button, input, select, textarea {
+    font-size: 100%; /* 使得表单元素在 ie 下能继承字体大小 */
+}
+
+/* 重置表格元素 */
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+/* 重置 hr */
+hr {
+    border: none;
+    height: 1px;
+}
+
+/* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
+html { overflow-y: scroll; }
+
+/*webkit滚动条样式*/
+body::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+html::-webkit-scrollbar-button    {
+    background-color:#ff7677;
+}
+body::-webkit-scrollbar-track     {
+    background: #f5f5f5;
+    padding: 0 2px;
+}
+body::-webkit-scrollbar-track-piece {
+}
+body::-webkit-scrollbar-thumb{
+    background: #999999;
+    border-radius:4px;
+}
+body::-webkit-scrollbar-corner {
+    background:#82afff;
+}
+body::-webkit-scrollbar-resizer  {
+    background:#ff0bee;
+}
+
+
+.cl{
+    clear: both;
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+body .nomargin-right{
+    margin-right: 0;
+}
+.img-link{
+    display: block;
+}
+body .f14{
+    font-size: 14px;
+}
+
+
+
+/*sidebar*/
+
+
+.con{ height:3000px;}
+
+.sidebar-outer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: black;
+    width: 40px;
+    color: #FFFfff;
+	height: 980px;
+}
+.sidebar_top_pic{
+	width:40px;
+ 	height:250px; 
+	margin-top:45px;
+}
+.sidebar_top_pic img{
+	width:40px;
+	height:250px;
+}
+.sidebar_list .sidebar-box-one{
+	position:absolute;
+	left:-265px;
+	top:0px;
+}
+.sidebar-box_inner1 {
+    background: #292929;
+    padding: 12px;
+    width: 235px;
+	height:26px;
+	
+}
+
+.ycl_3{ 
+	background:url(../images/login_icons_small.png) 0px 0px no-repeat;
+}
+.ycl_3:hover{ 
+	background:url(../images/login_icons_small.png) 0px -63px no-repeat;
+}
+.ycl_2{ 
+	background:url(../images/login_icons_small.png) -32px 0px no-repeat;
+}
+.ycl_2:hover{ 
+	background:url(../images/login_icons_small.png) -32px -63px no-repeat;
+}
+.ycl_1{ 
+	background:url(../images/login_icons_small.png) -63px 0px no-repeat;
+}
+.ycl_1:hover{ 
+	background:url(../images/login_icons_small.png) -63px -63px no-repeat;
+}
+.ycl_4{ 
+	background:url(../images/login_icons_small.png) -94px 0px no-repeat;
+}
+.ycl_4:hover{ 
+	background:url(../images/login_icons_small.png) -94px -63px no-repeat;
+}
+.sidebar-box_hezuo{ 
+	height:26px; 
+	line-height:26px;
+}
+.sidebar-box_hezuo span{ 
+	display:inline-block; 
+	line-height:26px;
+	height:26px;
+	margin-top:0px;
+	padding-top:0px; 
+	margin-right:20px;
+	font-size:14px;
+	float:left;
+}
+.sidebar-box_hezuo a{ 
+	display:inline-block;
+ 	width:26px; 
+	height:26px;
+	margin:0 2px;
+}
+
+/* 此处为分享修改代码开始 */
+
+.sidebar-box_fenxiang{ 
+    height:26px; 
+    line-height:26px;
+    
+}
+.sidebar-box_fenxiang span{
+    display:inline-block; 
+    line-height:26px;
+    height:26px;
+    margin-top:0px;
+    padding-top:0px; 
+    margin-right:5px;
+    font-size:14px;
+    float:left;
+}
+.sidebar-box_fenxiang a{ 
+    display:inline-block;
+    width:26px; 
+    height:26px;
+    margin:0 1.5px;
+}
+.ycl_6{ 
+    background:url(../images/login_icons_small.png) -63px 0px no-repeat;
+}
+.ycl_6:hover{ 
+    background:url(../images/login_icons_small.png) -63px -63px no-repeat;
+}
+.ycl_5{ 
+    background:url(../images/index_fenxiang_jingling.png) 0px -3px no-repeat;
+}
+.ycl_5:hover{ 
+    background:url(../images/index_fenxiang_jingling.png) 0px -37px no-repeat;
+}
+.ycl_8{ 
+    background:url(../images/login_icons_small.png) 0px 0px no-repeat;
+}
+.ycl_8:hover{ 
+    background:url(../images/login_icons_small.png) 0px -63px no-repeat;
+}
+.ycl_7{ 
+    background:url(../images/login_icons_small.png) -32px 0px no-repeat;
+}
+.ycl_7:hover{ 
+    background:url(../images/login_icons_small.png) -32px -63px no-repeat;
+}
+.ycl_9{ 
+    background:url(../images/index_fenxiang_jingling.png) -38px -3px no-repeat;
+}
+.ycl_9:hover{ 
+    background:url(../images/index_fenxiang_jingling.png) -38px -37px no-repeat;
+}
+.ycl_10{ 
+    background:url(../images/index_fenxiang_jingling.png) -76px -3px no-repeat;
+}
+.ycl_10:hover{ 
+    background:url(../images/index_fenxiang_jingling.png) -76px -38px no-repeat;
+}
+
+/*微信二维码*/
+.wemcn {
+    position: absolute;
+    left: -80px;
+    top: -125px;
+    z-index: 4;
+    display: none;
+}
+.ewmDiv {
+    width: 255px;
+    height: 89px;
+    border: 2px solid #dcdcdc;
+    padding: 10px;
+    background: #fff;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    z-index: 7;
+}
+#ewmimg {
+    float: left;
+    width: 85px;
+    height: 85px;
+}
+.rwmtext {
+    float: left;
+    padding-top: 7px;
+    width: 145px;
+    text-indent: 8px;
+}
+.rwmtext p {
+    line-height: 25px;
+    width: 145px;
+    text-indent: 12px;
+    color: #636363;
+    font-size: 12px;
+}
+#ewmkg {
+    width: 13px;
+    height: 13px;
+    display: block;
+    position: absolute;
+    right: 12px;
+    top: 11px;
+    background-position: -170px 0px;
+}
+#ewmkg:hover {
+    background-position: -187px 0px;
+}
+.ewmsj {
+    margin-left: 140px;
+    margin-top: -2px;
+    width: 18px;
+    height: 13px;
+    position: absolute;
+    background-position: -200px 0px;
+}
+/* 此处为分享修改代码结束 */
+
+.sidebar-box_zxkf a{ 
+	display:block; background:url(../images/index-s.png) -920px -81px no-repeat; 
+	padding-left:15px;
+}
+.sidebar-box_zxkf a:hover{
+	background:url(../images/index-s.png) -920px -109px no-repeat;
+}
+.sidebar_ul {
+    height: 100%;
+}
+.sanjiaoright_one{
+	border-left: 6px solid #292929;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    left: 259px;
+	bottom:20px;
+}
+#one,#two{border-top: 1px solid #272727;
+}
+.sidebar_list {
+    position: relative;
+    width: 40px;
+    height: 50px;
+    cursor: pointer;
+	border-bottom: 1px solid #272727;
+}
+.sidebar_li {
+    height: 50px;
+    background: url(../images/index-s.png) no-repeat -904px -136px;
+    width: 20px;
+    margin: 0 auto;
+	
+}
+.sidebar_li:hover {
+    background: url(../images/index-s.png) no-repeat -904px -242px;
+}
+.sidebar_android {
+    background: url(../images/index-s.png) no-repeat -942px -138px;
+}
+.sidebar_android:hover {
+    background: url(../images/index-s.png) no-repeat -942px -245px;
+}
+.sidebar_weibo {
+    background: url(../images/index-s.png) no-repeat -973px -138px;
+}
+.sidebar_weibo:hover {
+    background: url(../images/index-s.png) no-repeat -973px -244px;
+}
+.sidebar_weixin {
+    background: url(../images/index-s.png) no-repeat -902px -195px;
+}
+.sidebar_weixin:hover {
+    background: url(../images/index-s.png) no-repeat -903px -303px;
+}
+.sidebar_text {
+    background: url(../images/index-s.png) no-repeat -642px -682px;
+}
+.sidebar_text:hover {
+    background: url(../images/index-s.png) no-repeat -642px -780px;
+}
+.sidebar_dianhua{
+	background: url(../images/index-s.png) no-repeat -904px -362px;
+}
+.sidebar_dianhua:hover{
+	background: url(../images/index-s.png) no-repeat -904px -421px;
+}
+.sidebar_list .sidebar-box-two{
+	position: absolute;
+    
+    top: -185px;
+}
+.sidebar-box {
+    position: absolute;
+    left: -179px;
+    top: 4px;
+    padding-right: 12px;
+    background: transparent;
+    z-index: 99;
+    display: none;
+}
+.sidebar-box_inner {
+    background: #292929;
+    padding: 12px;
+    width: 148px;
+}
+
+.sanjiaoright-two {
+    border-left: 6px solid #292929;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    left: 232px;
+	bottom:30px;
+	
+}
+.sanjiaoright {
+    border-left: 6px solid #292929;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    position: absolute;
+    left: 172px;
+}
+.sidebar-box_text {
+    font-size: 12px;
+    color: #ffffff;
+    line-height: 20px;
+    text-align: center;
+}
+.sidebar-box_pic {
+    width: 148px;
+    height: 148px;
+    margin-bottom: 10px;
+}
+
+.sidebar-box_weibo {
+    margin: 0 auto 6px;
+}
+.sidebar-box__message {
+    left: -239px;
+}
+.sidebar-box_inner__message {
+    width: 208px;
+}
+.sidebar-box_inner__message .sanjiaoright {
+    left: 232px;
+}
+.sidebar-box_textarea-top {
+    font-size: 14px;
+    margin: 0 auto 10px;
+}
+.sidebar-box_textarea {
+    height: 148px;
+    background:#ffffff;
+    width: 200px;
+    padding: 4px;
+    border: 1px solid transparent;
+    outline: none;
+}
+.sidebar-box_submit {
+    display: block;
+    text-align: center;
+    width: 47px;
+    height: 22px;
+    margin: 10px auto 0;
+    border: 1px solid #d4d4d4;
+    border-radius: 3px;
+    line-height: 22px;
+    cursor: pointer;
+	background:#fff;
+}
+.ycl_dd{ 
+	height:120px;
+	position:fixed;
+	bottom:0px;
+	right:0;}
+p#back-to-top{
+	position:fixed;
+	bottom:10px;
+	right:0;
+}
+p#back-to-top a{
+	background:url(../images/index-s.png) no-repeat -963px -198px;
+	display:block; 
+	height:38px; 
+	width:40px; 
+	margin-bottom:5px;
+}
+p#back-to-top a:hover{
+	background:url(../images/index-s.png) no-repeat -963px -306px;
+}

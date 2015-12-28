@@ -1,0 +1,73 @@
+/*
+* @File: base css fn declaration
+* @Author: liuxiaole_abc@163.com
+*/
+.fn-clear:after{display:table;content:'';visibility: hidden;width:0;height:0;clear:both;}
+.fn-clear{*zoom:1;*overflow: hidden;}
+.fn-fl{float:left;}
+.fn-fr{float:right;}
+.fn-flt-n{float:none;}
+.fn-inline{display:inline-block;*display: inline;*zoom:1;}
+.fn-hidden{display: none;}
+.fn-ellipsis{text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+.fn-justify-fix{width:100%;height:0;}
+.fn-to-e{text-overflow: ellipsis;white-space: nowrap;overflow: hidden;}
+.fn-ta-l{text-align:left;}
+.fn-ta-c{text-align:center;}
+.fn-ta-r{text-align:right;}
+.fn-ta-j{text-align: justify;text-justify:inter-ideograph;}
+.fn-va-t{vertical-align: top;}
+.fn-va-tt{vertical-align: text-top;}
+.fn-va-bl{vertical-align: baseline;}
+.fn-va-b{vertical-align: bottom;}
+.fn-va-m{vertical-align: middle;}
+.fn-va-tb{vertical-align: text-bottom;}
+.fn-fw-b{font-weight: bold;}
+.fn-fw-n{font-weight: normal;}
+.fn-fs-i{font-style: italic;}
+.fn-fs-n{font-style:normal;}
+.fn-cs-d{cursor: default;}
+.fn-cs-p{cursor: pointer;}
+.fn-cs-m{cursor: move;}
+.fn-mt-5{margin-top: 5px;}
+.fn-mt-10{margin-top: 10px;}
+.fn-mt-20{margin-top: 20px;}
+.fn-mt-30{margin-top: 30px;}
+.fn-mt-40{margin-top: 40px;}
+.fn-mt-50{margin-top: 50px;}
+.fn-mr-5{margin-right: 5px;}
+.fn-mr-10{margin-right: 10px;}
+.fn-mr-20{margin-right: 20px;}
+.fn-mr-30{margin-right: 30px;}
+.fn-mr-40{margin-right: 40px;}
+.fn-mr-50{margin-right: 50px;}
+.fn-mb-5{margin-bottom: 5px;}
+.fn-mb-10{margin-bottom: 10px;}
+.fn-mb-20{margin-bottom: 20px;}
+.fn-mb-30{margin-bottom: 30px;}
+.fn-mb-40{margin-bottom: 40px;}
+.fn-mb-50{margin-bottom: 50px;}
+.fn-ml-5{margin-left: 5px;}
+.fn-ml-10{margin-left: 10px;}
+.fn-ml-20{margin-left: 20px;}
+.fn-ml-30{margin-left: 30px;}
+.fn-ml-40{margin-left: 40px;}
+.fn-ml-50{margin-left: 50px;}
+
+.fn-f-16{font-size: 16px;}
+.fn-f-18{font-size: 18px;}
+.fn-f-20{font-size: 20px;}
+.fn-f-22{font-size: 22px;}
+.fn-f-24{font-size: 24px;}
+
+.fn-line-through{text-decoration: line-through;}
+
+.fn-pos-r{position: relative;}
+.fn-pos-s{position: static;}
+.fn-pos-f{position: fixed;}
+.fn-pos-a{position: absolute;}
+.txt-notice{color: #ff8d02;display: block;text-align: right;padding-right: 3px; font-size: 12px;}
+
+
+
+

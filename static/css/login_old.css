@@ -1,0 +1,498 @@
+﻿/*area_popup_a1*/
+.login_a1_bg{
+    position:fixed; top:0; left:0; z-index:1200;
+    width:100%; height:100%; background-color:#000; opacity:0.6; filter:alpha(Opacity=60);}	
+.login_a1_inner{
+	position: absolute; left:50%; top:20%; z-index:1300;
+	width:400px; margin:10px 0 0 -200px; border:6px solid #568E94; background:#fff url("/Home/View/Public/images/area_bg.jpg")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/area_bg.jpg*/ no-repeat center bottom;
+	text-align:center;}	
+.login_a1_inner .logo{
+	width:400px; height:50px; margin-top:30px; background:url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat center top;}	
+.login_a1_inner .close{
+	position:absolute; right:-53px; top:-6px;}	
+.login_a1_inner .close a:link,.login_a1_inner .close a:visited,.login_a1_inner .close a:hover{
+	display:block;
+	width:53px; height:53px; background:url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat 0 -67px;}
+.login_a1_inner .close a:hover{
+	background:url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat -54px -67px;}	
+/*login_tab*/
+.lt_nav{
+	position:relative;
+	width:360px; height:38px; margin:20px 20px 0; border-bottom:1px solid #49BDCC;}
+.lt_nav ul{
+	position:absolute; left:10px; top:7px;
+	height:30px;}
+.lt_nav ul li{
+	float:left;
+	margin-right:12px;}	
+.lt_nav ul li a:link,.lt_nav ul li a:visited,.lt_nav ul li a:hover{
+	display:block;
+	padding:0 15px; border:1px solid #ccc; border-bottom:1px solid #49BDCC; background-color:#fff;
+	font: bold 14px/30px "微软雅黑"; text-align:center; text-decoration:none;}
+.lt_nav ul li.current a:link,.lt_nav ul li.current a:visited,.lt_nav ul li.current a:hover{
+	border:1px solid #49BDCC; border-bottom:1px solid #fff;
+	color:#49BDCC;}
+.lt_box{
+	width:360px;}		
+/*form_box*/	
+.form_box{
+	float:left;
+	width:360px; margin:0 20px 20px;}	
+.form_box p{
+	margin-top:15px;
+	font:bold 14px/25px "微软雅黑"; text-align:left;}
+.form_box .im_box{
+	width:360px; margin-top:10px;}
+.form_box .im_box li{
+	float:left;
+	margin-right:10px;}
+.form_box .im_box li.weixin{
+    width:62px; height:21px; background: url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat -107px -94px;}
+.form_box .im_box li.sina{
+	width:76px; height:21px; background: url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat -115px -67px;}
+.form_box .im_box li.qq{
+	width:50px; height:21px; background: url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat -200px -67px;}	
+.form_box .im_box a:link,.form_box .im_box a:visited,.form_box .im_box a:hover{
+	display:block;
+	width:100%; height:21px;}	
+.form_box .form-horizontal{
+	margin-top:10px;}	
+.form_box input.txt{
+	float:left;
+	height:30px; border:1px solid #CCC; padding:0 3px;
+	line-height:30px;}
+.form_box .input-medium{
+	width:220px;}	
+.form_box input.w_100{
+	width:100px;}	
+.form_box .control-group label{
+	float:left;
+	width:60px;
+	line-height:25px;}
+.form_box .control-group label.check{
+	float:left;
+	width:80px; margin:5px 0 0 0;
+	text-align:left; font-size:12px;}
+.form_box input.checkbox{
+	float:left;
+	width:20px;
+	margin-left:0; padding-left:0;}
+.form_box .tip{
+	float:left; display:inline;
+	margin-left:5px;
+	color:#666; font:12px/12px "微软雅黑", "宋体";}	
+.form_box .forget_password{
+	float:left;
+	width:280px;
+	line-height:25px; color: #666; text-align:right;}	
+.form_box .control-group .controls{
+	float:left;
+	width:300px; margin-bottom:20px;}
+.form_box .control-group .controls.nopadding{
+	width:360px; padding:0; margin:0;}	
+.form_box .btn{
+	font-family:"微软雅黑";}	
+
+/*validate*/	
+.validate{
+	float:left;
+	width:328px; padding-left:30px; margin-top:15px; border:1px solid #FCEA98; background:#FFC url("login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat 7px -410px;
+	font: bold 12px/30px "微软雅黑"; text-align:left; color:#C00;}
+.validate.r1{
+	width:323px; padding-left:25px; margin:0 0 20px 30px;}
+.validate.success{
+	border:1px solid #C7FBBD; background: #E7F8D8 url("/Home/View/Public/images/login_sp.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/login_sp.png*/ no-repeat 7px -453px;
+	color:#093;}	
+/*form_extra*/
+.form-horizontal.pt_30{
+	padding-top:30px;}
+.controls{
+	text-align:left;}
+.input-file{
+	height:30px;
+	line-height:30px; font-size:12px;}	
+.btn.e1,input.e1{
+	margin:0 10px 0 0;}
+.btn.e2{
+	float:right;
+	font-family:"微软雅黑";}	
+input.e1{
+	padding:4px 6px;}	
+
+.control-group.fl{
+	margin-bottom:10px;
+	text-align:left;}	
+.avatar_preview{
+	float:left;
+	border:1px solid #CCC; border-radius:50px; padding:1px; box-shadow:0 0 3px #ccc;}	
+.avatar_preview img{
+	border-radius:50px;}	
+p.success,p.error{
+	padding-left:20px; background:url("/Home/View/Public/images/err404")/*tpa=http://www.ilvxing.com/Public/version_20140225/img/css_spr_v1.png*/ no-repeat -268px -559px!important;background:url("err404")/*tpa=http://www.ilvxing.com/Public/version_20140225/img/css_spr_v1.gif*/ no-repeat -268px -559px;}
+p.error{
+	background:url("/Home/View/Public/images/err404")/*tpa=http://www.ilvxing.com/Public/version_20140225/img/css_spr_v1.png*/ no-repeat -268px -516px!important;background:url("err404")/*tpa=http://www.ilvxing.com/Public/version_20140225/img/css_spr_v1.gif*/ no-repeat -268px -516px;}		
+.upload_btn{
+	width:98px; height:26px; background:url("err404")/*tpa=http://www.ilvxing.com/Public/version_20140225/img/css_spr_v1.png*/ no-repeat -63px -204px!important; cursor:pointer;}
+.search_well{
+	margin-top:14px;
+	text-align:left;}	
+.search_well .input.e3,.search_well .input.e3_mt_10{
+	margin:0 10px 0 0; height:20px;
+	line-height:20px;}	
+.search_well .input.e3_mt_10{
+	margin:10px 10px 0 0;}		
+.control-group {
+  width:360px; margin-top: 20px;
+}
+.control-group input.go{
+	float:right;
+    margin-left: 14px;
+}
+input.code{
+	display:block; float:left;
+	height:32px; padding:0 10px; border:1px solid #dedede; margin-left:10px; background-color:#f5f5f5; cursor:pointer;
+	font:14px/32px "微软雅黑", "宋体"; text-decoration:none;}	
+
+
+/*malin   */
+
+#login_main{
+    margin: 30px auto 40px;
+    width: 900px;
+    color: #797979;
+    padding: 32px 30px 58px 30px;
+    background: url("/Home/View/Public/images/login-bg.jpg")/*tpa=http://www.ilvxing.com/Public/images/login/login-bg.jpg*/ bottom no-repeat #ffffff;
+    overflow: hidden;
+}
+#login_main input{
+    font-family: "microsoft yahei";
+    font-size: 14px;
+}
+#login_main h1{
+    height: 30px;
+    float: left;
+    font-size: 24px;
+    line-height: 22px;
+    color: #4bbccc;
+    font-weight: normal;
+}
+#login_main p{
+    font-size: 14px;
+    float: right;
+}
+#login_main>p{
+    color: #646464;
+}
+#login_main p a{
+    color: #4bbccc;
+}
+#login_section{
+    clear: both;
+    border-top: 1px dotted #333333;
+    margin-top: 45px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+#login_section h3{
+    font-weight: normal;
+    font-size: 14px;
+    margin: 18px 0;
+}
+#login_section a.qq{
+    display: inline-block;
+    margin: 0 5px 0 0;
+    width: 120px;
+    height: 25px;
+    background: url("/Home/View/Public/images/QQ-weixin.jpg")/*tpa=http://www.ilvxing.com/Public/images/login/QQ-weixin.jpg*/ -107px -1px
+}
+#login_section a.wx{
+    display: inline-block;
+    margin: 0 5px 0 0;
+    width: 120px;
+    height: 25px;
+    background: url("/Home/View/Public/images/QQ-weixin.jpg")/*tpa=http://www.ilvxing.com/Public/images/login/QQ-weixin.jpg*/ -233px -1px
+}
+#login_section a.weixin-login{
+    display: inline-block;
+    margin: 0 0 0 15px;
+    width: 108px;
+    height: 25px;
+    background: url("/Home/View/Public/images/QQ-weixin.jpg")/*tpa=http://www.ilvxing.com/Public/images/login/QQ-weixin.jpg*/ 1px -1px
+}
+#login_section form{
+    margin-left: 20px;
+}
+#login_section form label{
+    display: block;
+    overflow: hidden;
+    margin: 18px 0;
+    width: 600px;
+}
+#login_section form span label{
+    overflow: hidden;
+}
+#login_section form label span .error{
+    margin: 0 0 0 45px;
+    padding:7px 0 2px 45px;
+    width: 120px;
+    background: url("/Home/View/Public/images/icon.png")/*tpa=http://www.ilvxing.com/Public/images/login/icon.png*/ 13px -34px no-repeat;
+}
+#login_section form label span .noerror{
+    margin: 0 0 0 45px;
+    padding:7px 0 2px 45px;
+    display: block !important;
+    background: url("/Home/View/Public/images/icon.png")/*tpa=http://www.ilvxing.com/Public/images/login/icon.png*/ 10px 3px no-repeat;
+}
+#login_section form label span.noerror{
+    margin: 2px 0 0 333px;
+    height: 17px;
+    padding:7px 0 2px 45px;
+    display: block !important;
+    background: url("/Home/View/Public/images/icon.png")/*tpa=http://www.ilvxing.com/Public/images/login/icon.png*/ 10px 3px no-repeat;
+}
+
+#login_section form label p{
+    padding: 8px;
+    width: 82px;
+    height: 14px;
+    line-height: 14px;
+    text-align: right;
+    float: left;
+}
+#login_section form label p b {
+    color: red;
+}
+#login_section form label input{
+    width: 214px;
+/*    height: 14px;
+*/    padding: 8px;
+    float: left;
+    font-size:12px;
+    outline: none;
+    background: #f5f5f5;
+    border: 1px solid #e1e0e0;
+}
+/*输入成功的输入框样式*/
+#login_section form label input.success{
+    background: #ffffff;
+    border: 1px solid #52bccc;
+}
+#login_section form label input.success{
+    background: #ffffff;
+    border: 1px solid #52bccc;
+}
+/*正在输入与输入错误的输入框样式*/
+#login_section form label input.in{
+    background: #ffffff;
+    border: 1px solid #ff7d27;
+}
+#login_section #verify{
+    width: 120px;
+}
+#login_section #verifyImg{
+    float: left;
+    margin: 4px 12px;
+}
+#login_section #change {
+    float: left;
+    color: #49bdcc;
+    margin: 8px 0;
+}
+#login_section .iagree{
+    margin-left: 98px;
+    position: relative;
+    height: 22px;
+    margin-bottom: 0;
+}
+#login_section form label.iagree span .error{
+    position: absolute;
+    left: 200px;
+    top: -6px;
+}
+#login_section .iagree a{
+    color: #49bdcc;
+    margin-left: 4px;
+}
+#login_section #iagree{
+    width: 14px;
+    height: 14px;
+    padding: 0;
+    margin: 2px 10px 0 4px;
+}
+#login_section button{
+    height: 41px;
+    border-radius: 2px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: "microsoft yahei";
+
+}
+#login_section button#submit{
+    margin: 30px 20px 0 102px;
+    width: 164px;
+    background: #ff7d27;
+    border: 1px solid #ff7d27;
+}
+#login_section button#reset{
+    margin: 30px 20px 0 0;
+    width: 134px;
+    background: #49bdcc;
+    border: 1px solid #49bdcc;
+}
+
+
+/*激活账号*/
+.jihuo{
+    height: 380px !important;
+}
+#login_section .section_makesure{
+    float: left;
+    width: 600px;
+    height: 160px;
+    margin: 32px 0 120px 0;
+    text-align: left;
+}
+#login_section .section_makesure #tel{
+    float:none;
+    font-size: 18px;
+    color: #797979;
+    margin-bottom: 25px;
+}
+#login_section .section_makesure #tel em{
+    color: #ff7d27;
+    font-style: normal;
+    font-size: 22px;
+}
+#login_section #makesureForm{
+    margin: 5px 0 0 0 ;
+
+}
+#login_section #makesureForm p{
+     width: auto;
+    text-align: left;
+    padding: 8px 0;
+
+ }
+#login_section #makesureForm button{
+    width:136px;
+    height:42px;
+    background: #ff7d27;
+    border: 1px solid #ff7d27;
+    margin:  15px 60px;
+}
+#login_section .aside_help{
+    float:right;
+    text-align: right;
+}
+#login_section .aside_help p{
+    float: none;
+    text-align: right;
+    font-size: 15px;
+    clear: both;
+    color: #929494;
+    line-height: 26px;
+}
+#login_section .aside_help p.b{
+    margin: 28px 0 10px 0;
+    float:right;
+    width: 85px;
+    padding-right: 10px;
+    background: #ff7d27;
+    line-height: 22px;
+    color:#fff;
+    font-size: 15px;
+    height: 22px;
+}
+#login_section .aside_help #triangle {
+    border-color: transparent transparent transparent white;
+    border-style: solid;
+    border-width: 11px 0px 11px 11px;
+    width: 0;
+    height: 0;
+    display: inline-block;
+    position: relative;
+    left: 11px;
+    top: 28px;
+}
+
+/*激活成功*/
+#jihuoSuccess{
+    background: url("/Home/View/Public/images/ucenter.png")/*tpa=http://www.ilvxing.com/Public/version_20140225/image/personal/ucenter.png*/ -671px -209px no-repeat;
+    height: 35px;
+    width: 500px;
+    font-size: 24px;
+    padding: 56px 90px 14px;
+    font-weight: normal;
+    color: #FF7D28;
+}
+#login_main #jumpText{
+    float: left;
+    font-size: 16px;
+    margin: -13px 92px 120px;
+    color: #c4c3c4;
+}
+#login_main #jumpText #second{
+    color: #ff7d27;
+}
+
+
+/*登陆*/
+
+
+#login_main #login_section .remember{
+    width:14px;
+    height:14px;
+    padding: 0;
+    margin: 2px 10px 0 4px;
+}
+#login_main #login_section label.auto{
+    margin: 0 0 0 98px;
+    padding-top: 2px;
+    float: left;
+    width: auto;
+}
+#login_main #login_section #findPw2{
+    float: left;
+    line-height: 15px;
+    margin: 3px 0 0 10px;
+    color: #797979;
+    border-left: 1px solid #999;
+    padding: 0 0 0 10px;
+}
+#login_section button#submit.lgIn{
+    margin-top: 66px;
+    display: block;
+}
+/*订单查询*/
+#login_main #login_section #get_random_key{
+    clear: both;
+    margin: 50px 105px 0;
+    padding: 0;
+    width: 164px;
+    height: 41px;
+    line-height: 32px;
+    font-size: 18px;
+    background: #49bdcc;
+    border: 1px solid #49bdcc;
+    border-radius: 2px;
+    color: #ffffff;
+    border: none;
+}
+#login_main #login_section .searchForm{
+    padding-top: 40px;
+    position: relative;
+
+}
+#login_main #login_section .search{
+    position: relative;
+    top: -88px;
+    left: 175px;
+}
+#login_main #login_section #random_key_error{
+    position: absolute;
+    left: 104px;
+    top: 154px;
+    font-size: 14px;
+    color: #ff7d27
+}

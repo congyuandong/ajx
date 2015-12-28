@@ -1,5 +1,22 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta property="qc:admins" content="376020776761501676375" />
-<meta property="wb:webmaster" content="4e1b6ed628ed4231" />
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta property="qc:admins" content="376020776761501676375" />
+	<meta property="wb:webmaster" content="4e1b6ed628ed4231" />
+	<link rel="stylesheet" href="{% static 'css/style.css'%}" charset="utf-8">
+	{% block css %}
+  	{% endblock %}
+</head>
+<body>
+	{% block main %}
+  	{% endblock %}
+	
+
+	<script type="text/javascript" src="{% static 'js/jquery.min.js'%}"></script>
+  	{% block js %}
+  	{% endblock %}
+</body>
+</html>

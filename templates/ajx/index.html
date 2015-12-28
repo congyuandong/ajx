@@ -1,2 +1,1411 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
+
+{% block css %}
+<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/resrt.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+<div class="overall">
+<div class="container">
+	<div class="index_left">
+    	<div class="logo">
+        	<h1>爱简行</h1>
+        </div>
+        
+        <div class="outer">
+        	<div class="holder">
+                <h2><p>出发地</p></h2>
+                <div  class="index_left_1">
+                    <ul>
+                        <li><a href="#" style="color:#f7a142;">全部</a></li>
+                        <li><a href="#">哈尔滨</a></li>
+                        <li><a href="#">长春</a></li>
+                        <li><a href="#">沈阳</a></li>
+                        <li><a href="#">大庆</a></li>
+                        <li><a href="#">绥化</a></li>
+                        <li><a href="#">佳木斯</a></li>
+                        <li class="i_hide"><a href="#">大庆</a></li>
+                        <li class="i_hide"><a href="#">绥化</a></li>
+                        <li class="i_hide"><a href="#">铁岭</a></li>
+                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
+                    </ul>
+                </div>
+           
+            </div><!-- end of holder -->
+        </div>
+        <div class="outer">
+        	<div class="holder">
+                <h2 class="index_left_2"><p>目的地<span>国内</span></p></h2>
+                <div class="index_left_1 index_left_gn">
+                    <ul>
+                        <li><a href="#" style="color:#f7a142;">全部</a></li>
+                        <li><a href="#">北京</a></li>
+                        <li><a href="#">天津</a></li>
+                        <li><a href="#">台山</a></li>
+                        <li><a href="#">石家庄</a></li>
+                        <li><a href="#">邢台</a></li>
+                        <li><a href="#">衡阳</a></li>
+                        <li class="i_hide"><a href="#">佳木斯</a></li>
+                        <li class="i_hide"><a href="#">大庆</a></li>
+                        <li class="i_hide"><a href="#">绥化</a></li>
+                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
+                    </ul>
+                </div>
+           
+            </div><!-- end of holder -->
+        </div>
+        <div class="outer">
+        	<div class="holder">
+                <h2 class="index_left_3"><p>目的地<span>出境</span></p></h2>
+                <div class="index_left_1 index_left_gn">
+                    <ul>
+                        <li><a href="#" style="color:#f7a142;">全部</a></li>
+                        <li><a href="#">悉尼</a></li>
+                        <li><a href="#">伦敦</a></li>
+                        <li><a href="#">纽约</a></li>
+                        <li><a href="#">洛杉矶</a></li>
+                        <li><a href="#">芝加哥</a></li>
+                        <li><a href="#">费城</a></li>
+                        <li class="i_hide"><a href="#">佳木斯</a></li>
+                        <li class="i_hide"><a href="#">大庆</a></li>
+                        <li class="i_hide"><a href="#">绥化</a></li>
+                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
+                    </ul>
+                </div>
+           
+            </div><!-- end of holder -->
+        </div>
+        <div class="outer">
+        	<div class="holder">
+                <h2 class="index_left_4"><p>出游时间</p></h2>
+                <div class="index_left_1 index_left_shj">
+                    <ul>
+                        <li><a href="#" style="color:#f7a142;">全部</a></li>
+                        <li><a href="#">2月</a></li>
+                        <li><a href="#">3月</a></li>
+                        <li><a href="#">4月</a></li>
+                        <li><a href="#">5月</a></li>
+                        <li><a href="#">6月</a></li>
+                    </ul>
+                </div>
+            </div><!-- end of holder -->
+        </div>
+        <div class="outer">
+        	<div class="holder">
+                <h2 class="index_left_5"><p>出游预算</p></h2>
+                <div class="index_left_1 index_left_ys">
+                    <ul>
+                        <li><a href="#" style="color:#f7a142;">全部</a></li>
+                        <li><a href="#">0-1000</a></li>
+                        <li><a href="#">1-3000</a></li>
+                        <li><a href="#">3-5000</a></li>
+                        <li><a href="#">5-8000</a></li>
+                        <li class="i_hide"><a href="#">6-8000</a></li>
+                        <li class="i_hide"><a href="#">7-8000</a></li>
+                        <li class="i_hide"><a href="#">8-8000</a></li>
+                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
+                    </ul>
+                </div>
+           
+            </div><!-- end of holder -->
+        </div>
+        
+		
+    
+    </div><!--index_left-->
+    <div class="index_right">
+    	<div class="index_right_top">
+        	<ul>
+            	<li><a href="#">我的订单</a></li>
+                <li>|</li>
+                <li><a href="#">注册</a></li>
+                <li>|</li>
+                <li><a href="#">登录</a></li>
+                <li>|</li>
+                <li class="index_right_top_li7">400-0450-718</li>
+            </ul>
+        </div>
+        <div class="header">
+        	<div class="nav">
+            	<ul>
+                	<li class="thisclass"><a href="#">线路首页</a></li>
+                    <li class="index_nav_thgc_show">
+                    <a href="#">特惠广场</a>
+                    <div class="hot"><img src="{% static 'images/hot.png'%}" /></div>
+                    
+                        <div class="index_nav_ztxl">
+                            <a href="#"><img src="{% static 'images/index_nav_xl_pic_03.jpg'%}" /></a>
+                            <a href="#"><img src="{% static 'images/index_nav_xl_pic_05.jpg'%}" /></a>
+                            <a href="#"><img src="{% static 'images/index_nav_xl_pic_10.jpg'%}" /></a>
+                            <a href="#"><img src="{% static 'images/index_nav_xl_pic_12.jpg'%}" /></a>
+                            <a href="#" class="index_nav_ztxl_w"><img src="{% static 'images/index_nav_xl_pic_16.jpg'%}" /></a>
+                            <a href="#" class="index_nav_ztxl_w"><img src="{% static 'images/index_nav_xl_pic_18.jpg'%}" /></a>
+                        </div><!--index_nav_ztxl-->
+                    
+                    </li>
+                    <li><a href="#">东北游</a></li>
+                    <li><a href="#">定制</a></li>
+                </ul>
+            </div>
+            <div class="search">
+            	<form>
+            	<div class="search_in"><input name="" type="text" value="请输入您要搜索的目的地" onfocus="if (value =='请输入您要搜索的目的地'){value =''}" onblur="if (value ==''){value='请输入您要搜索的目的地'}"/></div>
+                <div class="search_but"><input name="" type="button" /></div>
+                </form>
+            </div>
+        </div><!--header-->
+        <div class="banner">
+          <div class=js_imgs_block>
+            <div id=slideshow_wrapper>
+              <div id=slideshow_photo>
+              <a style="z-index: 2" href="javascript:void(0)" index="1"><img border=0 src="{% static 'images/01.jpg'%}"></a>
+              <a style="Z-index: 1" href="javascript:void(0)" index="2"><img border=0 src="{% static 'images/02.jpg'%}"></a> 
+              <a style="Z-index: 1" href="javascript:void(0)" index="3"><img border=0 imgsrc="{% static 'images/03.jpg'%}"></a> 
+              <a style="Z-index: 1" href="javascript:void(0)" index="4"><img border=0 imgsrc="{% static 'images/04.jpg'%}"></a> 
+              </div>
+              <div id=slideshow_footbar></div>
+            </div>
+          </div>
+        </div>
+        <div class=survey_block_index>
+          <div class=title_survey_block_index>
+            <ul class=scrollul>
+              <a id=m01 class=sd01 href="javascript:void(0)"></a>
+              <a id=m02 class=sd02 href="javascript:void(0)"></a>
+              <a style="background-image: none" id=m03 class=sd03 href="javascript:void(0)"></a>
+            </ul>
+          </div>
+        </div>
+        <div class="index_r_con">
+        	<div class="tab index_r_tb">
+                <div class="con_div1">
+                    <h2><span>沈阳 - 厦门</span> | 精品路线</h2>
+                    <div class="con_div_r">
+                    	<span>排序：</span>
+                        <ul class="tab-hd con_div1_r">
+                        <li>默认</li>
+                        <li>价格</li>
+                        <li>热卖</li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="tab-bd con_div1_c">
+                    <li>
+                    	<div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw dwz">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>徒步行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw dwl">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span class="orange_col">自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_ad1"><a href="#"><img src="{% static 'images/index_r_ad1_03.jpg'%}" /></a></div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw dwh">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_page">
+                        <a href="#" class="con_1_c_page_this">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">下一页</a><a href="#">尾页</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>徒步行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_ad1"><a href="#"><img src="{% static 'images/index_r_ad1_03.jpg'%}" /></a></div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_page">
+                        <a href="#" class="con_1_c_page_this">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">下一页</a><a href="#">尾页</a>
+                        </div>
+                    </li>
+                    <li>
+                    	<div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>徒步行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="con_1_c_ad1"><a href="#"><img src="{% static 'images/index_r_ad1_03.jpg'%}" /></a></div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_08.jpg'%}" />
+                                <div class="dw">特价游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>春节特价 | 沙巴5天4晚自由行</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="con_1_c_1">
+                        	<div class="con_1_c_1_left">
+                            	<img src="{% static 'images/index_r_pic_03.jpg'%}" />
+                                <div class="dw">漫游</div>
+                                <div class="con_1_c_1_hide">
+                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>>9</span></p>
+                                </div>
+                            </div>
+                            <div class="con_1_c_1_right">
+                            	<div class="con_1_c_1_r_1">
+                                	<h2>香港出发 <span>自由行</span></h2>
+                                	<h3>国际航班直飞 | 泰国清迈3晚4天/4晚5天自由行，四星酒店</h3>
+                                </div>
+                                <div class="con_1_c_1_r_2">
+                                	<dl class="con_1_c_1_r_dl1">
+                                    	<dt>交通：</dt>
+                                        <dd>飞机去</dd>
+                                        <dd>飞机回</dd>
+                                    </dl>
+                                    <dl class="con_1_c_1_r_dl2">
+                                    	<dt>日期：</dt>
+                                        <dd>02月16日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月17日</dd>
+                                        <dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>02月18日</dd>
+                                    </dl>
+                                    <div class="clear"></div>
+                                    <ul>
+                                    	<li class="con_1_c_1_r_2_li1"><span>2380</span>元起</li>
+                                        <li class="con_1_c_1_r_2_li2">原价：￥6880</li>
+                                        <li class="con_1_c_1_r_2_li3"><a href="#">查看详情</a></li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="con_1_c_page">
+                        <a href="#" class="con_1_c_page_this">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">下一页</a><a href="#">尾页</a>
+                        </div>
+                    </li>
+                
+                </ul>
+            </div>
+        </div><!--index_r_con-->
+   </div><!--index_right-->
+</div><!--container-->
+</div><!--overall-->
+<div class="footer">
+	<div class="foot">
+        <ul>
+            <li class="foot_li1">
+                <h2>优质出游</h2>
+                <p>精挑细选千种选择</p>
+            </li>
+            <li class="foot_li2">
+                <h2>保证低价</h2>
+                <p>同款产品低价承诺</p>
+            </li>
+            <li class="foot_li3">
+                <h2>72小时服务</h2>
+                <p>行前行后前后相伴</p>
+            </li>
+            <li class="foot_li4">
+                <h2>安全支付</h2>
+                <p>轻松、快捷、安全</p>
+            </li>
+            <li class="foot_li5">
+                <h2>透明消费</h2>
+                <p>透明行程明白消费</p>
+            </li>
+        </ul>
+	</div>
+</div>
+<div class="link_index">
+	<p><strong>友情链接：</strong> <a href="#">穷游</a> <a href="#">在路上</a> <a href="#">百程旅行网</a> <a href="#">春秋航空</a> <a href="#">游多多旅行网</a> <a href="#">多多驿站</a> <a href="#">布丁酒店</a> <a href="#">欣欣旅游网</a> <a href="#">驴妈妈旅游网</a> <a href="#">酷讯飞机票查询</a> <a href="#">腾邦飞人</a> <a href="#">悠哉旅游网</a> <a href="#">同程旅游</a> <a href="#">旅游线路</a> <a href="#">火车票查询</a> <a href="#">一起游</a> <a href="#">到到网</a> <a href="#">途牛旅游网</a> <a href="#">遨游旅游网</a> <a href="#">梦之旅</a> <a href="#">百酷旅行网</a></p>
+
+</div>
+<div class="low">
+	<p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">免责声明</a> | <a href="#">用户协议</a> | <a href="#">网签协议</a></p>
+    <p>黑龙江.哈尔滨 | 黑ICP备14007011号</p>
+    <p>Copyright © 2014-2015 i-xing.com All Rights Reserved. 爱简行 版权所有</p>
+	<div class="low_rz">
+    	<p>
+    	<a href="#"><img src="{% static 'images/low_img_03.jpg'%}" /></a>
+        <a href="#"><img src="{% static 'images/low_img_05.jpg'%}" /></a>
+        <a href="#"><img src="{% static 'images/low_img_07.jpg'%}" /></a>
+        <a href="#"><img src="{% static 'images/low_img_09.jpg'%}" /></a>
+        </p>
+    </div>
+</div>
+
+
+<div class="sidebar-outer">
+	<div class="sidebar">
+    	<div class="cha">×</div>
+    	<div class="sidebar_top_pic"><img src="{% static 'images/sidebar_top_pic.png'%}" /></div>
+    	<ul class="sidebar_ul">
+        	<li class="sidebar_list" id="one" style="margin-top:15px;">
+            	<div class="sidebar_li"></div>
+                <div class="sidebar-box sidebar-box-one" style="width:255px;height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner1">
+                        <span class="sanjiaoright_one"></span>
+                        <div class="sidebar-box_hezuo">
+                        	<span>合作账号登录</span><a href="#" class="ycl_1"></a><a href="#" class="ycl_2"></a><a href="#" class="ycl_3"></a><a href="#" class="ycl_4"></a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_android"></div>
+                <div class="sidebar-box" style="display: none; height: 216.32032150611823px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        
+                        <p class="sidebar-box_text sidebar-box_zxkf"><a href="#">在线客服</a></p>
+                        <p class="sidebar-box_text">请拨打400电话咨询</p>
+                        <p class="sidebar-box_text">工作时间：8:00-16:00</p>
+                    </div>
+                </div>
+            </li>
+            
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_dianhua"></div>
+                <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        
+                        <p class="sidebar-box_text">请拨打电话：</p>
+                        <p class="sidebar-box_text" style=" font-weight:bold; font-size:16px; font-family:微软雅黑;">400-0450-718</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_weixin"></div>
+                <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        <div class="sidebar-box_pic"><img width="148" height="148" src="{% static 'images/er-download-wx.png'%}"></div>
+                        <p class="sidebar-box_text">扫一扫关注微信</p>
+                        <p class="sidebar-box_text">更多惊喜等着你</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_weibo"></div>
+                <div class="sidebar-box" style="display: none; height: 80px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        <div class="sidebar-box_weibo">
+                        <a href="#" target="_blank"><img width="100" height="30" style="width: 100px;height: 30px; display: block; margin: 0 auto;" src="{% static 'images/er-download-wb.png'%}"></a>
+                        </div>
+                        <p class="sidebar-box_text">关注@爱简行</p>
+                    </div>
+                </div>
+            </li>
+            
+        </ul>
+    </div>
+	<div class="ycl_dd">
+    	<div class="sidebar_list" id="two">
+            <div class="sidebar_li sidebar_text"></div>
+            <div class="sidebar-box sidebar-box-one" style="width:255px;height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="sidebar-box_inner1">
+                    <span class="sanjiaoright_one"></span>
+                    <div class="sidebar-box_fenxiang">
+                        <span style="color:#fff;">分享到：</span><a href="#" class="ycl_5"></a><a href="#" class="ycl_6"></a><a href="#" class="ycl_7"></a><a href="#" class="ycl_8"></a><a href="#" class="ycl_9"><a href="#" class="ycl_10"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+		<p id="back-to-top"><a href="#top"></a></p>
+    </div>
+
+</div>
+
+<div class="xs"><img src="{% static 'images/icons5.png'%}"></div>
+
+
+<div id="JS_back_to_top" class="back_to_top" style="display: block; position: fixed; bottom: 100px; ><a href="javascript:void(0)"></a></div>
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function(){
+
+$(function () {
+$(window).scroll(function(){
+
+});
+//当点击跳转链接后，回到页面顶部位置
+$("#back-to-top").click(function(){
+$("body,html").animate({scrollTop:0},1000);
+return false;
+});
+});
+});
+</script>
+
+
+<script type="text/javascript">
+$(".cha").click(function(){
+	$(".sidebar").hide()
+	$(".ycl_dd").hide()
+	$(".xs") .slideDown();	
+	})
+
+$(".xs").click(function(){
+	$(".sidebar").show()
+	$(".ycl_dd").show()
+	$(".xs") .slideUp();	
+	})
+
+</script>
+
+
+<script src="{% static 'js/backtop.js'%}"></script>
+<script type="text/javascript">
+$(function(){
+		$(".i_more a").click(function(){
+			if($(this).text()=="更多>>"){
+			 $(this).parent(".i_more").siblings(".i_hide").slideDown();
+			 $(this).html("收起");
+			 $(this).addClass("j_sj");
+             }
+			 else{
+			 $(this).parent(".i_more").siblings(".i_hide").slideUp();
+			 $(this).html("更多>>");	 
+			 $(this).removeClass("j_sj");
+             }
+			})
+		});
+
+</script>
+<script src="{% static 'js/swf.js'%}"></SCRIPT>
+<script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+{% endblock %}
