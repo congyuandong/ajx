@@ -7,6 +7,7 @@ xadmin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'^admin/', include(xadmin.site.urls)),
+    url(r'^ueditor/',include('DjangoUeditor.urls' )),
     url(r'^$', include('ajx.urls')),
 )
 

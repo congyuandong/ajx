@@ -7,6 +7,7 @@ from DjangoUeditor.models import UEditorField
 from DjangoUeditor.widgets import UEditorWidget
 from xadmin.views import BaseAdminPlugin, ModelFormAdminView, DetailAdminView
 from django.conf import settings
+from django.db.models import TextField
 
 class GlobalSetting(object):
 	#设置base_site.html的Title
