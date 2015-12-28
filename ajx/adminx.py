@@ -15,10 +15,10 @@ class GlobalSetting(object):
 	def get_site_menu(self):
 		return (
 				{'title': '线路管理','menus':(
-					{'title': '线路管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Route, 'changelist')},
+					{'title': '线路管理', 'icon': 'fa fa-train', 'url': self.get_model_url(Route, 'changelist')},
 					{'title': '行程管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(RouteDetail, 'changelist')},
-					{'title': '套餐管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Classification, 'changelist')},
-					{'title': '出发日期管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(GoDate, 'changelist')},
+					{'title': '套餐管理', 'icon': 'fa fa-shopping-basket', 'url': self.get_model_url(Classification, 'changelist')},
+					{'title': '出发日期管理', 'icon': 'fa fa-calendar', 'url': self.get_model_url(GoDate, 'changelist')},
 					{'title': '出发地管理', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(SetOut, 'changelist')},
 					{'title': '目的地管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
 					{'title': '附加产品', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(Addition, 'changelist')},
