@@ -31,6 +31,10 @@ class GlobalSetting(object):
 				{'title': '用户管理','menus':(
 					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
 				)},
+				{'title': '系统参数','menus':(
+					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(BannerSlide, 'changelist')},
+					{'title': '首页大图', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(BannerList, 'changelist')},
+				)},
 			)
 
 class RouteAdmin(object):
@@ -58,7 +62,7 @@ class DestinationAdmin(object):
 	list_editable = ['name', 'types', 'sort']
 	search_fields = ['name']
 	list_per_page = 20
-	ordering = ['sort']
+	ordering = ['types', 'sort']
 
 class AdditionAdmin(object):
 	list_display = ['name', 'types', 'price', 'sort']
@@ -99,6 +103,20 @@ class OrderAdmin(object):
 	search_fields = ['orderID', 'username', 'phone']
 	list_per_page = 20
 
+class BannerSlideAdmin(object):
+	list_display = ['title', 'link', 'sort']
+	list_editable = ['link', 'sort']
+	search_fields = ['title']
+	list_per_page = 20
+	ordering = ['sort']
+
+class BannerListAdmin(object):
+	list_display = ['title', 'link', 'sort']
+	list_editable = ['link', 'sort']
+	search_fields = ['title']
+	list_per_page = 20
+	ordering = ['sort']
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -135,3 +153,5 @@ xadmin.site.register(Classification,ClassificationAdmin)
 xadmin.site.register(GoDate,GoDateAdmin)
 xadmin.site.register(RouteDetail,RouteDetailAdmin)
 xadmin.site.register(Order,OrderAdmin)
+xadmin.site.register(BannerSlide,BannerSlideAdmin)
+xadmin.site.register(BannerList,BannerListAdmin)

@@ -1,0 +1,116 @@
+{% load staticfiles %}
+
+<div class="sidebar-outer">
+    <div class="sidebar">
+        <div class="cha">×</div>
+        <div class="sidebar_top_pic">
+            <img src="{% static 'images/sidebar_top_pic.png'%}" />
+        </div>
+        <ul class="sidebar_ul">
+            <!--li class="sidebar_list" id="one" style="margin-top:15px;">
+            <div class="sidebar_li"></div>
+            <div class="sidebar-box sidebar-box-one" style="width:255px;height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="sidebar-box_inner1">
+                    <span class="sanjiaoright_one"></span>
+                    <div class="sidebar-box_hezuo">
+                        <span>合作账号登录</span>
+                        <a href="#" class="ycl_1"></a>
+                        <a href="#" class="ycl_2"></a>
+                        <a href="#" class="ycl_3"></a>
+                        <a href="#" class="ycl_4"></a>
+                    </div>
+                </div>
+            </div>
+        </li-->
+        <li class="sidebar_list" id="one" style="margin-top:15px;">
+            <div class="sidebar_li sidebar_android"></div>
+            <div class="sidebar-box" style="display: none; height: 216.32032150611823px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="sidebar-box_inner">
+                    <span class="sanjiaoright"></span>
+
+                    <p class="sidebar-box_text sidebar-box_zxkf">
+                        <a href="#">在线客服</a>
+                    </p>
+                    <p class="sidebar-box_text">请拨打400电话咨询</p>
+                    <p class="sidebar-box_text">工作时间：8:00-16:00</p>
+                </div>
+            </div>
+        </li>
+
+        <li class="sidebar_list">
+            <div class="sidebar_li sidebar_dianhua"></div>
+            <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="sidebar-box_inner">
+                    <span class="sanjiaoright"></span>
+
+                    <p class="sidebar-box_text">请拨打电话：</p>
+                    <p class="sidebar-box_text" style=" font-weight:bold; font-size:16px; font-family:微软雅黑;">
+                        <{$info['website_info']['website_tel']}></p>
+                    </div>
+                </div>
+            </li>
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_weixin"></div>
+                <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        <div class="sidebar-box_pic">
+                            <img width="148" height="148" src="{% static 'images/er-download-wx.png'%}"></div>
+                        <p class="sidebar-box_text">扫一扫关注微信</p>
+                        <p class="sidebar-box_text">更多惊喜等着你</p>
+                    </div>
+                </div>
+            </li>
+            <li class="sidebar_list">
+                <div class="sidebar_li sidebar_weibo"></div>
+                <div class="sidebar-box" style="display: none; height: 80px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                    <div class="sidebar-box_inner">
+                        <span class="sanjiaoright"></span>
+                        <div class="sidebar-box_weibo">
+                            <a href="#" target="_blank">
+                                <img width="100" height="30" style="width: 100px;height: 30px; display: block; margin: 0 auto;" src="{% static 'images/er-download-wb.png'%}"></a>
+                        </div>
+                        <p class="sidebar-box_text">关注@爱简行</p>
+                    </div>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+    <div class="ycl_dd">
+        <div class="sidebar_list" id="two">
+            <div class="sidebar_li sidebar_text"></div>
+            <div class="sidebar-box sidebar-box-one" style="width:255px;height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
+                <div class="sidebar-box_inner1">
+                    <span class="sanjiaoright_one"></span>
+                    <div class="sidebar-box_fenxiang">
+                        <span style="color:#fff;">分享到：</span>
+
+                        <a href="#" class="ycl_7 share_tqq"></a>
+                        <a href="#" class="ycl_8 share_tsina"></a>
+                        <a href="#" class="ycl_9 share_tqzone"></a>
+                        <a href="#" class="ycl_5 share_weixin"></a>
+
+                        <div class="wemcn" id="wemcn">
+                            <div id="ewm" class="ewmDiv clearfix">
+                                <div class="rwmtext">
+                                    <p>微信扫一扫</p>
+                                    <p>分享至好友和朋友圈</p>
+                                    <p>还有机会赢取优惠码！</p>
+                                </div>
+                            </div>
+                            <a class="share_icon" href="javascript:void(0)" id="ewmkg"></a> <i class="ewmsj share_icon"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p id="back-to-top">
+            <a href="#top"></a>
+        </p>
+    </div>
+
+</div>
+
+<div class="xs"><img src="{% static 'images/icons5.png'%}"></div>

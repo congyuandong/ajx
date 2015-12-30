@@ -74,7 +74,7 @@ class UserInfo(models.Model):
 		verbose_name = '用户'
 		verbose_name_plural = '用户管理'
 
-#出发地的地
+#出发地
 class SetOut(models.Model):
 	name = models.CharField(max_length = 50, verbose_name = '地名')
 	sort =  models.IntegerField(default=0,verbose_name="排序")
@@ -99,6 +99,7 @@ class Destination(models.Model):
 		verbose_name = '线路目的地'
 		verbose_name_plural = '目的地管理'
 
+#附加产品
 class Addition(models.Model):
 	name = models.CharField(max_length = 100, verbose_name = '附加产品名称')
 	types = models.IntegerField(default = 0, verbose_name = '类型', choices = ADDITION_CHOICES)
@@ -169,6 +170,7 @@ class Route(models.Model):
 	netsign = UEditorField(verbose_name='网签协议',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
 
 	def __unicode__(self):
 		return self.name
@@ -223,7 +225,7 @@ class GoDate(models.Model):
 		verbose_name = '出行日期'
 		verbose_name_plural = '出行日期管理'
 
-#行程安排
+#参考行程安排
 class RouteDetail(models.Model):
 	route = models.ForeignKey(Route, verbose_name = '路线')
 	day = models.IntegerField(default = 0, verbose_name = '第几天')
@@ -273,3 +275,31 @@ class Order(models.Model):
 	class Meta:
 		verbose_name = '订单'
 		verbose_name_plural = '订单管理'
+
+#首页滚动大图 前五个
+class BannerSlide(models.Model):
+	title = models.CharField(max_length = 100, verbose_name = '标题')
+	image = models.ImageField(upload_to ='banner/', verbose_name = '图片', help_text = '大小742X237')
+	link = models.URLField(verbose_name = '链接地址')
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.title
+
+	class Meta:
+		verbose_name = '横幅广告'
+		verbose_name_plural = '横幅广告管理'
+
+#首页横幅广告 最多五个
+class BannerList(models.Model):
+	title = models.CharField(max_length = 100, verbose_name = '标题')
+	image = models.ImageField(upload_to ='banner/', verbose_name = '图片', help_text = '大小745X201')
+	link = models.URLField(verbose_name = '链接地址')
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.title
+
+	class Meta:
+		verbose_name = '首页大图广告'
+		verbose_name_plural = '首页大图广告管理'
