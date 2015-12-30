@@ -6,9 +6,10 @@ import xadmin
 xadmin.autodiscover()
 
 urlpatterns = patterns('',
+	url(r'^$', include('ajx.urls')),
+	url(r'^w/', include('ajx.urls')),
     url(r'^admin/', include(xadmin.site.urls)),
     url(r'^ueditor/',include('DjangoUeditor.urls' )),
-    url(r'^$', include('ajx.urls')),
 )
 
 if settings.DEBUG:

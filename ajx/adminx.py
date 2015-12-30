@@ -34,6 +34,7 @@ class GlobalSetting(object):
 				{'title': '系统参数','menus':(
 					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(BannerSlide, 'changelist')},
 					{'title': '首页大图', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(BannerList, 'changelist')},
+					{'title': '友情链接', 'icon': 'fa fa-link', 'url': self.get_model_url(Links, 'changelist')},
 				)},
 			)
 
@@ -79,8 +80,9 @@ class RouteAirplaneAdmin(object):
 	list_per_page = 20
 
 class ClassificationAdmin(object):
-	list_display = ['route', 'name']
-	list_editable = ['name']
+	list_display = ['route', 'name', 'sort']
+	list_editable = ['name', 'sort']
+	list_filter = ['route']
 	search_fields = ['name']
 	list_per_page = 20
 
@@ -114,6 +116,13 @@ class BannerListAdmin(object):
 	list_display = ['title', 'link', 'sort']
 	list_editable = ['link', 'sort']
 	search_fields = ['title']
+	list_per_page = 20
+	ordering = ['sort']
+
+class LinksAdmin(object):
+	list_display = ['name', 'link', 'sort']
+	list_editable = ['name', 'link', 'sort']
+	search_fields = ['name']
 	list_per_page = 20
 	ordering = ['sort']
 
@@ -155,3 +164,4 @@ xadmin.site.register(RouteDetail,RouteDetailAdmin)
 xadmin.site.register(Order,OrderAdmin)
 xadmin.site.register(BannerSlide,BannerSlideAdmin)
 xadmin.site.register(BannerList,BannerListAdmin)
+xadmin.site.register(Links,LinksAdmin)

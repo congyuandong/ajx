@@ -13,9 +13,11 @@
 <div class="overall">
 <div class="container">
 	<div class="index_left">
-    	<div class="logo">
-        	<h1>爱简行</h1>
-        </div>
+		<a href="/">
+	    	<div class="logo">
+	        	<h1>爱简行</h1>
+	        </div>
+	    </a>
         
         <div class="outer">
         	<div class="holder">
@@ -92,7 +94,7 @@
         <div class="header">
         	<div class="nav">
             	<ul>
-                	<li class="thisclass"><a href="#">线路首页</a></li>
+                	<li class="thisclass"><a href="/w/index/">线路首页</a></li>
                     <li class="index_nav_thgc_show">
                     <a href="#">特惠广场</a>
                     <div class="hot"><img src="{% static 'images/hot.png'%}" /></div>
@@ -142,7 +144,7 @@
         <div class="index_r_con">
         	<div class="tab index_r_tb">
                 <div class="con_div1">
-                    <h2><span>沈阳 - 厦门</span> | 精品路线</h2>
+                    <h2><span>全部 - 全部</span> | 精品路线</h2>
                     <div class="con_div_r">
                     	<span>排序：</span>
                         <ul class="tab-hd con_div1_r">
@@ -161,7 +163,7 @@
                             	<img src="media/{{item.content.listPic}}" />
                                 <div class="dw">{{item.content.get_feature_display}}</div>
                                 <div class="con_1_c_1_hide">
-                                	<p>剩余天数：<span>8天13小时</span>　　余位：<span>{{item.content.adultLeft}}位</span></p>
+                                	<p>剩余天数：<span>{{item.daysLeft}}天</span>　　余位：<span>{{item.sumOfLeft}}位</span></p>
                                 </div>
                             </div>
                             <div class="con_1_c_1_right">
@@ -177,11 +179,14 @@
                                     </dl>
                                     <dl class="con_1_c_1_r_dl2">
                                     	<dt>日期：</dt>
-                                        <dd>02月16日</dd>
-                                        <dd class="con_1_c_1_r_2_sx">|</dd>
-                                        <dd>02月17日</dd>
-                                        <dd class="con_1_c_1_r_2_sx">|</dd>
-                                        <dd>02月18日</dd>
+                                    	{% for godate in item.godates%}
+                                    	{% if forloop.first %}
+                                    	<dd>{{godate.date|date:"m月d日"}}</dd>
+                                    	{% else %}
+                                    	<dd class="con_1_c_1_r_2_sx">|</dd>
+                                        <dd>{{godate.date|date:"m月d日"}}</dd>
+                                    	{% endif %}
+                                    	{% endfor %}
                                     </dl>
                                     <div class="clear"></div>
                                     <ul>
@@ -213,96 +218,8 @@
 {% endblock %}
 
 {% block js %}
-<script type="text/javascript">
-$(document).ready(function(){
-
-	$(function () {
-		$(window).scroll(function(){
-
-		});
-		//当点击跳转链接后，回到页面顶部位置
-		$("#back-to-top").click(function(){
-		$("body,html").animate({scrollTop:0},1000);
-		return false;
-		});
-	});
-});
-</script>
-
-
-<script type="text/javascript">
-$(".cha").click(function(){
-	$(".sidebar").hide()
-	$(".ycl_dd").hide()
-	$(".xs") .slideDown();	
-	})
-
-$(".xs").click(function(){
-	$(".sidebar").show()
-	$(".ycl_dd").show()
-	$(".xs") .slideUp();	
-	})
-
-</script>
-
-
-<!--script src="{% static 'js/backtop.js'%}"></script-->
-<script type="text/javascript">
-// $(function(){
-// 		$(".i_more a").click(function(){
-// 			if($(this).text()=="更多>>"){
-// 			 $(this).parent(".i_more").siblings(".i_hide").slideDown();
-// 			 $(this).html("收起");
-// 			 $(this).addClass("j_sj");
-//              }
-// 			 else{
-// 			 $(this).parent(".i_more").siblings(".i_hide").slideUp();
-// 			 $(this).html("更多>>");	 
-// 			 $(this).removeClass("j_sj");
-//              }
-// 			})
-// 		});
-
-</script>
 <script type="text/javascript" src="{% static 'js/swf.js'%}"></SCRIPT>
-<script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/sns-share.js'%}"></script>
-<script>
-    $(function(){
-       var title = "爱简行-专注于东北旅游服务！";
-       var pic = "http://www.i-xing.com/Public/page/images/logo_03.png";
-     
-        $('body').xuanfengSnsShare({
-            tsina:{
-                url : encodeURIComponent(window.location.href),
-                title: title,
-                pic: pic
-            },
-            tqq:{
-                url : encodeURIComponent(window.location.href),
-                title: title,
-                pic: pic 
-            },
-            tqzone:{
-                url : encodeURIComponent(window.location.href),
-                title: title,            
-                pic: pic 
-            }
-        });
-
-        // 微信分享    
-        $(".share_weixin").mouseover(function(){
-            $("#ewmimg").remove();
-            var thisURL = window.location.href,
-                strwrite = "<img id='ewmimg' class='ewmimg' src='http://qr.liantu.com/api.php?text=" + thisURL + "' width='85' height='85' alt='爱简行 二维码分享' />";
-            $("#ewm").prepend(strwrite);
-            $("#wemcn").show();
-        });
-        // 微信分享    
-        $(".share_weixin").mouseleave(function(){
-            $("#wemcn").hide();
-        });
-
-    })
-    </script>
+<script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/sidebar.js'%}"></script>
 {% endblock %}

@@ -28,27 +28,9 @@
 </div>
 <div class="link_index">
     <p> <strong>友情链接：</strong>
-        <a href="#">穷游</a>
-        <a href="#">在路上</a>
-        <a href="#">百程旅行网</a>
-        <a href="#">春秋航空</a>
-        <a href="#">游多多旅行网</a>
-        <a href="#">多多驿站</a>
-        <a href="#">布丁酒店</a>
-        <a href="#">欣欣旅游网</a>
-        <a href="#">驴妈妈旅游网</a>
-        <a href="#">酷讯飞机票查询</a>
-        <a href="#">腾邦飞人</a>
-        <a href="#">悠哉旅游网</a>
-        <a href="#">同程旅游</a>
-        <a href="#">旅游线路</a>
-        <a href="#">火车票查询</a>
-        <a href="#">一起游</a>
-        <a href="#">到到网</a>
-        <a href="#">途牛旅游网</a>
-        <a href="#">遨游旅游网</a>
-        <a href="#">梦之旅</a>
-        <a href="#">百酷旅行网</a>
+        {% for link in links %}
+        <a href="{{link.link}}" target="blank">{{link.name}}</a>
+        {% endfor %}
     </p>
 
 </div>

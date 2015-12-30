@@ -201,6 +201,7 @@ class RouteAirplane(models.Model):
 class Classification(models.Model):
 	route = models.ForeignKey(Route, verbose_name = '路线')
 	name = models.CharField(max_length = 200, verbose_name = '套餐名称')
+	sort =  models.IntegerField(default=0,verbose_name="排序")
 
 	def __unicode__(self):
 		return self.name
@@ -303,3 +304,16 @@ class BannerList(models.Model):
 	class Meta:
 		verbose_name = '首页大图广告'
 		verbose_name_plural = '首页大图广告管理'
+
+#友情链接
+class Links(models.Model):
+	name = models.CharField(max_length = 100, verbose_name = '网站名称')
+	link = models.URLField(verbose_name = '链接地址')
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '友情链接'
+		verbose_name_plural = '友情链接管理'

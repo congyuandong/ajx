@@ -3,4 +3,5 @@ import views
 
 urlpatterns = patterns('',
 	url(r'^$', views.Index, name='Index'),
+	url(r'^index/$', views.Index, name='Index'),
 	)

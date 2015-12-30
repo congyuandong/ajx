@@ -5,37 +5,56 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.http import Http404
 
+from datetime import date
+
 from  models import *
 
+
+#首页
 def Index(request):
 	context = RequestContext(request)
 
-	setouts = SetOut.objects.order_by('sort')[0:6]
-	destins = Destination.objects.filter(types = 1).order_by('sort')[0:6]
-	destouts = Destination.objects.filter(types = 2).order_by('sort')[0:6]
-	slidebanners = BannerSlide.objects.order_by('sort')[0:5]
+	setOutObjs = SetOut.objects.order_by('sort')[0:6]
+	destInObjs = Destination.objects.filter(types = 1).order_by('sort')[0:6]
+	destOutObjs = Destination.objects.filter(types = 2).order_by('sort')[0:6]
+	slideBannerObjs = BannerSlide.objects.order_by('sort')[0:5]
+	linkObjs = Links.objects.order_by('sort')
 	
+	#对路线和广告重新排列
 	routes = Route.objects.order_by('-update')[0:18]
 	listbanners = BannerList.objects.order_by('sort')[0:5]
-
-
-	indexitems = []
+	indexItemObjs = []
 	counter = 0
 	for route in routes:
-		counter = counter + 1
-		indexitems.append({'type':'route','content':route})
-		print counter,len(listbanners)
+		counter += 1
+
+		# 求第一个套餐的数据
+		classObj = Classification.objects.filter(route = route)[0:1]
+		if classObj:
+			classObj = classObj[0]
+			goDateObjs = GoDate.objects.filter(classification = classObj).order_by('date')
+			if goDateObjs:
+				sumOfLeft = 0
+				daysLeft = (goDateObjs[0].date - date.today()).days
+				for goDateObj in goDateObjs:
+					sumOfLeft += goDateObj.left
+				indexItemObjs.append({'type':'route','content':route,'sumOfLeft':sumOfLeft,'godates':goDateObjs[0:3],'daysLeft':daysLeft})
+			else:
+				indexItemObjs.append({'type':'route','content':route})
+		else:
+			indexItemObjs.append({'type':'route','content':route})
 		if counter % 3 == 0 and len(listbanners) >= counter/3:
-			indexitems.append({'type':'ad','content':listbanners[counter/3 - 1]})
+			indexItemObjs.append({'type':'ad','content':listbanners[counter/3 - 1]})
 	for index in range(counter/3, len(listbanners)):
-		indexitems.append({'type':'ad','content':listbanners[index]})
+		indexItemObjs.append({'type':'ad','content':listbanners[index]})
+	# 计算结束
 
 	context_dict = {
-		'setouts':setouts,
-		'destins':destins,
-		'destouts':destouts,
-		'indexitems':indexitems,
-		'slidebanners':slidebanners
+		'setouts':setOutObjs,
+		'destins':destInObjs,
+		'destouts':destOutObjs,
+		'indexitems':indexItemObjs,
+		'slidebanners':slideBannerObjs,
+		'links':linkObjs
 	}
-	print context_dict
 	return render_to_response('ajx/index.html',context_dict,context)
