@@ -9,7 +9,6 @@ from datetime import date
 
 from  models import *
 
-
 #首页
 def Index(request):
 	context = RequestContext(request)
@@ -20,9 +19,19 @@ def Index(request):
 	slideBannerObjs = BannerSlide.objects.order_by('sort')[0:5]
 	linkObjs = Links.objects.order_by('sort')
 	
+	#获取筛选数据
+	s = int(request.GET.get('s','-1'))
+	d = int(request.GET.get('d','-1'))
+
+	kwargs = {}
+	if s > -1:
+		kwargs['setOut__id'] = s
+	if d > -1:
+		kwargs['destination__id'] = d
+
 	#对路线和广告重新排列
-	routes = Route.objects.order_by('-update')[0:18]
-	listbanners = BannerList.objects.order_by('sort')[0:5]
+	routes = Route.objects.filter(**kwargs).order_by('-update')
+	listbanners = BannerList.objects.order_by('sort')
 	indexItemObjs = []
 	counter = 0
 	for route in routes:

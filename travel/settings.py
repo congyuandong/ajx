@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'crispy_forms',
     'reversion',
     'DjangoUeditor',
+    'pagination',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -50,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (

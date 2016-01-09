@@ -1,5 +1,7 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
+{% load extra_tags %}
+{% load pagination_tags %}
 
 {% block title %}爱简行|专注于东北旅游服务{% endblock %}
 
@@ -12,72 +14,8 @@
 {% block main %}
 <div class="overall">
 <div class="container">
-	<div class="index_left">
-		<a href="/">
-	    	<div class="logo">
-	        	<h1>爱简行</h1>
-	        </div>
-	    </a>
-        
-        <div class="outer">
-        	<div class="holder">
-                <h2><p>出发地</p></h2>
-                <div  class="index_left_1">
-                    <ul>
-                        <li><a href="#" style="color:#f7a142;">全部</a></li>
-                        {% for setout in setouts %} 
-                        <li><a href="#">{{setout.name}}</a></li>
-						{% endfor %}
-                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="outer">
-        	<div class="holder">
-                <h2 class="index_left_2"><p>目的地<span>国内</span></p></h2>
-                <div class="index_left_1 index_left_gn">
-                    <ul>
-                        <li><a href="#" style="color:#f7a142;">全部</a></li>
-                        {% for destin in destins %} 
-                        <li><a href="#">{{destin.name}}</a></li>
-						{% endfor %}
-                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="outer">
-        	<div class="holder">
-                <h2 class="index_left_3"><p>目的地<span>出境</span></p></h2>
-                <div class="index_left_1 index_left_gn">
-                    <ul>
-                        <li><a href="#" style="color:#f7a142;">全部</a></li>
-                        {% for destout in destouts %} 
-                        <li><a href="#">{{destout.name}}</a></li>
-						{% endfor %}
-                        <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="outer">
-        	<div class="holder">
-                <h2 class="index_left_4"><p>出游时间</p></h2>
-                <div class="index_left_1 index_left_shj">
-                    <ul>
-                        <li><a href="#" style="color:#f7a142;">全部</a></li>
-                        <li><a href="#">2月</a></li>
-                        <li><a href="#">3月</a></li>
-                        <li><a href="#">4月</a></li>
-                        <li><a href="#">5月</a></li>
-                        <li><a href="#">6月</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--index_left-->
+	
+	{% index_left setouts destins destouts %}
 
     <div class="index_right">
     	<div class="index_right_top">
@@ -156,6 +94,7 @@
                 </div>
                 <ul class="tab-bd con_div1_c">
                     <li>
+                    	{% autopaginate indexitems 23 %}
                     	{% for item in indexitems %}
                     	{% if item.type == 'route' %}
                     	<div class="con_1_c_1">
@@ -202,9 +141,7 @@
 						<div class="con_1_c_ad1"><a href="{{item.content.link}}"><img src="media/{{item.content.image}}" /></a></div>
 						{% endif %}
                     	{% endfor %}
-                        <div class="con_1_c_page">
-                        	<a href="#" class="con_1_c_page_this">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a><a href="#">下一页</a><a href="#">尾页</a>
-                        </div>
+						{% paginate %}
                     </li>
                 </ul>
             </div>

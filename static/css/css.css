@@ -12,6 +12,7 @@
 .index_left_1{width:100%; height:auto; display:block;line-height:150%; z-index:99999999999;}
 .index_left_1 ul li{width:105px; float:left;height:40px; border-bottom:1px solid #ddd;}
 .index_left_1 ul li a{ font-size:14px; color:#7f7c7c; line-height:40px;font-family:微软雅黑;padding-left:35px;}
+.index_left_1 ul li:first-child a{ color:#f7a142;}
 .index_left_1 ul li a:hover{ color:#f7a142;}
 .index_left_1 ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -319px no-repeat;}
 .index_left_gn ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -339px no-repeat;}
@@ -137,9 +138,14 @@
 .con_1_c_1_hide p span{ color:#fe7d29; font-size:20px;}
 .con_1_c_ad1{ width:745px; height:201px; margin-top:20px;}
 .con_1_c_ad1 img{width:745px; height:201px;}
-.con_1_c_page{ height:24px; margin:30px 0px; text-align:right;}
-.con_1_c_page a{ display:inline-block; height:22px; border:1px solid #dedede; padding:0px 9px; line-height:22px; color:#666; font-size:14px;font-family:微软雅黑; margin-left:10px;}
-.con_1_c_page a:hover,.con_1_c_page .con_1_c_page_this{ background:#49bdcc;border:1px solid #49bdcc; color:#fff;}
+
+/*分页效果开始*/
+.pagination{ height:24px; margin:30px 0px; text-align:right;}
+.pagination a{ display:inline-block; height:22px; border:1px solid #dedede; padding:0px 9px; line-height:22px; color:#666; font-size:14px;font-family:微软雅黑; margin-left:10px;}
+.pagination a:hover,.pagination .pagination_this{ background:#49bdcc;border:1px solid #49bdcc; color:#fff;}
+.pagination a .disabled{pointer-events: none;}
+/*分页效果结束*/
+
 .footer{ height:68px; background:#6cbcc5;}
 .foot{ width:1000px; margin:auto;}
 .foot ul li{ float:left; height:68px;width:145px; padding-left:55px; margin-right:11px;}
