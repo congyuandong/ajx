@@ -317,3 +317,14 @@ class Links(models.Model):
 	class Meta:
 		verbose_name = '友情链接'
 		verbose_name_plural = '友情链接管理'
+
+#系统基础信息
+class SystemInfo(models.Model):
+	tel = models.CharField(max_length = 20, verbose_name = '客服电话')
+
+	def __unicode__(self):
+		return u'基础信息'
+
+	class Meta:
+		verbose_name = '系统参数'
+		verbose_name_plural = '系统参数管理'

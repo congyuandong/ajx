@@ -1,0 +1,1221 @@
+{% extends "ajx/base.html" %}
+{% load staticfiles %}
+
+{% block title %}东北游|爱简行{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/reset1.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+
+{% block main %}
+
+<script language='javascript' type='text/javascript'>
+$(document).ready(
+    function()
+    {
+        /**
+        *1.delay函数是jquery 1.4.2新增的函数
+        *2.hide函数里必须放一个0,不然延时不起作用
+        */
+        $('#destination_banner1').delay(5000).hide(0);
+    }
+);
+</script>
+
+
+<div class="about_top">
+	<div class="about_box">
+        <div class="about_logo fl">
+            <h1>爱简行</h1>
+        </div>
+        <div class="about_top_r fr">
+        	<div class="about_right_top">
+                <ul>
+                    <li><a href="#">我的订单</a></li>
+                    <li>|</li>
+                    <li><a href="#">注册</a></li>
+                    <li>|</li>
+                    <li><a href="#">登录</a></li>
+                    <li>|</li>
+                    <li class="index_right_top_li7">400-0450-718</li>
+                </ul>
+            </div>
+            <div class="about_header">
+                <div class="dest_nav">
+                    <ul>
+                        <li><a href="#">线路首页</a></li>
+                        <li class="index_nav_thgc_show">
+                        <a href="#">特惠广场</a>
+                        <div class="hot"><img src="images/hot.png" /></div>
+                        	<div class="index_nav_ztxl index_nav_ztxl_1">
+                                <a href="#"><img src="images/index_nav_xl_pic_03.jpg" /></a>
+                                <a href="#"><img src="images/index_nav_xl_pic_05.jpg" /></a>
+                                <a href="#"><img src="images/index_nav_xl_pic_10.jpg" /></a>
+                                <a href="#"><img src="images/index_nav_xl_pic_12.jpg" /></a>
+                                <a href="#" class="index_nav_ztxl_w"><img src="images/index_nav_xl_pic_16.jpg" /></a>
+                                <a href="#" class="index_nav_ztxl_w"><img src="images/index_nav_xl_pic_18.jpg" /></a>
+                       		</div><!--index_nav_ztxl-->
+                        </li>
+                        <li class="thisclass"><a href="#">东北游</a></li>
+                        <li><a href="#">定制</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                    <div class="search_in"><input name="" type="text" value="请输入您要搜索的目的地" onfocus="if (value =='请输入您要搜索的目的地'){value =''}" onblur="if (value ==''){value='请输入您要搜索的目的地'}"/></div>
+                    <div class="search_but"><input name="" type="button" /></div>
+                    </form>
+                </div>
+            </div><!--header-->
+        </div>
+	</div>
+</div>
+<div class="cl"></div>
+<div class="destination_banner" id="destination_banner1">
+	<img src="images/destination_banner_03.jpg" />
+</div>
+<div class="destination_mbx">
+	<p>首页 > 目的地</p>
+</div>
+<div class="about_box destination_con">
+	<dl>
+    	<dt class="dest_cfd">出发地：</dt>
+        <dd class="dest_this"><a href="javascript:void(0)">全部</a></dd>
+        <dd><a href="#">长春</a></dd>
+        <dd><a href="#">沈阳</a></dd>
+        <dd><a href="#">哈尔滨</a></dd>
+    </dl>
+    
+    
+    <div class="tab dest_mdd">
+    	<div class="dest_mdd_top">
+        	<dl class="dest_mdd_dl fl">
+                <dt>目的地：</dt>
+                <dd class="dest_mdd_dl_qb"><a href="javascript:void(0)">全部</a></dd>
+            </dl>    
+            <ul class="tab-hd dest_mdd_hd fl">
+                <li class="dest_sj3">黑龙江</li>
+                <li class="dest_sj2">吉林</li>
+                <li class="dest_sj2">辽宁</li>
+            </ul>
+        </div>
+        <ul class="tab-bd dest_mdd_bd">
+            <li>
+                <div class="dest_hide">
+                    <div class="dest_hide_l fl"><h2>黑龙江所有地区</h2></div>
+                    <div class="dest_hide_r fl">
+                        <ul class="dist_mdd_show_con">
+                            <li><a href="#">长春</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dest_hide">
+                    <div class="dest_hide_l fl"><h2>吉林所有地区</h2></div>
+                    <div class="dest_hide_r fl">
+                        <ul class="dist_mdd_show_con">
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">长春</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="dest_hide">
+                    <div class="dest_hide_l fl"><h2>辽宁所有地区</h2></div>
+                    <div class="dest_hide_r fl">
+                        <ul class="dist_mdd_show_con">
+                            <li><a href="#">长春</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            <li><a href="#">吉林</a></li>
+                            <li><a href="#">哈尔滨</a></li>
+                            <li><a href="#">沈阳</a></li>
+                            <li><a href="#">大连</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    
+    
+    
+    
+
+    <dl class="dest_cplx_w">
+    	<dt class="dest_cplx">产品类型：</dt>
+        <dd class="dest_this"><a href="javascript:void(0)">全部</a></dd>
+        <dd><a href="#">一日游</a></dd>
+        <dd><a href="#">两日游</a></dd>
+        <dd><a href="#">出境游</a></dd>
+    </dl>
+
+</div><!--content-->
+<div class="destination_center">
+<div class="tab dest_c_tab">
+	<div class="dest_c_tab_h">
+        <ul class="tab-hd dest_tab_l fl">
+            <li>默认</li>
+            <li>价格</li>
+            <li>热卖</li>
+        </ul>
+        <div class="dest_tab_r fr">
+        	<p><a href="#" class="dest_tab_r_1">上一页</a><a href="#" class="dest_tab_r_2">下一页</a></p>
+        
+        </div>
+    </div>
+    <ul class="tab-bd dest_tab_con">
+        <li>
+        	<ul class="dest_tab_con_ul">
+            	<li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">仲见世商业街+皇居外苑银座东京晴空塔</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">260</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>黑龙江
+                        </div>
+                    </div>
+                	<div class="dest_li_dw dest_li_dwl">品质团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_07.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">2856</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>沈阳
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_13.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">869</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_15.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">塞舌尔 马埃岛环岛游一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">888</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw dest_li_dwl">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_16.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>沈阳
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">仲见世商业街+皇居外苑银座东京晴空塔</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">260</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>黑龙江
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_07.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">2856</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>沈阳
+                        </div>
+                    </div>
+                	<div class="dest_li_dw dest_li_dwf">品质团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_13.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">869</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_15.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">塞舌尔 马埃岛环岛游一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">888</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_16.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>沈阳
+                        </div>
+                    </div>
+                	
+                 </li>
+            </ul>
+        
+        </li>
+        <li>
+        	<ul class="dest_tab_con_ul">
+            	<li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_03.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+            </ul>
+        
+        
+        
+        </li>
+        <li>
+        	<ul class="dest_tab_con_ul">
+            	<li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li class="dest_tab_con_ul_liw">
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+                 <li>
+                	<div class="dest_tab_ul_pic">
+                    	<a href="#"><img src="images/dest_pic_05.jpg" /></a>
+                        <div class="dest_tab_ul_pic_t">
+                        	<p>最新活动通知：冰雪旅游最新计划已经</p>
+                        </div>
+                    </div>
+                	<div class="dest_tab_ul_1">
+                    	<div class="dest_tab_ul_1_p fl">
+                    		<p><a href="#">沙巴-换谈到一日游</a></p>
+                        </div>
+                        <div class="dest_tab_ul_1_r fr">沙巴</div>
+                    </div>
+                    <div class="dest_tab_ul_2">
+                    	<div class="dest_tab_ul_2_p fl">
+                        	<span class="dest_tab_ul_2_p_span1">￥</span>
+                            <span class="dest_tab_ul_2_p_span2">358</span>
+                            <span class="dest_tab_ul_2_p_span3">原价：</span>
+                            <span class="dest_tab_ul_2_p_span4">￥329</span>
+                        </div>
+                        <div class="dest_tab_ul_2_r fr">
+                        <span>起</span>哈尔滨
+                        </div>
+                    </div>
+                	<div class="dest_li_dw">购物团</div>
+                 </li>
+            </ul>
+        </li>
+    </ul>
+</div><!--tab-->
+<div class="cl"></div>
+<div class="dest_page">
+     <a href="#" class="dest_page_s">上一页</a><a href="#" class="dest_page_this">1</a><a href="#">2</a><a href="#">3</a><a href="#">4</a><a href="#">5</a><a href="#">6</a><a href="#">7</a>　...<a href="#">50</a><a href="#" class="dest_page_x">下一页</a>
+</div>
+
+</div><!--center-->
+<div class="cl"></div>
+
+<script type="text/javascript">
+$(function(){
+    function tabs(tabTit,on,tabCon){
+	$(tabCon).each(function(){
+	  $(this).children().eq(0).show();
+	  });
+	$(tabTit).each(function(){
+	  $(this).children().eq(0).addClass(on);
+	  });
+     $(tabTit).children().click(function(){
+		$(".dest_mdd_dl_qb").find("a").removeClass("active");
+		
+        $(this).addClass(on).siblings().removeClass(on);
+         var index = $(tabTit).children().index(this);
+         $(tabCon).children().eq(index).show().siblings().hide();
+    });
+     }
+  tabs(".tab-hd","active",".tab-bd");
+   });
+   
+  
+ 
+$(document).ready(function(e) {
+  $(".dest_mdd_dl_qb").click(function(){
+	  	$(this).find("a").addClass("active");
+		$(".dest_mdd_bd").children("li").hide();
+		$(".dest_mdd_hd li").removeClass("active");
+		;
+	});
+	
+
+});
+
+
+</script>
+
+{% include "ajx/includes/footer.html" %}
+{% include "ajx/includes/sidebar.html" %}
+
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+{% endblock %}

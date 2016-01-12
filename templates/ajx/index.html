@@ -47,8 +47,8 @@
                         </div><!--index_nav_ztxl-->
                     
                     </li>
-                    <li><a href="#">东北游</a></li>
-                    <li><a href="#">定制</a></li>
+                    <li><a href="/w/north/">东北游</a></li>
+                    <li><a href="/w/made/">定制</a></li>
                 </ul>
             </div>
             <div class="search">
@@ -82,7 +82,7 @@
         <div class="index_r_con">
         	<div class="tab index_r_tb">
                 <div class="con_div1">
-                    <h2><span>全部 - 全部</span> | 精品路线</h2>
+                    <h2><span>{% if setOutObj %}{{setOutObj.name}}{% else %}全部{% endif %} - {% if destObj %}{{destObj.name}}{% else %}全部{% endif %}</span> | 精品路线</h2>
                     <div class="con_div_r">
                     	<span>排序：</span>
                         <ul class="tab-hd con_div1_r">
@@ -156,7 +156,5 @@
 
 {% block js %}
 <script type="text/javascript" src="{% static 'js/swf.js'%}"></SCRIPT>
-<script type="text/javascript" src="{% static 'js/sns-share.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
-<script type="text/javascript" src="{% static 'js/sidebar.js'%}"></script>
 {% endblock %}

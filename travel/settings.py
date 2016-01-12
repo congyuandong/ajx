@@ -26,7 +26,7 @@ TEMPLATE_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-DOMAIN = "http://www.i-xing.com"
+DOMAIN = "http://www.blvxing.com"
 
 # Application definition
 

@@ -1,0 +1,838 @@
+{% extends "ajx/base.html" %}
+{% load staticfiles %}
+
+{% block title %}行程定制|爱简行{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/reset1.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
+<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/my-plan.css'%}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/calendar2.css'%}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block main %}
+
+<div class="about_top">
+    <div class="about_box">
+        <div class="about_logo fl">     
+            <h1>爱简行</h1>
+        </div>
+        <div class="about_top_r fr">
+            <div class="about_right_top">
+                <ul>
+                    <li><a href="#">我的订单</a></li>
+                    <li>|</li>
+                    <li><a href="#">注册</a></li>
+                    <li>|</li>
+                    <li><a href="#">登录</a></li>
+                    <li>|</li>
+                    <li class="index_right_top_li7">400-0450-718</li>
+                </ul>
+            </div>
+            <div class="about_header">
+                <div class="dest_nav">
+                    <ul>
+                        <li><a href="#">线路首页</a></li>
+                        <li>
+                            <a href="#">特惠广场</a>
+
+                            <div class="hot"><img src="{% static 'images/hot.png'%}"/></div>
+                        </li>
+                        <li><a href="#">东北游</a></li>
+                        <li class="thisclass"><a href="#">定制</a></li>
+                    </ul>
+                </div>
+                <div class="search">
+                    <form>
+                        <div class="search_in"><input name="" type="text" value="请输入您要搜索的目的地"
+                                                      onfocus="if (value =='请输入您要搜索的目的地'){value =''}"
+                                                      onblur="if (value ==''){value='请输入您要搜索的目的地'}"/></div>
+                        <div class="search_but"><input name="" type="button"/></div>
+                    </form>
+                </div>
+            </div>
+            <!--header-->
+        </div>
+    </div>
+</div>
+<!--定制开始-->
+
+<div class="my-plan-bg">
+    <div class="my-plan">
+        <div class="my-plan-step">
+            <ul>
+                <li><i class="icon icon-1"></i>2分钟收集您的出行要求</li>
+                <li><i class="icon icon-2"></i>2小时内与您电话沟通</li>
+                <li><i class="icon icon-3"></i>48小时内获得专属方案</li>
+            </ul>
+            <h6>我的旅行计划</h6>
+        </div>
+
+        <div class="my-plan-main">
+            <div class="my-plan-side">
+                <ul class="schemes-diy" id="schemesDiy">
+                    <li data-rel="#talkQuestion1"><label class="label-1">目的地</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion2"><label class="label-2">出发地</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion3"><label class="label-3">旅游方式</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion4"><label class="label-4">出发日期</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion5"><label class="label-5">游玩天数</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion6"><label class="label-6">出游人数</label><span class="even"></span></li>
+                    <li data-rel="#talkQuestion7"><label class="label-7">旅游预算</label><span class="even"></span></li>
+                </ul>
+                <div class="expert">
+                    <h6>爱简行定制小团专家</h6>
+                    <ul>
+                        <li><i class="icon"></i>1对1管家服务，为您量身定制</li>
+                        <li><i class="icon"></i>单车单导游，不与陌生人拼团</li>
+                        <li><i class="icon"></i>行程可随时调整，自由随性</li>
+                    </ul>
+                    <h5></h5>
+                </div>
+            </div>
+            <div class="my-plan-dialogue" id="J_myPlanDialogue">
+                <div class="dialogue-mask-layer"></div>
+
+                <div class="my-plan-dialogue-content">
+                    <div data-question-id="0" id="talkQuestion0" class="dialogue-ask-box" style="display: block;">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>嗨，您好，我是爱简行旅游顾问！<br><span class="fz14"><span class="text-orange">行程规划、贴身顾问、全程预订</span>等服务；来一次不拼团、零操心的自主旅行。</span></h6>
+                            <div class="other-info">
+                                <p><i class="icon icon-success"></i><span class="text-orange">2分钟</span>了解您的需求</p>
+                                <p><i class="icon icon-success"></i><span class="text-orange">专业顾问</span>推荐行程和价格</p>
+                            </div>
+                            <div class="destination"><a data-type="0">选择我的目的地</a><a data-type="1">不确定的目的地</a></div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer0" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我有想去的目的地。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="1" id="talkQuestion1" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>说说想去哪玩？或者有没有心仪的地方？</h6>
+
+                            <div class="region" data-target="region">
+                                <ul class="region-tab">
+                                    <li class="active">热门</li>
+                                    <li>国内</li>
+                                    <li>出境</li>
+                                </ul>
+
+                                <div class="region-content">
+                                    <div class="region-items items-a" style="display: block;">
+                                        <a>北京</a>
+                                        <a>九寨沟</a>
+                                        <a>厦门</a>
+                                        <a>桂林</a>
+                                        <a>云南</a>
+                                        <a>西藏</a>
+                                        <a>韩国</a>
+                                        <a>台湾</a>
+                                        <a>新加坡</a>
+                                        <a>泰国</a>
+                                        <a>巴厘岛</a>
+                                        <a>欧洲</a>
+                                        <a>美国</a>
+                                        <a>加拿大</a>
+                                        <a>古巴</a>
+                                        <a>南极</a>
+                                        <a>毛里求斯</a>
+                                        <a>新加坡</a>
+                                    </div>
+
+                                    <div class="region-items items-a">
+                                        <a>黄山</a>
+                                        <a>乌镇</a>
+                                        <a>泰山</a>
+                                        <a>厦门</a>
+                                        <a>青岛</a>
+                                        <a>北京</a>
+                                        <a>西安</a>
+                                        <a>丽江</a>
+                                        <a>九寨沟</a>
+                                        <a>稻城亚丁</a>
+                                        <a>张家界</a>
+                                        <a>桂林</a>
+                                        <a>三亚</a>
+                                        <a>敦煌</a>
+                                        <a>重庆</a>
+                                        <a>宁夏</a>
+                                        <a>内蒙古</a>
+                                        <a>青海</a>
+                                        <a>新疆</a>
+                                        <a>云南</a>
+                                        <a>西藏</a>
+                                        <a>贵州</a>
+                                    </div>
+                                    
+                                    <dl class="region-items items-a">
+                                        <dt>欧洲</dt>
+                                        <dd>
+                                            <a>意大利</a>
+                                            <a>德国</a>
+                                            <a>法国</a>
+                                            <a>西班牙</a>
+                                            <a>葡萄牙</a>
+                                            <a>希腊</a>
+                                            <a>瑞士</a>
+                                            <a>奥地利</a>
+                                            <a>匈牙利</a>
+                                            <a>荷兰</a>
+                                            <a>比利时</a>
+                                            <a>英国</a>
+                                            <a>摩纳哥</a>
+                                            <a>卢森堡</a>
+                                            <a>波兰</a>
+                                            <a>芬兰</a>
+                                            <a>挪威</a>
+                                            <a>瑞典</a>
+                                            <a>丹麦</a>
+                                            <a>捷克</a>
+                                            <a>俄罗斯</a>
+                                            <a>冰岛</a>
+                                        </dd>
+                                        <dt>亚洲</dt>
+                                        <dd>
+                                            <a>韩国</a>
+                                            <a>日本</a>
+                                            <a>泰国</a>
+                                            <a>新加坡</a>
+                                            <a>柬埔寨</a>
+                                            <a>斯里兰卡</a>
+                                            <a>尼泊尔</a>
+                                            <a>不丹</a>
+                                            <a>印度</a>
+                                            <a>越南</a>
+                                            <a>菲律宾</a>
+                                            <a>马来西亚</a>
+                                            <a>沙巴</a>
+                                        </dd>
+                                        <dt>大洋洲</dt>
+                                        <dd>
+                                            <a>澳大利亚</a>
+                                            <a>新西兰</a>
+                                            <a>萨摩亚</a>
+                                        </dd>
+                                        <dt>美洲</dt>
+                                        <dd>
+                                            <a>加拿大</a>
+                                            <a>美国</a>
+                                            <a>墨西哥</a>
+                                            <a>阿根廷</a>
+                                            <a>巴西</a>
+                                            <a>古巴</a>
+                                            <a>秘鲁</a>
+                                            <a>智利</a>
+                                            <a>玻利维亚</a>
+                                            <a>厄瓜多尔</a>
+                                            <a>哥斯达黎加</a>
+                                            <a>南极</a>
+                                        </dd>
+                                        <dt>海岛</dt>
+                                        <dd>
+                                            <a>巴厘岛</a>
+                                            <a>普吉岛</a>
+                                            <a>苏梅岛</a>
+                                            <a>马尔代夫</a>
+                                            <a>帕劳</a>
+                                            <a>沙巴</a>
+                                            <a>长滩岛</a>
+                                            <a>塞班岛</a>
+                                            <a>夏威夷</a>
+                                            <a>塞舌尔</a>
+                                            <a>大溪地</a>
+                                            <a>萨摩亚</a>
+                                            <a>斐济</a>
+                                            <a>毛里求斯</a>
+                                        </dd>
+                                        <dt>中东非洲</dt>
+                                        <dd>
+                                            <a>迪拜</a>
+                                            <a>南非</a>
+                                            <a>肯尼亚</a>
+                                            <a>以色列</a>
+                                            <a>土耳其</a>
+                                        </dd>
+                                    </dl>
+
+                                    <div class="region-other">
+                                        <label>其它</label>
+                                        <input type="text" style="width:180px;" placeholder="输入其他目的地" class="input-text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn1">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+                            
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择目的地哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer1" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我想去北京玩！</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="2" id="talkQuestion2" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，从哪里出发？</h6>
+
+                            <div class="region" data-target="region">
+                                <ul class="region-tab">
+                                    <li class="active">热门</li>
+                                    <li>国内</li>
+                                   
+                                </ul>
+
+                                <div class="region-content">
+                                    <div class="region-items items-a" style="display: block;">
+                                        <a>北京</a>
+                                        <a>九寨沟</a>
+                                        <a>厦门</a>
+                                        <a>桂林</a>
+                                        <a>云南</a>
+                                        <a>西藏</a>
+                                        <a>韩国</a>
+                                        <a>台湾</a>
+                                        <a>新加坡</a>
+                                        <a>泰国</a>
+                                        <a>巴厘岛</a>
+                                        <a>欧洲</a>
+                                        <a>美国</a>
+                                        <a>加拿大</a>
+                                        <a>古巴</a>
+                                        <a>南极</a>
+                                        <a>毛里求斯</a>
+                                        <a>新加坡</a>
+                                    </div>
+
+                                    <div class="region-items items-a">
+                                        <a>黄山</a>
+                                        <a>乌镇</a>
+                                        <a>泰山</a>
+                                        <a>厦门</a>
+                                        <a>青岛</a>
+                                        <a>北京</a>
+                                        <a>西安</a>
+                                        <a>丽江</a>
+                                        <a>九寨沟</a>
+                                        <a>稻城亚丁</a>
+                                        <a>张家界</a>
+                                        <a>桂林</a>
+                                        <a>三亚</a>
+                                        <a>敦煌</a>
+                                        <a>重庆</a>
+                                        <a>宁夏</a>
+                                        <a>内蒙古</a>
+                                        <a>青海</a>
+                                        <a>新疆</a>
+                                        <a>云南</a>
+                                        <a>西藏</a>
+                                        <a>贵州</a>
+                                    </div>
+                                    
+                                    
+                                    <div class="region-other">
+                                        <label>其它</label>
+                                        <input type="text" style="width:180px;" placeholder="输入其他的出发地" class="input-text">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn2">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择出发地哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer2" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我想从西安出发。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="3" id="talkQuestion3" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，喜欢什么样的旅游方式？</h6>
+
+                            <div class="ly-mode items-a">
+                                <a>自由行</a>
+                                <a>跟团游</a>
+                                <a>我不确定</a>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn3">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择旅游方式哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer3" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我喜欢自由行的旅游方式。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="4" id="talkQuestion4" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，打算什么时候出发？</h6>
+
+                            <div class="depart-time">
+                                <input type="text" id="depatureTime" class="depatureTime"> 前后
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn4">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择什么时候出发哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer4" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我要在2015-05-20日前后出发。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="5" id="talkQuestion5" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，打算在外面玩几天？</h6>
+
+                            <div class="yx-day-mode">
+                                <div class="items-a">
+                                    <a>8天</a>
+                                    <a>9天</a>
+                                    <a>14天</a>
+                                </div>
+
+                                <div class="yx-day-sel">
+                                    <label>游玩天数 </label>
+                                    <select class="select-txt">
+                                        <option value="" selected="selected">请选天数</option>
+                                        <option value="3">1天</option>
+                                        <option value="4">2天</option>
+                                        <option value="3">3天</option>
+                                        <option value="4">4天</option>
+                                        <option value="5">5天</option>
+                                        <option value="6">6天</option>
+                                        <option value="7">7天</option>
+                                        <option value="8">8天</option>
+                                        <option value="9">9天</option>
+                                        <option value="10">10天</option>
+                                        <option value="11">11天</option>
+                                        <option value="12">12天</option>
+                                        <option value="13">13天</option>
+                                        <option value="14">14天</option>
+                                        <option value="15">15天</option>
+                                        <option value="16">15天以上</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn5">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择在外面玩几天哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer5" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我要游玩18天。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="6" id="talkQuestion6" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，您几个人一起出游？</h6>
+
+                            <div class="number-people">
+                                <dl class="num_box_dl">
+                                    <dt>成年人</dt>
+                                    <dd>
+                                        <div class="num_box">
+                                            <a class="sub_btn"><i class="icon-cut"></i></a>
+                                            <input type="text" id="numBox0" value="2" maxlength="2">
+                                            <a class="add_btn"><i class="icon-add"></i></a>
+                                        </div>
+                                    </dd>
+                                </dl>
+                                <dl class="num_box_dl">
+                                    <dt>儿童</dt>
+                                    <dd>
+                                        <div class="num_box">
+                                            <a class="sub_btn"><i class="icon-cut"></i></a>
+                                            <input type="text" id="numBox1" value="0" maxlength="2">
+                                            <a class="add_btn"><i class="icon-add"></i></a>
+                                        </div>
+                                        <span class="text">0-11岁</span>
+                                    </dd>
+                                </dl>
+                                <dl class="num_box_dl">
+                                    <dt>老人</dt>
+                                    <dd>
+                                        <div class="num_box">
+                                            <a class="sub_btn"><i class="icon-cut"></i></a>
+                                            <input type="text" id="numBox2" value="0" maxlength="2">
+                                            <a class="add_btn"><i class="icon-add"></i></a>
+                                        </div>
+                                        <span class="text">65岁以上</span>
+                                    </dd>
+                                </dl>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn6">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择几个人一起出游哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer6" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我们一共三个人。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="7" id="talkQuestion7" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>亲，喜欢什么样的旅游方式？</h6>
+
+                            <div class="budgeting">
+                                <div class="items-a">
+                                    <a>0-3000元/人</a>
+                                    <a>3000-6000元/人</a>
+                                    <a>6000-10000元/人</a>
+                                    <a>10000元以上/人</a>
+                                </div>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn7">
+                                <a class="button">确定</a>
+                                <p class="button-p">
+                                    <a class="button-edit">修改</a>
+                                    <span><i class="icon icon-success"></i>已确认</span>
+                                </p>
+                            </div>
+
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有选择旅游方式哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="talkAnswer7" class="dialogue-answer-box">
+                        <div class="dialogue-answer-icon"></div>
+                        <div class="dialogue-answer-content">
+                            <i class="arrow"></i>
+                            <p>我的旅游预算是3000-6000元/人。</p>
+                        </div>
+                    </div>
+
+                    <div data-question-id="8" id="talkQuestion8" class="dialogue-ask-box">
+                        <div class="dialogue-ask-icon"></div>
+                        <div class="dialogue-ask-content">
+                            <i class="arrow"></i>
+                            <h6>请留下联系方式我们会尽快与您沟通，开启您的定制旅程。</h6>
+
+                            <div class="contact-way">
+                                <form action="#" target="_blank" method="post">
+                                    <ul class="form-horizontal">
+                                        <li class="form-group">
+                                            <div class="input-control">
+                                                <label>姓名：</label>
+                                                <input type="text" placeholder="* 必填" class="input-text" data-target="name">
+                                                <label style="margin-left: 26px;">电话：</label>
+                                                <input type="text" placeholder="* 必填" class="input-text" data-target="phone">
+                                            </div>
+                                        </li>
+
+                                        <li class="form-group">
+                                            <div class="input-control">
+                                                <label>邮箱：</label>
+                                                <input type="text" class="input-text" data-target="email">
+                                                <label style="margin-left: 26px;">微信：</label>
+                                                <input type="text" class="input-text" data-target="weixin">
+                                            </div>
+                                        </li>
+
+                                        <li class="form-group">
+                                            <div class="items-a">
+                                                <label>联系时间：</label>
+                                                <a>随时</a>
+                                                <a>午休时间</a>
+                                                <a>18点之后</a>
+                                            </div>
+                                        </li>
+
+                                        <li class="form-group">
+                                            <div class="textarea-control">
+                                                <label>特殊要求：</label>
+                                                <textarea class="textarea-text" data-target="tex">爱简疯狂大姐夫口大街饭卡艰苦奋斗就阿卡否定句阿卡打飞机阿卡打飞机阿克江打开否定句安康法克放大放大卡飞</textarea>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </form>
+                            </div>
+
+                            <div class="dialogue-btn" id="dialogueBtn8">
+                                <a class="button">提交</a>
+                            </div>
+                            
+                            <div class="dialog-tips">
+                                <div class="dialog-layout">
+                                    <span class="arrow"></span>
+                                </div>
+                                <div class="content">
+                                    <h3 class="title">亲，还木有留下联系方式哦！</h3>
+                                    <p class="center"><a class="button">返回</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dialogue-complete" id="dialogueComplete">
+                        <div class="dialogue-complete-content">
+                            <span class="arrow"></span>
+                            <i id="cboxClose"></i>
+                            <h6>订单编号：<span class="code"></span></h6>
+                            <ul>
+                                <li><p style="width:280px;">姓名：<span class="name"></span></p><p>手机号：<span class="phone"></span></p></li>
+                                <li><p style="width:280px;">邮箱：<span class="email"></span></p><p>微信号：<span class="weixin"></span></p></li>
+                                <li>特殊要求：<span class="tex"></span></li>
+                            </ul>
+                            <div class="dialogue-footer">
+                                <p>您的需求单已经提交，</p>
+                                <p>我们会在2小时内和您电话确认。</p>
+                                <p>如果您还有其他要求，请致电：400-0450-718</p>
+                            </div>
+                        </div>
+                        <div class="dialog-layout"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--定制结束-->
+
+{% include "ajx/includes/footer.html" %}
+{% include "ajx/includes/sidebar.html" %}
+
+<script type="text/javascript">
+    $(function () {
+        function tabs(tabTit, on, tabCon) {
+            $(tabCon).each(function () {
+                $(this).children().eq(0).show();
+            });
+            $(tabTit).each(function () {
+                $(this).children().eq(0).addClass(on);
+            });
+            $(tabTit).children().click(function () {
+                $(".dest_mdd_dl_qb").find("a").removeClass("active");
+
+                $(this).addClass(on).siblings().removeClass(on);
+                var index = $(tabTit).children().index(this);
+                $(tabCon).children().eq(index).show().siblings().hide();
+            });
+        }
+
+        tabs(".tab-hd", "active", ".tab-bd");
+    });
+
+
+    $(document).ready(function (e) {
+        $(".dest_mdd_dl_qb").click(function () {
+            $(this).find("a").addClass("active");
+            $(".dest_mdd_bd").children("li").hide();
+            $(".dest_mdd_hd li").removeClass("active");
+            ;
+        });
+
+
+    });
+
+
+</script>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $(window).scroll(function () {
+
+        });
+//当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function () {
+            $("body,html").animate({scrollTop: 0}, 1000);
+            return false;
+        });
+    });
+</script>
+
+
+<script type="text/javascript">
+    $(".cha").click(function () {
+        $(".sidebar").hide()
+        $(".ycl_dd").hide()
+        $(".xs").slideDown();
+    })
+
+    $(".xs").click(function () {
+        $(".sidebar").show()
+        $(".ycl_dd").show()
+        $(".xs").slideUp();
+    })
+
+</script>
+
+<script type="text/javascript" src="{% static 'js/jquery.SuperSlide.min.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/fish.1.4.7.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/Calendar.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/my-plan.js'%}"></script>
+<script>
+    $(document).ready(function (e) {
+
+        $(window).scroll(
+            function () {
+                if (( $(window).scrollTop()) >= 625) {
+                    $(".xianlumoban_ul").addClass("ab");
+                } else {
+                    $(".xianlumoban_ul").removeClass("ab");
+                }
+            }
+        );
+
+    });
+</script>
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+{% endblock %}

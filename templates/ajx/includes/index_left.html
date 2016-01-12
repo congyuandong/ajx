@@ -10,9 +10,17 @@
             <h2><p>出发地</p></h2>
             <div  class="index_left_1">
                 <ul>
+                    {% if sall == 1 %}
                     <li><a href="?s=-1{{except_s}}">全部</a></li>
+                    {% else %}
+                    <li class="active"><a href="?s=-1{{except_s}}">全部</a></li>
+                    {% endif %}
                     {% for setout in setouts %} 
+                    {% if sid == setout.id %}
+                    <li class="active"><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
+                    {% else %}
                     <li><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
+                    {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
                 </ul>
@@ -24,9 +32,17 @@
             <h2 class="index_left_2"><p>目的地<span>国内</span></p></h2>
             <div class="index_left_1 index_left_gn">
                 <ul>
+                    {% if dall == 1 %}
                     <li><a href="?d=-1{{except_d}}">全部</a></li>
-                    {% for destin in destins %} 
+                    {% else %}
+                    <li class="active"><a href="?d=-1{{except_d}}">全部</a></li>
+                    {% endif %}
+                    {% for destin in destins %}
+                    {% if did == destin.id %}
+                    <li class="active"><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
+                    {% else %}
                     <li><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
+                    {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
                 </ul>
@@ -38,9 +54,17 @@
             <h2 class="index_left_3"><p>目的地<span>出境</span></p></h2>
             <div class="index_left_1 index_left_gn">
                 <ul>
+                    {% if dall == 1 %}
                     <li><a href="?d=-1{{except_d}}">全部</a></li>
+                    {% else %}
+                    <li class="active"><a href="?d=-1{{except_d}}">全部</a></li>
+                    {% endif %}
                     {% for destout in destouts %} 
+                    {% if did == destout.id %}
+                    <li class="active"><a href="?d={{destout.id}}{{except_d}}">{{destout.name}}</a></li>
+                    {% else %}
                     <li><a href="?d={{destout.id}}{{except_d}}">{{destout.name}}</a></li>
+                    {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
                 </ul>
@@ -52,7 +76,7 @@
             <h2 class="index_left_4"><p>出游时间</p></h2>
             <div class="index_left_1 index_left_shj">
                 <ul>
-                    <li><a href="#">全部</a></li>
+                    <li class="active"><a href="#">全部</a></li>
                     <li><a href="#">2月</a></li>
                     <li><a href="#">3月</a></li>
                     <li><a href="#">4月</a></li>

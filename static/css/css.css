@@ -9,10 +9,10 @@
 .index_left{ width:230px; float:left;}
 .logo{ width:213px; height:85px; background:url(../images/../images/logo_03.png) no-repeat; margin-top:15px; margin-bottom:42px;}
 .logo h1{text-indent:-9999px;}
-.index_left_1{width:100%; height:auto; display:block;line-height:150%; z-index:99999999999;}
+.index_left_1{width:100%; height:auto; display:block;line-height:150%; z-index:99999999999;color:#7f7c7c;}
 .index_left_1 ul li{width:105px; float:left;height:40px; border-bottom:1px solid #ddd;}
-.index_left_1 ul li a{ font-size:14px; color:#7f7c7c; line-height:40px;font-family:微软雅黑;padding-left:35px;}
-.index_left_1 ul li:first-child a{ color:#f7a142;}
+.index_left_1 ul li a{ font-size:14px; line-height:40px;font-family:微软雅黑;padding-left:35px;}
+.index_left_1 .active{ color:#f7a142;}
 .index_left_1 ul li a:hover{ color:#f7a142;}
 .index_left_1 ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -319px no-repeat;}
 .index_left_gn ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -339px no-repeat;}
