@@ -30,6 +30,7 @@ def Index(request):
 	#获取筛选数据
 	s = int(request.GET.get('s','-1'))
 	d = int(request.GET.get('d','-1'))
+	m = int(request.GET.get('m','-1'))
 
 	kwargs = {}
 	if s > -1:
@@ -38,6 +39,8 @@ def Index(request):
 	if d > -1:
 		kwargs['destination__id'] = d
 		context_dict['destObj'] = Destination.objects.get(id = d)
+	if m > -1:
+		context_dict['month'] = m
 
 	#对路线和广告重新排列
 	routes = Route.objects.filter(**kwargs).order_by('-update')

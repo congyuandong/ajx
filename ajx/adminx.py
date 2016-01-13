@@ -11,7 +11,7 @@ from django.db.models import TextField
 
 class GlobalSetting(object):
 	#设置base_site.html的Title
-	site_title = '爱简行后台管理系统'
+	site_title = '在旅行后台管理系统'
 
 	def get_site_menu(self):
 		return (

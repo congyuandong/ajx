@@ -5,14 +5,24 @@ register = template.Library()
 import sys
 sys.path.append("..")
 from ajx.models import SetOut,Destination
+from datetime import date
 
 
 def index_left(context, setouts, destins, destouts):
 
+	month = date.today().month
+	months = []
+	for index in range(month,month + 5):
+		if index != 12:
+			months.append(index % 12)
+		else:
+			months.append(index)
+
 	result = {
 		'setouts':setouts,
 		'destins':destins,
-		'destouts':destouts
+		'destouts':destouts,
+		'months':months
 	}
 	
 	if 'request' in context:
@@ -36,6 +46,15 @@ def index_left(context, setouts, destins, destouts):
 			result['except_d'] = "&%s" % params.urlencode()
 		else:
 			result['except_d'] = ''
+		if 'm' in params:
+			if int(params['m']) != -1:
+				result['mall'] = 1
+			result['mid'] = int(params['m'])
+			del params['m']
+		if len(params.keys()) > 0:
+			result['except_m'] = "&%s" % params.urlencode()
+		else:
+			result['except_m'] = ''
 
 
 	return result

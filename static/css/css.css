@@ -1,4 +1,3 @@
-
 @charset "utf-8";
 /* CSS Document */
 
@@ -14,10 +13,10 @@
 .index_left_1 ul li a{ font-size:14px; line-height:40px;font-family:微软雅黑;padding-left:35px;}
 .index_left_1 .active{ color:#f7a142;}
 .index_left_1 ul li a:hover{ color:#f7a142;}
-.index_left_1 ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -319px no-repeat;}
-.index_left_gn ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -339px no-repeat;}
-.index_left_shj ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -364px no-repeat;}
-.index_left_ys ul li a:hover{ background:url(../images/../images/index_spirit.png) 15px -388px no-repeat;}
+.index_left_1 ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -322px no-repeat;}
+.index_left_gn ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -342px no-repeat;}
+.index_left_shj ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -368px no-repeat;}
+.index_left_ys ul li a:hover{ background:url(../images/../images/index_spirit.png) 12px -391px no-repeat;}
 .index_left_1 ul .hbg_wu a:hover{ background:none;}
 .index_left_1 ul{ overflow:hidden;width:212px; margin:0px auto;}
 /* always visible */

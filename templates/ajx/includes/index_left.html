@@ -1,7 +1,7 @@
 <div class="index_left">
 	<a href="/">
     	<div class="logo">
-        	<h1>爱简行</h1>
+        	<h1>在旅行</h1>
         </div>
     </a>
     
@@ -76,12 +76,18 @@
             <h2 class="index_left_4"><p>出游时间</p></h2>
             <div class="index_left_1 index_left_shj">
                 <ul>
-                    <li class="active"><a href="#">全部</a></li>
-                    <li><a href="#">2月</a></li>
-                    <li><a href="#">3月</a></li>
-                    <li><a href="#">4月</a></li>
-                    <li><a href="#">5月</a></li>
-                    <li><a href="#">6月</a></li>
+                    {% if mall == 1 %}
+                    <li><a href="?m=-1{{except_m}}">全部</a></li>
+                    {% else %}
+                    <li class="active"><a href="?m=-1{{except_m}}">全部</a></li>
+                    {% endif %}
+                    {% for m in months %}
+                    {% if mid == m %}
+                    <li class="active"><a href="?m={{m}}{{except_m}}">{{m}}月</a></li></li>
+                    {% else %}
+                    <li><a href="?m={{m}}{{except_m}}">{{m}}月</a></li>
+                    {% endif %}
+                    {% endfor %}
                 </ul>
             </div>
         </div>

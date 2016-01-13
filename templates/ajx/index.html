@@ -3,12 +3,10 @@
 {% load extra_tags %}
 {% load pagination_tags %}
 
-{% block title %}爱简行|专注于东北旅游服务{% endblock %}
+{% block title %}在旅行|专注于东北旅游服务{% endblock %}
 
 {% block css %}
-<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/reset.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/style.css'%}" rel="stylesheet" type="text/css">
+
 {% endblock %}
 
 {% block main %}
@@ -82,7 +80,7 @@
         <div class="index_r_con">
         	<div class="tab index_r_tb">
                 <div class="con_div1">
-                    <h2><span>{% if setOutObj %}{{setOutObj.name}}{% else %}全部{% endif %} - {% if destObj %}{{destObj.name}}{% else %}全部{% endif %}</span> | 精品路线</h2>
+                    <h2><span>{% if setOutObj %}{{setOutObj.name}}{% else %}全部{% endif %} - {% if destObj %}{{destObj.name}}{% else %}全部{% endif %}{% if month %} - {{month}}月{% endif %}</span> | 精品路线</h2>
                     <div class="con_div_r">
                     	<span>排序：</span>
                         <ul class="tab-hd con_div1_r">

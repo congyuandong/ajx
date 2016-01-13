@@ -1,0 +1,73 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+/**登录弹出框**/
+.popup_yd{ width:850px; border:7px solid #3eb9c8; position:fixed;left:50% !important; top:50%;margin-top:-200px;margin-left:-425px;z-index:999; background:#fff; padding:1px 0px 30px 0; overflow: hidden;display:none;}
+.popup_yd_close{ height:39px; text-align:right;padding-right:1px; width:849px;}
+.popup_yd_close img{ width:39px; height:39px;}
+.popup_yd_logo{ height:53px; text-align:center;}
+.popup_yd_logo img{ width:299px; height:53px;}
+.popup_yd_con{ width:850px;margin-top:25px; overflow:hidden;}
+.popup_yd_con_left{ width:220px; float:left; margin-left:135px; display:inline;}
+.popup_yd_con_left h3{ line-height:30px; color:#666;font-family:宋体; margin-bottom:10px;}
+.popup_yd_cl_ul li{ width:180px; height:40px;  margin-bottom:20px;}
+.popup_yd_cl_ul li a img{ width:180px; height:40px;}
+.popup_yd_con_left{ line-height:20px; color:#999;}
+.popup_yd_cl_ul .popup_yd_cl_ul_3{ margin-bottom:10px;}
+.popup_yd_con_right{ border-left:1px solid #eeeeee; width:470px; float:left; min-height:255px;}
+
+.tab_popup_yd{ width:360px;margin-left:25px;}
+.tab_popup_hd { height:34px;overflow:hidden; zoom:1;border-bottom:1px solid #eeeeee;}
+.tab_popup_hd li{ float:left;padding:7.5px 0px; width:120px; color:#5d5d5d; text-align:center; cursor:pointer; font-weight:bold;}
+.tab_popup_hd li.active{border-bottom:2px solid #f08619;}
+.tab_popup_bd li{display:none; padding:20px 0;}
+.tab_popup_bd li dl{ width:360px;margin-top:10px; overflow:hidden;}
+.tab_popup_bd li dl dt,.tab_popup_bd li dl dd{ float:left; }
+.tab_popup_bd_dl1 dt{ width:70px; line-height:32px;color:#5d5d5d;}
+.tab_popup_bd_dl1,.tab_popup_bd_dl1 dd{ height:32px;}
+
+.tab_popup_bd_dl1_1{width:210px; margin-right:10px;}
+.tab_popup_bd_dl1_1 input{ border:1px solid #e1e1e1; height:29px; width:188px; padding:0 10px; line-height:30px; background:none; outline:none;color:#5d5d5d;}
+.tab_popup_bd_dl1_2{ line-height:32px;}
+.tab_popup_bd_dl1_2 a{ color:#5d5d5d;}
+.tab_popup_bd_dl1_2 a:hover{ color:#000;}
+.tab_popup_bd_dl2{ height:20px;margin-bottom:15px;}
+.tab_popup_bd_dl2_1{ width:75px; margin-left:70px; line-height:20px; color:#5d5d5d; display:inline;}
+.tab_popup_bd_dl2_1 span{ width:13px; height:13px; margin-right:8px; display:inline-block; position:relative;top:-2px;}
+.tab_popup_bd_dl2_1 input{ width:13px; height:13px; border:1px solid #e1e1e1;}
+.tab_popup_bd_dl2_2 a{ line-height:20px; color:#fe0000;}
+.tab_popup_bd_dl2_2{ width:150px; height:20px;}
+.tab_popup_bd_dl2_2 a:hover{ text-decoration:underline;}
+.tab_popup_bd_dl3{ height:35px;}
+.tab_popup_bd_dl3 dd{ width:209px; height:35px; margin-left:70px; display:inline;}
+.tab_popup_bd_dl3 dd input{width:209px; height:35px; background:url(../images/popup_yd_r_btn.png) 0px 0px no-repeat; border:0; outline:none; cursor:pointer; color:#fff; font-size:18px;font-family:微软雅黑; text-align:center;}
+.tab_popup_bd_dl3 dd input:hover{background:url(../images/popup_yd_r_btn.png) 0px -45px no-repeat;}
+
+.tab_popup_bd_dl1_3{ width:110px; height:32px;}
+.tab_popup_bd_dl1_3 input{ border:1px solid #e1e1e1; height:29px; width:88px; padding:0 10px; line-height:30px; background:none; outline:none;color:#5d5d5d;}
+.tab_popup_bd_dl1_4{ width:50px; margin-left:10px; padding:3px 0; height:26px;}
+.tab_popup_bd_dl1_4 img{ width:50px; height:26px;}
+
+.tab_popup_bd_dl5_1{ width:145px; margin-left:70px; line-height:20px; color:#000; font-weight:bold;display:inline;}
+.tab_popup_bd_dl5_1 span{ width:13px; height:13px; margin-right:8px; display:inline-block; position:relative;top:-2px;}
+.tab_popup_bd_dl5_1 input{ width:13px; height:13px; border:1px solid #e1e1e1;}
+.tab_popup_bd_dl5_2 a{ line-height:20px; color:#3cb5d4;}
+.tab_popup_bd_dl5_2{ width:130px; height:20px;}
+.tab_popup_bd_dl5_2 a:hover{ text-decoration:underline;}
+
+.tab_popup_bd_dl1 .tab_popup_bd_dl1_col input{ color:#999;}
+
+
+
+
+
+
+
+
+/**二次确认弹出框**/
+.pay_way_icon{ position:relative;}
+.erciqueren_show{ width:327px; height:154px; background:url(../images/erciqueren_bg.png) no-repeat; display:none; position:absolute;top:-175px; left:-166px; padding:10px 15px;}
+.erciqueren_show p{ line-height:24px; text-indent:2em; color:#666; font-size:12px; font-family:宋体;}
+
+
