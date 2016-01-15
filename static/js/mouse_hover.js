@@ -86,11 +86,11 @@ $(function(){
 		});	
 
 	$(".pay_way_icon").hover(function(){
-		$(this).children(".erciqueren_show").show();
+		$(this).children(".confirm_show").show();
 		$(this).addClass("");
 	},
 	function(){
-		$(this).children(".erciqueren_show").hide();
+		$(this).children(".confirm_show").hide();
 		$(this).removeClass("");
 		});
 

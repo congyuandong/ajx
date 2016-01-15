@@ -1,5 +1,6 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
+{% load extra_tags %}
 
 {% block title %}{{route.name}}|在旅行{% endblock %}
 
@@ -24,7 +25,7 @@
                         <p>￥{{route.realPrice}}</p>
                     </div>
                     <div class="xqym_l_1_jq_r">
-                        <span>6.5折</span>
+                        <span>{{route.realPrice|discount:route.marketPrice}}折</span>
                         <p>￥{{route.marketPrice}}</p>
                     </div>
                 </div>
@@ -177,60 +178,53 @@
                                 <div class="price">￥{{route.realPrice}}</div>
                                 <span class="old_price" style="float:left;margin-top: 6px; font-size: 13px;">￥{{route.marketPrice}}</span>
                                 <div class="price_tip">
-                                    <a  class="qj_link" href="javascript:void(0)" id="priceDescription">【起价说明】</a>
+                                    <a class="qj_link" href="javascript:void(0)">【起价说明】</a>
                                     <!--起价说明弹出层-->
                                     <div class="popup_tip">
                                     本起价是可选出发日期中，按双人出行共住一间房核算的最低单人价格。产品价格会根据您所选择的出发日期、出行人数、入住酒店房型、航班或交通以及所选附加服务的不同而有所差别。
-                                   	   <span><img src="{% static 'images/xsj.jpg'%}" /></span>
+                                   	<span><img src="{% static 'images/xsj.jpg'%}" /></span>
                                    	</div>
                                 </div>
                             </dd>
                         </dl>
-
                         <dl>
                             <dt>儿童价：</dt>
                             <dd>
-                                <div class="price_hei">￥5080</div>
+                                <div class="price_hei">￥{{route.childPrice}}</div>
                             </dd>
-                        </dl>
-                        <dl>
-                            <!--TODO-->
                         </dl>
                         <dl>
                             <dt>产品类型：</dt>
                             <dd>
-                                <div class="zyx_icon">自由行</div>
-                                <div class="pay_way_icon">二次确认<div class="erciqueren_show"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与在旅行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div></div>
+                                <div class="route_type_icon_{{route.types|odd:6}}">{{route.get_types_display}}</div>
+                                <div class="pay_way_icon">{% if route.needConfirm == 1%}二次确认{% else %}立即确认{% endif %}<div class="confirm_show"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与在旅行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div>
+                                </div>
                             </dd>
                         </dl>
                         <dl>
                             <dt>目的地：</dt>
                             <dd>
-                                <p>哈尔滨</p>
+                                <p>{{route.destination}}</p>
                             </dd>
                         </dl>
                         <dl>
                             <dt>出发地点：</dt>
-                            <dd> 北京</dd>
+                            <dd>{{route.setOut}}</dd>
                         </dl>
                         <dl>
                             <dt>交通信息：</dt>
-                            <dd> 飞机去/飞机回 </dd>
+                            <dd>{{route.get_goType_display}}去/{{route.get_backType_display}}回 </dd>
                         </dl>
                         <dl>
                             <dt>出游天数：</dt>
-                            <dd> 6 天</dd>
+                            <dd> {{route.day}} 天</dd>
                         </dl>
-                        <!--dl>
-                            <dt>剩余时间：</dt>
-                            <dd> <em data-time="2297889" class="count-down"></em> </dd>
-                        </dl-->
                         <dl>
                             <dt>报名时间：</dt>
-                            <dd>建议提前 1 天以上预订
+                            <dd>建议提前 {{route.advance}} 天以上预订
                             </dd>
                         </dl>
-                        <dl class="info-item" style="display:none;">
+                        <dl class="info-item">
                         <dt>产品分类：</dt>
                         <dd>
                             <input type="hidden" name="type_id" id="typeIdInput" value="9881">

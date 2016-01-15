@@ -7,7 +7,7 @@ $(document).ready(function() {
 		addKid = $(".add")[1],
 		
 		countAdult = 1,
-		countKid = 1;
+		countKid = 0;
 			
 	start = function (reduce, text, add, count) {
 		less = function () {
@@ -22,8 +22,8 @@ $(document).ready(function() {
 				text.value = count;
 		};
 
-		reduce.onclick = less;
-		add.onclick = increase;
+		reduce.onclick = increase;
+		add.onclick = less;
 	};
 
 	start(reduceAdult, textAdult, addAdult, countAdult);

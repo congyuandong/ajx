@@ -44,6 +44,7 @@ class RouteAdmin(object):
 	style_fields = {'supplier':'ueditor', 'detail':'ueditor', 'cost':'ueditor', 'ship':'ueditor', 'traffic':'ueditor', 'visa':'ueditor', 'notice':'ueditor', 'netsign':'ueditor', 'hotel':'ueditor'}
 	search_fields = ['name']
 	list_per_page = 20
+	ordering = ['-update']
 
 class UserInfoAdmin(object):
 	list_display = ['account', 'phone', 'email', 'nick', 'sex', 'birthday']
