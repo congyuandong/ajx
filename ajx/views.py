@@ -1,5 +1,5 @@
 #coding:utf-8
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
@@ -76,16 +76,29 @@ def Index(request):
 	return render_to_response('ajx/index.html',context_dict,context)
 
 #线路详细页面
-def RouteDetail(request):
+def RouteDetail(request,rid):
 	context = RequestContext(request)
-	context_dict = {}
+
+	linkObjs = Links.objects.order_by('sort')
+	context_dict = {
+		'links':linkObjs
+	}
+
+	route = get_object_or_404(Route, id = rid)
+	
+
+	context_dict['route'] = route
 
 	return render_to_response('ajx/route.html',context_dict,context)
 
 #东北游
 def North(request):
 	context = RequestContext(request)
-	context_dict = {}
+
+	linkObjs = Links.objects.order_by('sort')
+	context_dict = {
+		'links':linkObjs
+	}
 
 	return render_to_response('ajx/north.html',context_dict,context)
 

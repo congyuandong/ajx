@@ -207,6 +207,7 @@
 .xqym_left_3 a:hover{background:url(../images/xqym_left_spirit.png) -3px -237px no-repeat;}
 .xqym_left_3 input{ display:block; width:213px; height:38px; text-align:center; line-height:38px; background:url(../images/xqym_left_spirit.png) -3px -196px no-repeat; text-indent:-9999px; margin-top:10px;}
 .xqym_banner{ width:745px; height:267px; margin-top:25px; position:relative;}
+.xqym_banner .mainpic{width:745px; height:267px;}
 .xqym_banner_div{ height:62px; width:745px; background:url(../images/xqym_banner_bg.png) repeat-x; position:absolute; top:205px; left:0;}
 .xqym_banner_div_l{ float:left;width:670px; padding-left:10px;}
 .xqym_banner_div_l h2{ line-height:30px; font-family:微软雅黑; font-size:22px; color:#4a4a4a; font-weight:normal;}

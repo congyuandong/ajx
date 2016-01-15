@@ -119,6 +119,7 @@ class Addition(models.Model):
 #线路表
 class Route(models.Model):
 	name = models.CharField(max_length = 200, verbose_name = '线路名称')
+	code = models.CharField(max_length = 20, verbose_name = '线路编号')
 	ifAct = models.IntegerField(default = 0, verbose_name = '是否上架', choices = YESORNO_CHOICES)
 	pic = models.ImageField(upload_to ='route/',verbose_name = '详细页图片')
 	listPic = models.ImageField(upload_to ='route/',verbose_name = '列表页图片')
@@ -320,7 +321,9 @@ class Links(models.Model):
 
 #系统基础信息
 class SystemInfo(models.Model):
+	name = models.CharField(max_length = 100, verbose_name = '网站名称')
 	tel = models.CharField(max_length = 20, verbose_name = '客服电话')
+	url = models.URLField(verbose_name = '域名地址')
 
 	def __unicode__(self):
 		return u'基础信息'

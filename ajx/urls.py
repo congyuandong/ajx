@@ -7,5 +7,5 @@ urlpatterns = patterns('',
 	url(r'^made/$', views.Made, name='Made'),
 	url(r'^north/$', views.North, name='North'),
 	url(r'^nd/$', views.NorthDetail, name='NorthDetail'),
-	url(r'^route/$', views.RouteDetail, name='RouteDetail'),
+	url(r'^route/(.+)$', views.RouteDetail, name='RouteDetail'),
 	)
