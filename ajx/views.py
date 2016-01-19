@@ -6,6 +6,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 from django.http import Http404
 
 from datetime import date
+import simplejson as json
+import tools as T
 
 from models import *
 
@@ -76,20 +78,63 @@ def Index(request):
 	return render_to_response('ajx/index.html',context_dict,context)
 
 #线路详细页面
-def RouteDetail(request,rid):
+def RouteDetail(request, rid):
 	context = RequestContext(request)
 
+	today = date.today()
+
 	linkObjs = Links.objects.order_by('sort')
+	
+	routeObj = get_object_or_404(Route, id = rid)
+	classObjs = Classification.objects.filter(route = routeObj).order_by('sort')
+
 	context_dict = {
-		'links':linkObjs
+		'route':routeObj,
+		'links':linkObjs,
+		'classes':classObjs,
+		'data':{'year':today.year,'month':today.month}
 	}
 
-	route = get_object_or_404(Route, id = rid)
-	
-
-	context_dict['route'] = route
+	if classObjs:
+		calendars = RouteCalendar(request, today.year, today.month, classObjs[0].id)
+		context_dict['calendars'] = calendars['calendars']
+		if 'go' in calendars.keys():
+			print calendars['go']
+			context_dict['date'] = calendars['go']['date']
+			context_dict['data']['left'] = calendars['go']['left']
+		else:
+			context_dict['date'] = date.today().strftime('%Y-%m-%d')
+			context_dict['data']['left'] = 0
+		context_dict['data']['classid'] = classObjs[0].id
 
 	return render_to_response('ajx/route.html',context_dict,context)
+
+#根据年月和日期获取套餐的价格和余位信息
+def RouteCalendar(request, year, month, classid):
+	response = {}
+
+	weeks = T.getcal(year, month)
+	calendars = []
+
+	for week in weeks:
+		oneWeek = []
+		for day in week:
+			goObjs = GoDate.objects.filter(classification__id = classid, date = day)
+			if goObjs:
+				oneWeek.append({'has':1,'day':day.day,'date':day.strftime('%Y-%m-%d'),'left':goObjs[0].left,'price':int(goObjs[0].price)})
+				if 'go' not in response.keys():
+					response['go'] = {'date':goObjs[0].date.strftime('%Y-%m-%d'),'left':goObjs[0].left}
+			else:
+				oneWeek.append({'has':0,'day':day.day})
+		calendars.append(oneWeek)
+
+	response['calendars'] = calendars
+	response['code'] = 1
+
+	if request.is_ajax():
+		return HttpResponse(json.dumps(response),content_type="application/json")
+	else:
+		return response
 
 #东北游
 def North(request):

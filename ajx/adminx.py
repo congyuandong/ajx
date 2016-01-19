@@ -85,6 +85,7 @@ class ClassificationAdmin(object):
 	list_editable = ['name', 'sort']
 	list_filter = ['route']
 	search_fields = ['name']
+	ordering = ['sort']
 	list_per_page = 20
 
 class GoDateAdmin(object):
