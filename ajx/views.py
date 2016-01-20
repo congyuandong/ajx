@@ -26,7 +26,8 @@ def Index(request):
 		'destins':destInObjs,
 		'destouts':destOutObjs,
 		'slidebanners':slideBannerObjs,
-		'links':linkObjs
+		'links':linkObjs,
+		'nav':'index'
 	}
 
 	#获取筛选数据
@@ -46,6 +47,7 @@ def Index(request):
 
 	#对路线和广告重新排列
 	routes = Route.objects.filter(**kwargs).order_by('-update')
+	print routes
 	listbanners = BannerList.objects.order_by('sort')
 	indexItemObjs = []
 	counter = 0
@@ -154,7 +156,8 @@ def North(request):
 
 	linkObjs = Links.objects.order_by('sort')
 	context_dict = {
-		'links':linkObjs
+		'links':linkObjs,
+		'nav':'north'
 	}
 
 	return render_to_response('ajx/north.html',context_dict,context)
@@ -170,5 +173,11 @@ def NorthDetail(request):
 def Made(request):
 	context = RequestContext(request)
 	context_dict = {}
+
+	linkObjs = Links.objects.order_by('sort')
+	context_dict = {
+		'links':linkObjs,
+		'nav':'made'
+	}
 
 	return render_to_response('ajx/made.html',context_dict,context)

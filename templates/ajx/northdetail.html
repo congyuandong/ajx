@@ -111,45 +111,8 @@ function set_cur(n){
 }
 </script>
 
-<div class="about_top">
-	<div class="about_box">
-        <div class="about_logo fl">
-            <h1>在旅行</h1>
-        </div>
-        <div class="about_top_r fr">
-        	<div class="about_right_top">
-                <ul>
-                    <li><a href="#">我的订单</a></li>
-                    <li>|</li>
-                    <li><a href="#">注册</a></li>
-                    <li>|</li>
-                    <li><a href="#">登录</a></li>
-                    <li>|</li>
-                    <li class="index_right_top_li7">400-0450-718</li>
-                </ul>
-            </div>
-            <div class="about_header">
-                <div class="dest_nav">
-                    <ul>
-                        <li><a href="#">线路首页</a></li>
-                        <li>
-                        <a href="#">特惠广场</a>
-                        <div class="hot"><img src="images/hot.png" /></div>
-                        </li>
-                        <li><a href="#">东北游</a></li>
-                        <li><a href="#">定制</a></li>
-                    </ul>
-                </div>
-                <div class="search">
-                    <form>
-                    <div class="search_in"><input name="" type="text" value="请输入您要搜索的目的地" onfocus="if (value =='请输入您要搜索的目的地'){value =''}" onblur="if (value ==''){value='请输入您要搜索的目的地'}"/></div>
-                    <div class="search_but"><input name="" type="button" /></div>
-                    </form>
-                </div>
-            </div><!--header-->
-        </div>
-	</div>
-</div>
+{% include "ajx/includes/login.html" %}
+{% include "ajx/includes/header.html" %}
 <div class="cl"></div>
 
 <div class="destination_mbx">

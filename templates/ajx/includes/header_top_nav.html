@@ -1,0 +1,39 @@
+{% load staticfiles %}
+<ul>
+    <li {% if nav == 'index' %}class="thisclass"{% endif %}>
+        <a href="/w/index/">线路首页</a>
+    </li>
+    <li class="index_nav_thgc_show  {% if nav == 'thgc' %}class='thisclass'{% endif %}">
+        <a href="#">特惠广场</a>
+        <div class="hot">
+            <img src="{% static 'images/hot.png'%}" />
+        </div>
+
+        <div class="index_nav_ztxl">
+            <a href="#">
+                <img src="{% static 'images/index_nav_xl_pic_03.jpg'%}" />
+            </a>
+            <a href="#">
+                <img src="{% static 'images/index_nav_xl_pic_05.jpg'%}" />
+            </a>
+            <a href="#">
+                <img src="{% static 'images/index_nav_xl_pic_10.jpg'%}" />
+            </a>
+            <a href="#">
+                <img src="{% static 'images/index_nav_xl_pic_12.jpg'%}" />
+            </a>
+            <a href="#" class="index_nav_ztxl_w">
+                <img src="{% static 'images/index_nav_xl_pic_16.jpg'%}" />
+            </a>
+            <a href="#" class="index_nav_ztxl_w">
+                <img src="{% static 'images/index_nav_xl_pic_18.jpg'%}" />
+            </a>
+        </div>
+    </li>
+    <li {% if nav == 'north' %}class="thisclass"{% endif %}>
+        <a href="/w/north/">东北游</a>
+    </li>
+    <li {% if nav == 'made' %}class="thisclass"{% endif %}>
+        <a href="/w/made/">定制</a>
+    </li>
+</ul>

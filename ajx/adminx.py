@@ -17,19 +17,27 @@ class GlobalSetting(object):
 		return (
 				{'title': '线路管理','menus':(
 					{'title': '线路管理', 'icon': 'fa fa-train', 'url': self.get_model_url(Route, 'changelist')},
-					{'title': '行程管理', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(RouteDetail, 'changelist')},
+					{'title': '参考行程', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(RouteDetail, 'changelist')},
 					{'title': '套餐管理', 'icon': 'fa fa-shopping-basket', 'url': self.get_model_url(Classification, 'changelist')},
-					{'title': '出发日期管理', 'icon': 'fa fa-calendar', 'url': self.get_model_url(GoDate, 'changelist')},
-					{'title': '出发地管理', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(SetOut, 'changelist')},
-					{'title': '目的地管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
+					{'title': '出发日期', 'icon': 'fa fa-calendar', 'url': self.get_model_url(GoDate, 'changelist')},
+					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(SetOut, 'changelist')},
+					{'title': '目的地', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
 					{'title': '附加产品', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(Addition, 'changelist')},
 					{'title': '航班信息', 'icon': 'fa fa-plane', 'url': self.get_model_url(RouteAirplane, 'changelist')},
 				)},
 				{'title': '订单管理 ','menus':(
 					{'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
+					{'title': '定制订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(MadeOrder, 'changelist')},
 				)},
 				{'title': '用户管理','menus':(
 					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
+				)},
+				{'title': '定制管理','menus':(
+					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(MadeSetOut, 'changelist')},
+					{'title': '目的地(境内)', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(MadeDest, 'changelist')},
+					{'title': '目的地(境外)', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(MadeDestOut, 'changelist')},
+					{'title': '出行方式', 'icon': 'fa fa-user', 'url': self.get_model_url(MadeTravelType, 'changelist')},
+					{'title': '出行预算', 'icon': 'fa fa-user', 'url': self.get_model_url(MadeBudget, 'changelist')},
 				)},
 				{'title': '系统维护','menus':(
 					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(BannerSlide, 'changelist')},
@@ -130,6 +138,47 @@ class LinksAdmin(object):
 	list_per_page = 20
 	ordering = ['sort']
 
+class MadeSetOutAdmin(object):
+	list_display = ['name', 'types', 'sort']
+	list_editable = ['name', 'types', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class MadeDestAdmin(object):
+	list_display = ['name', 'types', 'sort']
+	list_editable = ['name', 'types', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class MadeDestOutAdmin(object):
+	list_display = ['name', 'types', 'sort']
+	list_editable = ['name', 'types', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class MadeTravelTypeAdmin(object):
+	list_display = ['name', 'sort']
+	list_editable = ['name', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class MadeBudgetAdmin(object):
+	list_display = ['name', 'sort']
+	list_editable = ['name', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class MadeOrderAdmin(object):
+	list_display = ['name', 'tel', 'dest', 'setout', 'date', 'persons', 'days', 'budget']
+	search_fields = ['name', 'tel']
+	list_per_page = 20
+	ordering = ['-update']
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -169,3 +218,9 @@ xadmin.site.register(Order,OrderAdmin)
 xadmin.site.register(BannerSlide,BannerSlideAdmin)
 xadmin.site.register(BannerList,BannerListAdmin)
 xadmin.site.register(Links,LinksAdmin)
+xadmin.site.register(MadeSetOut,MadeSetOutAdmin)
+xadmin.site.register(MadeDest,MadeDestAdmin)
+xadmin.site.register(MadeDestOut,MadeDestOutAdmin)
+xadmin.site.register(MadeTravelType,MadeTravelTypeAdmin)
+xadmin.site.register(MadeBudget,MadeBudgetAdmin)
+xadmin.site.register(MadeOrder,MadeOrderAdmin)

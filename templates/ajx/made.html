@@ -4,59 +4,16 @@
 {% block title %}行程定制|在旅行{% endblock %}
 
 {% block css %}
-<link href="{% static 'css/reset1.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/my-plan.css'%}" rel="stylesheet" type="text/css">
-<link href="{% static 'css/calendar2.css'%}" rel="stylesheet" type="text/css">
+<link href="{% static 'css/my-plan.css'%}" rel="stylesheet" type="text/css"/>
+<link href="{% static 'css/calendar2.css'%}" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
 {% block main %}
 
-<div class="about_top">
-    <div class="about_box">
-        <div class="about_logo fl">     
-            <h1>在旅行</h1>
-        </div>
-        <div class="about_top_r fr">
-            <div class="about_right_top">
-                <ul>
-                    <li><a href="#">我的订单</a></li>
-                    <li>|</li>
-                    <li><a href="#">注册</a></li>
-                    <li>|</li>
-                    <li><a href="#">登录</a></li>
-                    <li>|</li>
-                    <li class="index_right_top_li7">400-0450-718</li>
-                </ul>
-            </div>
-            <div class="about_header">
-                <div class="dest_nav">
-                    <ul>
-                        <li><a href="#">线路首页</a></li>
-                        <li>
-                            <a href="#">特惠广场</a>
+{% include "ajx/includes/login.html" %}
+{% include "ajx/includes/header.html" %}
 
-                            <div class="hot"><img src="{% static 'images/hot.png'%}"/></div>
-                        </li>
-                        <li><a href="#">东北游</a></li>
-                        <li class="thisclass"><a href="#">定制</a></li>
-                    </ul>
-                </div>
-                <div class="search">
-                    <form>
-                        <div class="search_in"><input name="" type="text" value="请输入您要搜索的目的地"
-                                                      onfocus="if (value =='请输入您要搜索的目的地'){value =''}"
-                                                      onblur="if (value ==''){value='请输入您要搜索的目的地'}"/></div>
-                        <div class="search_but"><input name="" type="button"/></div>
-                    </form>
-                </div>
-            </div>
-            <!--header-->
-        </div>
-    </div>
-</div>
 <!--定制开始-->
-
 <div class="my-plan-bg">
     <div class="my-plan">
         <div class="my-plan-step">
@@ -97,7 +54,7 @@
                         <div class="dialogue-ask-icon"></div>
                         <div class="dialogue-ask-content">
                             <i class="arrow"></i>
-                            <h6>嗨，您好，我是在旅行旅游顾问！<br><span class="fz14"><span class="text-orange">行程规划、贴身顾问、全程预订</span>等服务；来一次不拼团、零操心的自主旅行。</span></h6>
+                            <h6>Hi，您好，我是在旅行旅游顾问！<br><span class="fz14"><span class="text-orange">行程规划、贴身顾问、全程预订</span>等服务；来一次不拼团、零操心的自主旅行。</span></h6>
                             <div class="other-info">
                                 <p><i class="icon icon-success"></i><span class="text-orange">2分钟</span>了解您的需求</p>
                                 <p><i class="icon icon-success"></i><span class="text-orange">专业顾问</span>推荐行程和价格</p>
@@ -148,7 +105,6 @@
                                         <a>毛里求斯</a>
                                         <a>新加坡</a>
                                     </div>
-
                                     <div class="region-items items-a">
                                         <a>黄山</a>
                                         <a>乌镇</a>
@@ -481,9 +437,9 @@
 
                             <div class="yx-day-mode">
                                 <div class="items-a">
-                                    <a>8天</a>
-                                    <a>9天</a>
-                                    <a>14天</a>
+                                    <a>3天</a>
+                                    <a>5天</a>
+                                    <a>10天</a>
                                 </div>
 
                                 <div class="yx-day-sel">
@@ -611,7 +567,7 @@
                         <div class="dialogue-ask-icon"></div>
                         <div class="dialogue-ask-content">
                             <i class="arrow"></i>
-                            <h6>亲，喜欢什么样的旅游方式？</h6>
+                            <h6>亲，本次出游预算大概是多少？</h6>
 
                             <div class="budgeting">
                                 <div class="items-a">

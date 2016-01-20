@@ -1,0 +1,65 @@
+@charset "utf-8";
+/*-----------------
+  i-xing.com Style
+  reset.css
+  Author:eugene.cao
+  Mail:leitu.eugene@gmail.com
+  update:2015-2-29
+ -------------------*/
+/*-------------------
+  页-面-元-素(全局)
+  ------------------*/
+body{margin:0px; padding:0px; font-family:"宋体" Arial, Helvetica, sans-serif;font-size:12px; }
+input,select,textarea,ul,li,dl,dd,dt,h1,h2,h3,h4,h5,form,p,label{padding:0; margin:0;text-decoration:none}
+
+a{ text-decoration:none;}
+img{border:0;}
+
+body{
+	background:#effdff;
+	position:relative;
+    
+
+     }
+	 
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+	margin:0;padding:0;
+}
+input{ 
+    vertical-align:middle;
+} 
+ul,li{
+    list-style:none;}
+fieldset, img {
+	border:0;
+}
+html, body {
+	width:100%;height:100%;
+}
+body, td, th {
+	font: 12px "微软雅黑";
+	color: #000;
+}
+table {
+	border:0;border-collapse:collapse;
+}
+
+/*文字渲染--*/
+.emp_english{ font-family:Verdana, Geneva, sans-serif;}
+.emp_g{ color:#7EB016;}
+.emp_r{ color: #F00;}
+.emp_bl{ color:#19AABD;}
+.emp_or{ color:#FF7E29;}
+.pertain{ color: #ccc;}
+.line-through{ text-decoration:line-through;}
+.f32{ font:32px/32px "微软雅黑";}
+.f28{ font:28px/28px "微软雅黑";}
+.f24{ font:24px/24px "微软雅黑";}
+
+/*---------------
+  清-除-浮-动(clear)
+  ----------------*/
+.cl,.clear {
+	clear:both; height:0; overflow:hidden;
+}
+

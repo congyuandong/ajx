@@ -4,32 +4,34 @@
   reset.css
   Author:eugene.cao
   Mail:leitu.eugene@gmail.com
-  update:2015-2-29
+  update:2015-3-30
  -------------------*/
 /*-------------------
   页-面-元-素(全局)
   ------------------*/
-body{margin:0px; padding:0px; font-family:"宋体" Arial, Helvetica, sans-serif;font-size:12px; }
-input,select,textarea,ul,li,dl,dd,dt,h1,h2,h3,h4,h5,form,p,label{padding:0; margin:0;text-decoration:none}
 
-a{ text-decoration:none;}
-img{border:0;}
 
-body{
-	background:#effdff;
-	position:relative;
-    
-
-     }
-	 
-body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
-	margin:0;padding:0;
+html, body, div, h1, h2, h3, h4, h5, h6, ul, li, ol, dl, dt, dd, blockquote, pre, form, fieldset, table, th, td, span, p, label, input, select, textarea{
+	padding:0;margin:0;text-decoration:none;
 }
+body{
+	margin:0px; 
+	padding:0px; 
+	font-family:"宋体" Arial, Helvetica, sans-serif;
+	font-size:12px;
+	position:relative;
+	background-color:#effdff;
+}
+body.nobg{
+	background:#fff none;
+}	 
+
 input{ 
     vertical-align:middle;
 } 
 ul,li{
-    list-style:none;}
+    list-style:none;
+}
 fieldset, img {
 	border:0;
 }
@@ -43,6 +45,27 @@ body, td, th {
 table {
 	border:0;border-collapse:collapse;
 }
+a{ text-decoration:none;}
+a:link, a:visited, a:hover{
+	text-decoration: none; outline:0;}
+a:hover{
+    text-decoration:none;}
+a.white:link, a.white:visited, a.white:hover{
+	color:#fff;}	
+a.blue:link, a.blue:visited, a.blue:hover{
+	color: #19AABD;}
+a.red:link, a.red:visited, a.red:hover{
+	color: #E61010;}		
+p{ font-size:12px; line-height:1.8em;}
+p.indent{
+	text-indent:2em;}
+
+
+
+/*左右浮动--*/
+.fl{ float:left;}
+.fr{ float:right;}
+
 
 /*文字渲染--*/
 .emp_english{ font-family:Verdana, Geneva, sans-serif;}
@@ -53,13 +76,23 @@ table {
 .pertain{ color: #ccc;}
 .line-through{ text-decoration:line-through;}
 .f32{ font:32px/32px "微软雅黑";}
+.f30{ font:30px/30px "微软雅黑";}
 .f28{ font:28px/28px "微软雅黑";}
+.f25{ font:25px/25px "微软雅黑";}
 .f24{ font:24px/24px "微软雅黑";}
+.f22{ font:22px/22px "微软雅黑";}
+.f20{ font:20px/20px "微软雅黑";}
+.f18{ font:18px/18px "微软雅黑";}
+.f16{ font:16px/16px "微软雅黑";}
+.f14{ font:14px/14px "微软雅黑";}
+.f12{ font:12px/12px "微软雅黑";}
+
+
+
 
 /*---------------
   清-除-浮-动(clear)
   ----------------*/
-.cl,.clear {
+.cl {
 	clear:both; height:0; overflow:hidden;
 }
-

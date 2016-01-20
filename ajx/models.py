@@ -55,6 +55,25 @@ ISGO_CHOICES =(
 	(2,u'返程'),
 	)
 
+MADE_SETOUT_CHOICES =(
+	(0,u'热门'),
+	(1,u'国内'),
+	)
+
+MADE_DEST_CHOICES =(
+	(0,u'热门'),
+	(1,u'国内'),
+	)
+
+MADE_DEST_OUT_CHOICES =(
+	(0,u'欧洲'),
+	(1,u'亚洲'),
+	(2,u'大洋洲'),
+	(3,u'美洲'),
+	(4,u'海岛'),
+	(5,u'中东非洲'),
+	)
+
 #用户表
 class UserInfo(models.Model):
 	account = models.CharField(max_length = 50, verbose_name = '账户')
@@ -62,7 +81,7 @@ class UserInfo(models.Model):
 	phone = models.CharField(max_length = 20, verbose_name = '手机号码', null = True, blank = True)
 	email = models.CharField(max_length = 50, verbose_name = '邮箱', null = True, blank = True)
 	nick = models.CharField(max_length = 50, verbose_name = '昵称', null = True, blank = True)
-	sex = models.IntegerField(default=0,verbose_name='性别',choices=SEX_CHOICES)
+	sex = models.IntegerField(default = 0, verbose_name = '性别',choices = SEX_CHOICES)
 	birthday = models.DateField(verbose_name='生日', null = True, blank = True)
 	avater = models.ImageField(upload_to ='avater/',verbose_name='头像', null = True, blank = True)
 	authid = models.CharField(max_length = 200, verbose_name = '第三方登录ID', null = True, blank = True)
@@ -84,7 +103,7 @@ class SetOut(models.Model):
 
 	class Meta:
 		verbose_name = '线路出发地'
-		verbose_name_plural = '目的地管理'
+		verbose_name_plural = '出发地管理'
 
 #路线目的地
 class Destination(models.Model):
@@ -333,3 +352,90 @@ class SystemInfo(models.Model):
 	class Meta:
 		verbose_name = '系统参数'
 		verbose_name_plural = '系统参数管理'
+
+#定制出发地
+class MadeSetOut(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	types = models.IntegerField(default = 1, verbose_name = '类型', choices = MADE_SETOUT_CHOICES)
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '出发地'
+		verbose_name_plural = '出发地管理'
+
+#定制路线目的地
+class MadeDest(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	types = models.IntegerField(default = 1, verbose_name = '类型', choices = MADE_DEST_CHOICES)
+	sort =  models.IntegerField(default = 0, verbose_name = "排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '目的地'
+		verbose_name_plural = '目的地管理'
+
+#定制路线目的地
+class MadeDestOut(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	types = models.IntegerField(default = 1, verbose_name = '地区', choices = MADE_DEST_OUT_CHOICES)
+	sort =  models.IntegerField(default = 0, verbose_name = "排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '目的地'
+		verbose_name_plural = '目的地管理'
+
+#定制旅游方式
+class MadeTravelType(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '旅游方式')
+	sort =  models.IntegerField(default = 0, verbose_name = "排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '旅行方式'
+		verbose_name_plural = '旅行方式管理'
+
+#定制预算
+class MadeBudget(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '预算')
+	sort =  models.IntegerField(default = 0, verbose_name = "排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '预算'
+		verbose_name_plural = '预算管理'
+
+#定制订单
+class MadeOrder(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '姓名')
+	tel = models.CharField(max_length = 50, verbose_name = '电话')
+	mail = models.CharField(max_length = 50, verbose_name = '邮箱', null = True, blank = True)
+	wechat = models.CharField(max_length = 50, verbose_name = '微信号', null = True, blank = True)
+	contacttime = models.CharField(max_length = 50, verbose_name = '联系时间', null = True, blank = True)
+	special = models.CharField(max_length = 500, verbose_name = '特殊要求', null = True, blank = True)
+	dest = models.CharField(max_length = 50, verbose_name = '目的地', null = True, blank = True)
+	setout = models.CharField(max_length = 50, verbose_name = '出发地', null = True, blank = True)
+	traveltype = models.CharField(max_length = 50, verbose_name = '出行方式', null = True, blank = True)
+	date = models.DateField(verbose_name = '出发日期')
+	days = models.IntegerField(default = 10, verbose_name = '出行时长')
+	persons = models.IntegerField(default = 10, verbose_name = '出行人数')
+	budget = models.ForeignKey(MadeBudget, verbose_name = '预算')
+	update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
+
+	def __unicode__(self):
+		return self.name + u'的订单'
+
+	class Meta:
+		verbose_name = '定制订单'
+		verbose_name_plural = '定制订单管理'
