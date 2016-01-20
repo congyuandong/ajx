@@ -10,6 +10,9 @@
 {% endblock %}
 
 {% block main %}
+
+{% include "ajx/includes/login.html" %}
+
 <div class="overall">
 <div class="container container1">
 	<div class="index_left">
@@ -31,7 +34,7 @@
                 <div class="xqym_l_1_ts">
                     <dl class="xqym_l_1_ts_p1">
                         <dt>剩余天数：</dt>
-                        <dd>7</dd>
+                        <dd>{{data.lastDays}}</dd>
                     </dl>
                     <dl class="xqym_l_1_ts_p2">
                         <dt>剩余位置：</dt>
@@ -239,331 +242,192 @@
                     
                 </div>
             </div>
-        	<div class="cl"></div>
-
-            <!--可选套餐-->
-            <!---->
-                <!--<div class="ir_box" id="packages">-->
-
-                    <!--<div class="dr_title2">-->
-                        <!--<h2>可选套餐</h2>-->
-                    <!--</div>-->
-                    <!--&lt;!&ndash;保险&ndash;&gt;-->
-                    <!---->
-                        <!--<div class="package_name protect_icon" title="保险">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title">美亚"乐悠游"境外旅行保障计划一</p>-->
-                                <!--<p class="package-price">单价 : ￥ <span>45.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!---->
-                    <!--&lt;!&ndash;<p>签证套餐</p>&ndash;&gt;-->
-                    <!---->
-                        <!--<div class="package_name visa_icon" title="签证">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title"><a target="_blank" href="http://visa.ilvxing.com/deal_visa/1011"> 马来西亚旅游签证</a></p>-->
-                                <!--<p class="package-price">单价 : ￥ <span>140.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!---->
-                    <!--&lt;!&ndash;本地游产品&ndash;&gt;-->
-                    <!---->
-                            <!--<div class="package_name local_icon" title="本地游">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title"><a target="_blank" href="/Local/index/pro_id/14">WESTON红树林寻访长鼻猴+萤火虫下午出发中文精品游</a></p>-->
-                                <!--<p class="package-price">成人 : ￥ <span>299.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="cl"></div>-->
-                    <!---->
-                            <!--<div class="package_name local_icon" title="本地游">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title"><a target="_blank" href="/Local/index/pro_id/7">环滩岛浮潜一日游</a></p>-->
-                                <!--<p class="package-price">成人 : ￥ <span>699.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="cl"></div>-->
-                    <!---->
-                            <!--<div class="package_name local_icon" title="本地游">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title"><a target="_blank" href="/Local/index/pro_id/9">沙巴亚庇美人鱼岛浮潜一日游（Mantanani Island）曼达那尼岛</a></p>-->
-                                <!--<p class="package-price">成人 : ￥ <span>499.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="cl"></div>-->
-                    <!---->
-                            <!--<div class="package_name local_icon" title="本地游">-->
-                            <!--<div class="head">-->
-                                <!--<p class="title"><a target="_blank" href="/Local/index/pro_id/11">东姑拉曼海岛公园两岛游一日游(沙比+马穆迪)</a></p>-->
-                                <!--<p class="package-price">成人 : ￥ <span>299.00</span></p>-->
-                                <!--<div class="cl"></div>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                        <!--<div class="cl"></div>-->
-                    <!---->
-                    <!--<div class="cl"></div>-->
-            <!--&lt;!&ndash;WIFI产品&ndash;&gt;-->
-            <!---->
-            <!--<div class="cl"></div>-->
-                <!--</div>-->
-            <!---->
             <div class="cl"></div>
+            {% if route.detail %}
             <div class="dr_title2"  id="gundong2">
                 <h2>产品详情</h2><p class="note">本产品由{{route.supplyName}}提供服务</p>
             </div>
-
             <div class="editor_box">
-                <p class="h_yellow"><strong>爱小行赞一个</strong></p>
-                <p>1、超多团期出发，包含清明节/五一假期哦！30公斤托运行李，直挂行李更省心~</p>
-                <p>2、可登马来西亚第一高峰，也可浮潜去看美丽珊瑚礁~</p>
-                <p>3、乘船去海平面红树林深处看奇特的长鼻猴和萤火虫~</p>
-                <p>4、极致美食品味：老虎虾，老虎斑、象拔吃到饱！</p>
-                <p><br></p><p class="h_yellow"><strong>可选附加产品</strong><br></p>
-                <p><span style="color:#00b0f0;">+299元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">红树林寻访长鼻猴+萤火虫（下午出发）</span></a></p>
-                <p><span style="color:#00b0f0;">+499元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">沙巴亚庇美人鱼岛浮潜一日游</span></a></p>
-                <p><span style="color:#00b0f0;">+699元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">沙巴亚庇环滩岛一日游（私人海岛）</span></a></p>
-                <p><span style="color:#00b0f0;">+299元 &nbsp;</span><span style="color:#00b0f0;text-decoration:underline;"><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;">沙巴亚庇东姑拉曼海岛公园两岛游（沙比岛和曼奴干岛)</a></span></p>
+                {% autoescape off %} 
+                {{route.detail}}
+                {% endautoescape %}       
             </div>
-
-<div class="cl"></div>
-<div class="dr_title2" id="gundong3">
-    <h2>费用说明</h2>
-</div>
-<h3 class="ri_title">费用包含</h3>
-<div class="editor_box">
-    <p>1、机票：机票含税</p></div>
-<h3 class="ri_title">费用不含</h3>
-<div class="editor_box">
-    <p>1.全程导游、司机服务费、全程酒店；</p>
-    <p>2.签证：马来西亚旅游签证</p>
-    <p>3.私人性质的消费（如交通费、洗衣、电话、酒水、购物等）；<br></p>
-    <p>4.出入境行李的海关税、搬运费、保管费和超重（件）行李托运费；航空公司临时加收的燃油附加费（我司只会在航空公司正式宣布加收燃油附加费时加收时，才向团队确认加收，加收的金额以航空公司定的为准）；</p>
-    <p>5.单房差，个人小费，意外保险，自费项目</p>
-    <p>6.行程外产生的超公里费或者超工时费</p>
-    <p>7.因客人自身原因造成领事馆拒签或终止签证，需收取的签证损失费和机票损失费（机票一旦出票，便不可退票、不可签转，不可更改日期/航班/舱位；客人同时需承担机票或酒店取消费）；</p>
-    <p>8.因不可抗拒因素（自然灾害、政治形势、政府法令、航空、铁路及公路出现紧急情况等）所引致的额外费用；旅行社协助解决，但不承担相关责任，同时我社保留对行程进行变更的权利。</p>
-</div>
-<div class="cl"></div>
-<div class="dr_title2" id="gundong4">
-    <h2>游轮信息</h2>
-</div>
-<div class="cl"></div>
-<div class="dr_title2"  id="gundong5">
-        <h2>参考交通</h2>
-    </div>
-    <!--<div class="dtip_box">-->
-        <!--<div class="icon"></div>-->
-        <!--<h4>特别提醒</h4>-->
-        <!--<p>飞机去/飞机回</p>-->
-    <!--</div>-->
-    <div class="transport_box">
-        <table class="item" width="0" border="0" cellspacing="0" cellpadding="0">
-            <thead>
-                <tr>
-                    <th>去/返程</th>
-                    <th>出发地 - 目的地</th>
-                    <th>航班</th>
-                    <th>起飞时间</th>
-                    <th>起飞机场</th>
-                    <th>到达时间</th>
-                    <th>到达机场</th>
-                </tr>
-                </thead>
-                            <tbody>
-            <tr>
-                <td rowspan="3">去程</td>
-            </tr>
-            <tr>
-                <td>北京 - 吉隆坡</td>
-                <td>MH361</td>
-                <td>01:30</td>
-                <td>首都国际机场</td>
-                <td>08:00</td>
-                <td>吉隆坡国际机场</td>
-            </tr>
-            <tr>
-                <td>吉隆坡 - 亚庇</td>
-                <td>MH2614</td>
-                <td>12:50</td>
-                <td>吉隆坡机场</td>
-                <td>15:25</td>
-                <td>哥打京那巴鲁机场</td>
-            </tr>                            
-            </tbody>
-            <thead>
-                <tr>
-                    <th>去/返程</th>
-                    <th>出发地 - 目的地</th>
-                    <th>航班</th>
-                    <th>起飞时间</th>
-                    <th>起飞机场</th>
-                    <th>到达时间</th>
-                    <th>到达机场</th>
-                </tr>
-                </thead>
-                            <tbody>
-            <tr>
-                <td rowspan="3">回程</td>
-            </tr>
-            <tr>
-                <td>吉隆坡 - 北京</td>
-                <td>MH360</td>
-                <td>18:25</td>
-                <td>吉隆坡国际机场</td>
-                <td>00:20</td>
-                <td>首都国际机场</td>
-            </tr>
-            <tr>
-                <td>亚庇 - 吉隆坡</td>
-                <td>MH2621</td>
-                <td>12:40</td>
-                <td>亚庇机场</td>
-                <td>15:05</td>
-                <td>吉隆坡机场</td>
-            </tr>                            
-            </tbody>
-        </table>
-    </div>    
-    <div class="cl"></div>
-    <div class="dr_title2"  id="gundong6">
-            <h2>参考住宿</h2>
-        </div>
-        <div class="hotel_box">
-                <div class="title2">
-                    <!--div class="go1">
-                        <div class="dcb_btn"><a href="#">查看携程价格</a></div>
-                    </div-->
-                    <h4>未包含酒店 </h4>
-                </div>
-                <div class="star">
-                    <div class="title">星级：</div>
-                    <div class="level1"></div>
-                </div>
             <div class="cl"></div>
-            <p><strong>地址：</strong> 未包含酒店</p>
-            <p class="max"><strong>简介：</strong><br>
-                </p><p>此套餐不包含酒店。</p><p><br></p><p></p>
-            <!--ul>
-                <li title="早餐" class="c1"></li>
-                <li title="免费Wifi" class="c2"></li>
-                <li title="收费wifi" class="c3"></li>
-                <li class="c4"></li>
-                <li class="c5"></li>
-                <li class="c6"></li>
-                <li class="c7"></li>
-            </ul-->
-            <div class="cl"></div>
+            {% endif %}
+            {% if route.cost %}
+            <div class="dr_title2" id="gundong3">
+                <h2>费用说明</h2>
             </div>
-            <div class="cl"></div>    <div class="cl"></div><div class="dr_title2"  id="gundong7">
-        <h2>签证信息</h2>
-    </div>
-    <div class="editor_box">
-        <p>护照 <br>1、有效期在6个月以上的因私护照（自回国之日开始算，为6个月以上，护照首页请用A4纸复印2份）。<br>2、请在护照最后一页签名，中文姓名。<br>3、护照须有三页以上空白签证页。<br><br>照片 <br>1、白底彩色近照2张，照片尺寸要求35×45mm。<br>2、请在照片背面用铅笔写上自己的姓名。<br>3、申请者拍摄照片时不可以带眼镜。</p>    </div>
-    <div class="cl"></div>
-
-
-    <div class="dr_title2" id="gundong8">
-        <h2>参考行程</h2>
-    </div>
-        <div class="rdt_box">
-                	<dl>
-                        <dt>第 1 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">北京</div><div title="飞机" class="plane_icon"></div><div class="t1">台北</div>
-
-                                                             <!--            <div title="轮船" class="ship_icon"></div>-->
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            <p><strong>参考航班：CI512  12:25（北京时间）-15:35（北京时间）<br />　　　　或 CI518  20:05（北京时间）-23:15（北京时间）</strong></p> 
-                            <p>请自行前往机场，开始愉快的旅途！</p>
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               <strong>行程：</strong>07:15空调旅游车到酒店接团出发， 前往永定高北土楼群。11:30抵达永定高北土楼群，享用午餐。12:00午餐后，游览,中国邮电部发行了一套"中国民居"邮票"世界文化遗产，【承启楼】被称为"土楼王"它的"高四层，楼四圈，上上下下四百间；圆中圆，圈套圈，历经沧桑三百年"，的独特建筑风格和庭园院落端庄丽脱的造型艺术，融与如诗的山乡神韵。【五云楼】俗称"不倒楼"，是没有石砌墙基，已有590多年沧桑变化，是高头乡江氏家族中现存最古老的建筑，具有愉快的土楼旅游！
-                               </div>
-                               <div class="xingcheng_pic">
-                                    <img src="{% static 'images/xqym_1t_pic_03.jpg'%}" />
-                               </div>
-                        </dd>
-                    </dl>
-                    <div class="cl"></div>
-                    <dl>
-                        <dt>第 2 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">台北</div>
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               自由活动，行程任选。
-                               </div>
-                               <div class="xingcheng_pic">
-                                    <img src="{% static 'images/xqym_2t_pic_03.jpg'%}" />
-                               </div>
-                        </dd>
-                    </dl>
-                    <div class="cl"></div>
-                    <dl>
-                        <dt>第 3 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">台北</div><div title="飞机" class="plane_icon"></div><div class="t1">北京</div>
-                                                             <!--            <div title="轮船" class="ship_icon"></div>-->
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            <p><strong>参考航班：CI512  12:25（北京时间）-15:35（北京时间）<br />　　　　或 CI518  20:05（北京时间）-23:15（北京时间）</strong></p> 
-                            <p>自行乘机返回北京，结束愉快行程！</p>
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               <strong>行程：</strong>07:15空调旅游车到酒店接团出发， 前往永定高北土楼群。11:30抵达永定高北土楼群，享用午餐。12:00午餐后，游览,中国邮电部发行了一套"中国民居"邮票"世界文化遗产，【承启楼】被称为"土楼王"它的"高四层，楼四圈，上上下下四百间；圆中圆，圈套圈，历经沧桑三百年"，的独特建筑风格和庭园院落端庄丽脱的造型艺术，融与如诗的山乡神韵。【五云楼】俗称"不倒楼"，是没有石砌墙基，已有590多年沧桑变化，是高头乡江氏家族中现存最古老的建筑，具有愉快的土楼旅游！
-                               </div>
-                               
-                        </dd>
-                    </dl>
-                   </div>            
-        
-                <div class="cl"></div>
-                <div class="dr_title2"  id="gundong9">
-                        <h2>订购须知</h2>
-                    </div><h3 class="ri_title">重要提示</h3>
-                    <div class="editor_box">
-                        <p><strong>特价旅游产品一经售出，不退不换不改。</strong></p><p><span style="font-size:14px;">1、自费参考：如行程中所列，自费项目不涉及我公司利益，客人自愿参加。</span><br></p><p>2、以上报价仅适用于中国护照持有者。</p><p>3、如若航空公司临时调整航班时间，出行时间以出票时为准！</p>    </div><div class="cl"></div>
-                <div class="dr_title2" id="gundong10">
-                    <h2>网签协议</h2>
-                </div>
-                        <div class="editor_box">
-                          <p>用户下单即默认同意在旅行的网签协议，<a href="#" style="color: #19aabd" target="_blank">点击查看协议</a></p>
-                
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.cost}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            {% if route.ship %}
+            <div class="dr_title2" id="gundong4">
+                <h2>游轮信息</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.ship}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            <div class="dr_title2"  id="gundong5">
+                <h2>参考交通</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.traffic}}
+                {% endautoescape %}
+            </div>
+            {% if airlines %}
+            <div class="transport_box">
+                <table class="item" width="0" border="0" cellspacing="0" cellpadding="0">
+                    {% if airlines.golines %}
+                    <thead>
+                        <tr>
+                            <th>去/返程</th>
+                            <th>出发地 - 目的地</th>
+                            <th>航班</th>
+                            <th>起飞时间</th>
+                            <th>起飞机场</th>
+                            <th>到达时间</th>
+                            <th>到达机场</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td rowspan="{{airlines.golinesCount|add:'1'}}">去程</td>
+                    </tr>
+                    {% for line in airlines.golines %}
+                    <tr>
+                        <td>{{line.fromandgo}}</td>
+                        <td>{{line.airplane}}</td>
+                        <td>{{line.startTime}}</td>
+                        <td>{{line.startPlace}}</td>
+                        <td>{{line.endTime}}</td>
+                        <td>{{line.endPlace}}</td>
+                    </tr>
+                    {% endfor %}                          
+                    </tbody>
+                    {% endif %}
+                    {% if airlines.backlines %}
+                    <thead>
+                        <tr>
+                            <th>去/返程</th>
+                            <th>出发地 - 目的地</th>
+                            <th>航班</th>
+                            <th>起飞时间</th>
+                            <th>起飞机场</th>
+                            <th>到达时间</th>
+                            <th>到达机场</th>
+                        </tr>
+                        </thead>
+                    <tbody>
+                    <tr>
+                        <td rowspan="{{airlines.backlinesCount|add:'1'}}">回程</td>
+                    </tr>
+                    {% for line in airlines.backlines %}
+                    <tr>
+                        <td>{{line.fromandgo}}</td>
+                        <td>{{line.airplane}}</td>
+                        <td>{{line.startTime}}</td>
+                        <td>{{line.startPlace}}</td>
+                        <td>{{line.endTime}}</td>
+                        <td>{{line.endPlace}}</td>
+                    </tr>
+                    {% endfor %}                            
+                    </tbody>
+                    {% endif %}
+                </table>
+            </div>    
+            <div class="cl"></div>
+            {% endif %}
+            {% if route.hotel %}
+            <div class="dr_title2"  id="gundong6">
+                <h2>参考住宿</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.hotel}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            {% if route.visa %}
+            <div class="dr_title2"  id="gundong7">
+                <h2>签证信息</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.visa}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            {% if schedules %}
+            <div class="dr_title2" id="gundong8">
+                <h2>参考行程</h2>
+            </div>
+            <div class="rdt_box">
+                {% for schedule in schedules %}
+            	<dl>
+                    <dt>第 {{schedule.day}} 天</dt>
+                    <dd>
+                        <div class="tra_info fordetail">
+                            <div class="t1">{{schedule.fromPlace}}</div><div title="飞机" class="plane_icon"></div><div class="t1">{{schedule.endPlace}}</div>
                         </div>
-                <div class="dr_title2"  id="gundong11">
-                        <h2>相关产品</h2>
-                    </div>
-                    <ul class="rp_box_fordetail">
+                        <div class="cl"></div>
+                        <p></p>
+                        {% autoescape off %} 
+                        {{schedule.traffic}}
+                        {% endautoescape %}
+                        <div class="tip">
+                           <strong>住宿：</strong>{{schedule.hotel}}<br>
+                           <strong>餐饮：</strong>早餐：{{schedule.breakfast}}&nbsp;午餐：{{schedule.lunch}}&nbsp;晚餐：{{schedule.dinner}}
+                        </div>
+                        <div class="xingcheng">
+                            {% autoescape off %} 
+                            {{schedule.content}}
+                            {% endautoescape %}
+                        </div>
+                    </dd>
+                </dl>
+                <div class="cl"></div>
+                {% endfor %}
+            </div>            
+            <div class="cl"></div>
+            {% endif %}
+            {% if route.notice %}
+            <div class="dr_title2"  id="gundong9">
+                <h2>订购须知</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.notice}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            {% if route.netsign %}
+            <div class="dr_title2" id="gundong10">
+                <h2>网签协议</h2>
+            </div>
+            <div class="editor_box">
+                {% autoescape off %} 
+                {{route.netsign}}
+                {% endautoescape %}
+            </div>
+            <div class="cl"></div>
+            {% endif %}
+            <div class="dr_title2"  id="gundong11">
+                <h2>相关产品</h2>
+            </div>
+            <ul class="rp_box_fordetail">
                         <li>
                             <div class="pic">
                               <a href="#" target="_blank"><img src="{% static 'images/550b9e6459e03.jpg'%}" width="190" height="111"></a></div>
@@ -579,100 +443,19 @@
                               <a href="#" target="_blank"><img src="{% static 'images/5480346651017.jpg'%}" width="190" height="111"></a></div>
                             <h4><a href="#" target="_blank">享饕餮海鲜 | 沙巴四晚六天超级自由行（9月-10月·含十一）</a></h4>
                             <p>￥2999起</p>
-                            </li>    </ul>
-                    <div class="cl"></div>
-                </div>
-                
-                </form>
-                </div>
-                <div class="cl"></div>
+                            </li>    
+            </ul>
+            <div class="cl"></div>
 
-		</div>
-        <!--index_r_con-->
-   </div><!--index_right-->
+        </div>
+    </div>
+    <div class="cl"></div>
 </div><!--container-->
 </div><!--overall-->
 <div id="footer">
     {% include "ajx/includes/footer.html" %}
 </div>
-<script>
-$(function(){
-    var gundong1_top = $("#gundong1").offset().top;/***定义要滚动的栏目相对于顶部的偏移***/
-	var gundong2_top = $("#gundong2").offset().top;
-	var gundong3_top = $("#gundong3").offset().top;
-	var gundong4_top = $("#gundong4").offset().top;
-	var gundong5_top = $("#gundong5").offset().top;
-	var gundong6_top = $("#gundong6").offset().top;
-	var gundong7_top = $("#gundong7").offset().top;
-	var gundong8_top = $("#gundong8").offset().top;
-	var gundong9_top = $("#gundong9").offset().top;
-	var gundong10_top = $("#gundong10").offset().top;
-	var gundong11_top = $("#gundong11").offset().top;
-	var foot = $("#footer").height();
-													/***滚动判断***/
-	$(window).scroll(function(){
-		var scroH = $(this).scrollTop();
-		if(scroH>=gundong11_top){
-      		set_cur(".gundong11");
-    	}else if(scroH>=gundong10_top){
-      		set_cur(".gundong10");
-    	}else if(scroH>=gundong9_top){
-      		set_cur(".gundong9");
-    	}else if(scroH>=gundong8_top){
-      		set_cur(".gundong8");
-    	}else if(scroH>=gundong7_top){
-      		set_cur(".gundong7");
-    	}else if(scroH>=gundong6_top){
-      		set_cur(".gundong6");
-    	}else if(scroH>=gundong5_top){
-			set_cur(".gundong5");
-		}else if(scroH>=gundong4_top){
-			set_cur(".gundong4");
-		}else if(scroH>=gundong3_top){
-			set_cur(".gundong3");
-		}else if(scroH>=gundong2_top){
-			set_cur(".gundong2");
-		}else if(scroH>=gundong1_top){
-			set_cur(".gundong1");
-		}
-	});
-	$(".gensuigundong_daohagn li a").click(
-		function(){
-			var el = $(this).attr('class');
-			$('html,body').animate({scrollTop: $("#"+el).offset().top
-			},{easing: 'easeOutSine',duration: 300,complete:function(){}});
-		}
-	);
-	
-	$(window).scroll(
-	   		function(){
-				mm=$(".overall").height()-foot-400;
-				if(( $(window).scrollTop())<200){
-						$(".gensuigundong_daohagn").removeClass("aa");
-						$(".gensuigundong_daohagn").removeClass("bb");
-						}else
-				if(( $(window).scrollTop())>=200&&( $(window).scrollTop())<=mm) {
-					$(".gensuigundong_daohagn").removeClass("bb");
-					$(".gensuigundong_daohagn").addClass("aa");
-					$(".gensuigundong_daohagn").css("top","0")
-					
-					}
-				else if(( $(window).scrollTop())>mm){
-						$(".gensuigundong_daohagn").addClass("bb");
-						$(".gensuigundong_daohagn").css("top",mm)
-						}
-				}
-	   );
-	   
-});
-function set_cur(n){
-	$(".gensuigundong_daohagn li a").removeClass("cur");
-	$(".gensuigundong_daohagn li a"+n).addClass("cur");	
-	}
-	
-</script>
-
-
+{% include "ajx/includes/sidebar.html" %}
 
 {% endblock %}
 

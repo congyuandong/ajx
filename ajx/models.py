@@ -144,12 +144,6 @@ class Route(models.Model):
 	day = models.IntegerField(default = 0, verbose_name = '出游天数(白天)')
 	night = models.IntegerField(default = 0, verbose_name = '出游天数(夜晚)')
 	hotelStar = models.IntegerField(default = 0, verbose_name = '酒店星级', null=True,blank=True)
-	hotel = UEditorField(verbose_name='参考住宿',imagePath="ueditor/images/",
-        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
-		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
-	supplier = UEditorField(verbose_name='供应商信息',imagePath="ueditor/images/",
-        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
-		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
 	detail = UEditorField(verbose_name='产品详情',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
@@ -162,6 +156,9 @@ class Route(models.Model):
 	traffic = UEditorField(verbose_name='参考交通',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	hotel = UEditorField(verbose_name='参考住宿',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
 	visa = UEditorField(verbose_name='签证信息',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
@@ -169,6 +166,9 @@ class Route(models.Model):
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
 	netsign = UEditorField(verbose_name='网签协议',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	supplier = UEditorField(verbose_name='供应商信息',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
 	update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
@@ -185,11 +185,12 @@ class RouteAirplane(models.Model):
 	route = models.ForeignKey(Route, verbose_name = '路线')
 	isgo = models.IntegerField(default = 1, verbose_name = '方向', choices = ISGO_CHOICES)
 	fromandgo = models.CharField(max_length = 200, verbose_name = '航班路线', help_text = '出发地-目的地')
-	airplane = models.CharField(max_length = 50, verbose_name = '航班号')
-	startTime = models.DateTimeField(verbose_name = '起飞时间')
+	airplane = models.CharField(max_length = 20, verbose_name = '航班号')
+	startTime = models.CharField(max_length = 20, verbose_name = '起飞时间')
 	startPlace = models.CharField(max_length = 100, verbose_name = '起飞机场')
-	endTime = models.DateTimeField(verbose_name = '降落时间')
+	endTime = models.CharField(max_length = 20, verbose_name = '降落时间')
 	endPlace = models.CharField(max_length = 100, verbose_name = '降落机场')
+	sort = models.IntegerField(default=0,verbose_name="排序")
 
 	def __unicode__(self):
 		return self.fromandgo
@@ -202,7 +203,7 @@ class RouteAirplane(models.Model):
 class Classification(models.Model):
 	route = models.ForeignKey(Route, verbose_name = '路线')
 	name = models.CharField(max_length = 200, verbose_name = '套餐名称')
-	sort =  models.IntegerField(default=0,verbose_name="排序")
+	sort =  models.IntegerField(default = 0,verbose_name="排序")
 
 	def __unicode__(self):
 		return self.name
@@ -244,6 +245,7 @@ class RouteDetail(models.Model):
 	content = UEditorField(verbose_name='行程安排',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
 		upload_settings={'imageMaxSize':2048000})
+	sort = models.IntegerField(default = 0,verbose_name="排序")
 
 	def __unicode__(self):
 		return self.route.name + u'第' + str(self.day) + u'天行程'

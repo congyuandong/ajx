@@ -59,7 +59,7 @@ def Index(request):
 			goDateObjs = GoDate.objects.filter(classification = classObj).order_by('date')
 			if goDateObjs:
 				sumOfLeft = 0
-				daysLeft = (goDateObjs[0].date - date.today()).days
+				daysLeft = (goDateObjs[len(goDateObjs) - 1].date - date.today()).days
 				for goDateObj in goDateObjs:
 					sumOfLeft += goDateObj.left
 				indexItemObjs.append({'type':'route','content':route,'sumOfLeft':sumOfLeft,'godates':goDateObjs[0:3],'daysLeft':daysLeft})
@@ -78,22 +78,34 @@ def Index(request):
 	return render_to_response('ajx/index.html',context_dict,context)
 
 #线路详细页面
-def RouteDetail(request, rid):
+def RouteDetailPage(request, rid):
 	context = RequestContext(request)
 
 	today = date.today()
 
 	linkObjs = Links.objects.order_by('sort')
-	
 	routeObj = get_object_or_404(Route, id = rid)
 	classObjs = Classification.objects.filter(route = routeObj).order_by('sort')
+	airlinesGo = RouteAirplane.objects.filter(route = routeObj, isgo = 1).order_by('sort')
+	airlinesBack = RouteAirplane.objects.filter(route = routeObj, isgo = 2).order_by('sort')
+	routeSchedule = RouteDetail.objects.filter(route = routeObj).order_by('sort')
 
 	context_dict = {
 		'route':routeObj,
 		'links':linkObjs,
 		'classes':classObjs,
-		'data':{'year':today.year,'month':today.month}
+		'data':{'year':today.year,'month':today.month},
+		'airlines':{'golines':airlinesGo,'backlines':airlinesBack,'golinesCount':len(airlinesGo),'backlinesCount':len(airlinesBack)},
+		'schedules':routeSchedule
 	}
+
+	if classObjs:
+		goDateObjs = GoDate.objects.filter(classification = classObjs[0]).order_by('date')
+		for goDateObj in goDateObjs:
+			diffDays = (goDateObj.date - date.today()).days
+			if diffDays > 0:
+				context_dict['data']['lastDays'] = diffDays
+				break
 
 	if classObjs:
 		calendars = RouteCalendar(request, today.year, today.month, classObjs[0].id)

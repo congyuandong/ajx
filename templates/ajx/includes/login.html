@@ -1,11 +1,13 @@
+{% load staticfiles %}
+
 <div class="popup_yd detail_t">
     <div class="popup_yd_close detail_x">
         <a href="#">
-            <img src="__PUBLIC__/page/images/popup_yd_close_03.jpg" />
+            <img src="{% static 'images/popup_yd_close_03.jpg'%}" />
         </a>
     </div>
     <h2 class="popup_yd_logo">
-        <img src="__PUBLIC__/page/images/popup_yd_logo_03.jpg"  />
+        <img src="{% static 'images/popup_yd_logo_03.jpg'%}"  />
     </h2>
     <div class="popup_yd_con">
         <div class="popup_yd_con_left">
@@ -13,17 +15,17 @@
             <ul class="popup_yd_cl_ul">
                 <li>
                     <a href="/index.php/Home/Login/wxLogin">
-                        <img src="__PUBLIC__/page/images/popup_yd_left_li_08.jpg" />
+                        <img src="{% static 'images/popup_yd_left_li_08.jpg'%}" />
                     </a>
                 </li>
                 <li>
                     <a href="/index.php/Home/Login/wbLogin">
-                        <img src="__PUBLIC__/page/images/popup_yd_left_li_03.jpg" />
+                        <img src="{% static 'images/popup_yd_left_li_03.jpg'%}" />
                     </a>
                 </li>
                 <li class="popup_yd_cl_ul_3">
                     <a href="/index.php/Home/Login/qqLogin">
-                        <img src="__PUBLIC__/page/images/popup_yd_left_li_06.jpg" />
+                        <img src="{% static 'images/popup_yd_left_li_06.jpg'%}" />
                     </a>
                 </li>
             </ul>
@@ -134,7 +136,7 @@
                                 </dd>
                                 <dd class="tab_popup_bd_dl1_4">
                                     <a href="#">
-                                        <img src='/Home/View/Public/Script/checkcode.php' title="点击刷新验证码"/>
+                                        <img src='' title="点击刷新验证码"/>
                                     </a>
                                 </dd>
                             </dl>
@@ -154,7 +156,7 @@
                                     <input id="btn_reg"  value="注 册"></dd>
                             </dl>
                         </form>
-                        <script type="text/javascript" src="__PUBLIC__/page/js/popupo_yd_input.js"></script>
+                        <!--script type="text/javascript" src="__PUBLIC__/page/js/popupo_yd_input.js"></script-->
                     </li>
                 </ul>
             </div>

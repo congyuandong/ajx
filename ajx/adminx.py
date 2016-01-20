@@ -75,10 +75,11 @@ class AdditionAdmin(object):
 	ordering = ['sort']
 
 class RouteAirplaneAdmin(object):
-	list_display = ['route', 'isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace']
-	list_editable = ['isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace']
+	list_display = ['route', 'isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace', 'sort']
+	list_editable = ['isgo', 'fromandgo', 'airplane', 'startTime', 'startPlace', 'endTime', 'endPlace', 'sort']
 	search_fields = ['route']
 	list_per_page = 20
+	ordering = ['route', 'isgo', 'sort']
 
 class ClassificationAdmin(object):
 	list_display = ['route', 'name', 'sort']
@@ -95,9 +96,10 @@ class GoDateAdmin(object):
 	list_per_page = 20
 
 class RouteDetailAdmin(object):
-	list_display = ['route', 'day', 'fromPlace', 'goType', 'endPlace']
-	list_editable = ['day', 'fromPlace', 'goType', 'endPlace']
+	list_display = ['route', 'day', 'fromPlace', 'goType', 'endPlace', 'sort']
+	list_editable = ['day', 'fromPlace', 'goType', 'endPlace', 'sort']
 	search_fields = ['classification']
+	ordering = ['sort']
 	list_per_page = 20
 	style_fields = {'traffic':'ueditor', 'content':'ueditor'}
 
