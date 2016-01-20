@@ -27,7 +27,7 @@ class GlobalSetting(object):
 				)},
 				{'title': '订单管理 ','menus':(
 					{'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
-					{'title': '定制订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(MadeOrder, 'changelist')},
+					{'title': '定制订单', 'icon': 'fa fa-shopping-bag', 'url': self.get_model_url(MadeOrder, 'changelist')},
 				)},
 				{'title': '用户管理','menus':(
 					{'title': '用户管理', 'icon': 'fa fa-user', 'url': self.get_model_url(UserInfo, 'changelist')},
@@ -35,9 +35,9 @@ class GlobalSetting(object):
 				{'title': '定制管理','menus':(
 					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(MadeSetOut, 'changelist')},
 					{'title': '目的地(境内)', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(MadeDest, 'changelist')},
-					{'title': '目的地(境外)', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(MadeDestOut, 'changelist')},
-					{'title': '出行方式', 'icon': 'fa fa-user', 'url': self.get_model_url(MadeTravelType, 'changelist')},
-					{'title': '出行预算', 'icon': 'fa fa-user', 'url': self.get_model_url(MadeBudget, 'changelist')},
+					{'title': '目的地(境外)', 'icon': 'fa fa-map-signs', 'url': self.get_model_url(MadeDestOut, 'changelist')},
+					{'title': '出行方式', 'icon': 'fa fa-magnet', 'url': self.get_model_url(MadeTravelType, 'changelist')},
+					{'title': '出行预算', 'icon': 'fa fa-money', 'url': self.get_model_url(MadeBudget, 'changelist')},
 				)},
 				{'title': '系统维护','menus':(
 					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(BannerSlide, 'changelist')},
