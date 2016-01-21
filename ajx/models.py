@@ -74,6 +74,12 @@ MADE_DEST_OUT_CHOICES =(
 	(5,u'中东非洲'),
 	)
 
+NORTH_DEST_CHOICES =(
+	(0,u'黑龙江'),
+	(1,u'吉林'),
+	(2,u'辽宁'),
+	)
+
 #用户表
 class UserInfo(models.Model):
 	account = models.CharField(max_length = 50, verbose_name = '账户')
@@ -358,7 +364,7 @@ class SystemInfo(models.Model):
 #定制出发地
 class MadeSetOut(models.Model):
 	name = models.CharField(max_length = 50, verbose_name = '地名')
-	types = models.IntegerField(default = 1, verbose_name = '类型', choices = MADE_SETOUT_CHOICES)
+	types = models.IntegerField(default = 0, verbose_name = '类型', choices = MADE_SETOUT_CHOICES)
 	sort =  models.IntegerField(default=0,verbose_name="排序")
 
 	def __unicode__(self):
@@ -371,7 +377,7 @@ class MadeSetOut(models.Model):
 #定制路线目的地
 class MadeDest(models.Model):
 	name = models.CharField(max_length = 50, verbose_name = '地名')
-	types = models.IntegerField(default = 1, verbose_name = '类型', choices = MADE_DEST_CHOICES)
+	types = models.IntegerField(default = 0, verbose_name = '类型', choices = MADE_DEST_CHOICES)
 	sort =  models.IntegerField(default = 0, verbose_name = "排序")
 
 	def __unicode__(self):
@@ -384,7 +390,7 @@ class MadeDest(models.Model):
 #定制路线目的地
 class MadeDestOut(models.Model):
 	name = models.CharField(max_length = 50, verbose_name = '地名')
-	types = models.IntegerField(default = 1, verbose_name = '地区', choices = MADE_DEST_OUT_CHOICES)
+	types = models.IntegerField(default = 0, verbose_name = '地区', choices = MADE_DEST_OUT_CHOICES)
 	sort =  models.IntegerField(default = 0, verbose_name = "排序")
 
 	def __unicode__(self):
@@ -442,3 +448,54 @@ class MadeOrder(models.Model):
 	class Meta:
 		verbose_name = '定制订单'
 		verbose_name_plural = '定制订单管理'
+
+#东北游横幅广告
+class NorthBanner(models.Model):
+	title = models.CharField(max_length = 100, verbose_name = '标题')
+	image = models.ImageField(upload_to ='banner/', verbose_name = '横幅广告', help_text = '大小1000X220')
+	link = models.URLField(verbose_name = '链接地址')
+	update = models.DateTimeField(verbose_name = '更新时间', auto_now = True)
+
+	def __unicode__(self):
+		return self.title
+
+	class Meta:
+		verbose_name = '东北游横幅广告'
+		verbose_name_plural = '东北游横幅广告管理'
+
+#东北游出发地
+class NorthSetOut(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	sort =  models.IntegerField(default=0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '出发地'
+		verbose_name_plural = '出发地管理'
+
+#东北游目的地
+class NorthDest(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '地名')
+	types = models.IntegerField(default = 0, verbose_name = '省', choices = NORTH_DEST_CHOICES)
+	sort =  models.IntegerField(default = 0, verbose_name = '排序')
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '目的地'
+		verbose_name_plural = '目的地管理'
+
+#东北游产品类型
+class NorthType(models.Model):
+	name = models.CharField(max_length = 50, verbose_name = '产品类型')
+	sort =  models.IntegerField(default = 0, verbose_name = '排序')
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '产品类型'
+		verbose_name_plural = '产品类型管理'

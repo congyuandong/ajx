@@ -15,7 +15,7 @@ class GlobalSetting(object):
 
 	def get_site_menu(self):
 		return (
-				{'title': '线路管理','menus':(
+				{'title': '精品线路','menus':(
 					{'title': '线路管理', 'icon': 'fa fa-train', 'url': self.get_model_url(Route, 'changelist')},
 					{'title': '参考行程', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(RouteDetail, 'changelist')},
 					{'title': '套餐管理', 'icon': 'fa fa-shopping-basket', 'url': self.get_model_url(Classification, 'changelist')},
@@ -24,6 +24,12 @@ class GlobalSetting(object):
 					{'title': '目的地', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Destination, 'changelist')},
 					{'title': '附加产品', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(Addition, 'changelist')},
 					{'title': '航班信息', 'icon': 'fa fa-plane', 'url': self.get_model_url(RouteAirplane, 'changelist')},
+				)},
+				{'title': '东北游','menus':(
+					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(NorthSetOut, 'changelist')},
+					{'title': '目的地', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(NorthDest, 'changelist')},
+					{'title': '产品类型', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(NorthType, 'changelist')},
+					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(NorthBanner, 'changelist')},
 				)},
 				{'title': '订单管理 ','menus':(
 					{'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
@@ -186,6 +192,33 @@ class MadeOrderAdmin(object):
 	list_per_page = 20
 	ordering = ['-update']
 
+class NorthBannerAdmin(object):
+	list_display = ['title', 'link']
+	search_fields = ['title']
+	list_per_page = 20
+	ordering = ['-update']
+
+class NorthSetOutAdmin(object):
+	list_display = ['name', 'sort']
+	list_editable = ['name', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
+class NorthDestAdmin(object):
+	list_display = ['name', 'types', 'sort']
+	list_editable = ['name', 'types', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['types', 'sort']
+
+class NorthTypeAdmin(object):
+	list_display = ['name', 'sort']
+	list_editable = ['name', 'sort']
+	search_fields = ['name']
+	list_per_page = 20
+	ordering = ['sort']
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -232,3 +265,7 @@ xadmin.site.register(MadeTravelType,MadeTravelTypeAdmin)
 xadmin.site.register(MadeBudget,MadeBudgetAdmin)
 xadmin.site.register(MadeOrder,MadeOrderAdmin)
 xadmin.site.register(SystemInfo,SystemInfoAdmin)
+xadmin.site.register(NorthBanner,NorthBannerAdmin)
+xadmin.site.register(NorthSetOut,NorthSetOutAdmin)
+xadmin.site.register(NorthDest,NorthDestAdmin)
+xadmin.site.register(NorthType,NorthTypeAdmin)

@@ -1,11 +1,10 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
 
-{% block title %}东北游|在旅行{% endblock %}
+{% block title %}东北游|{{S.name}}{% endblock %}
 
 {% block css %}
-<link href="{% static 'css/reset1.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
+
 {% endblock %}
 
 
@@ -15,10 +14,6 @@
 $(document).ready(
     function()
     {
-        /**
-        *1.delay函数是jquery 1.4.2新增的函数
-        *2.hide函数里必须放一个0,不然延时不起作用
-        */
         $('#destination_banner1').delay(5000).hide(0);
     }
 );
@@ -28,10 +23,11 @@ $(document).ready(
 {% include "ajx/includes/login.html" %}
 {% include "ajx/includes/header.html" %}
 
-<div class="cl"></div>
+{% if banner %}
 <div class="destination_banner" id="destination_banner1">
-	<img src="images/destination_banner_03.jpg" />
+	<a href="{{banner.link}}" target="blank"><img src="media/{{banner.image}}" /></a>
 </div>
+{% endif %}
 <div class="destination_mbx">
 	<p>首页 > 目的地</p>
 </div>
@@ -161,10 +157,10 @@ $(document).ready(
             <li>价格</li>
             <li>热卖</li>
         </ul>
-        <div class="dest_tab_r fr">
+        <!-- <div class="dest_tab_r fr">
         	<p><a href="#" class="dest_tab_r_1">上一页</a><a href="#" class="dest_tab_r_2">下一页</a></p>
         
-        </div>
+        </div> -->
     </div>
     <ul class="tab-bd dest_tab_con">
         <li>

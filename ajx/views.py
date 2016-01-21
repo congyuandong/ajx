@@ -160,11 +160,23 @@ def North(request):
 
 	linkObjs = Links.objects.order_by('sort')
 	systemInfo = get_list_or_404(SystemInfo)
+
+	setOuts = NorthSetOut.objects.order_by('sort')
+	dests = NorthDest.objects.order_by('sort')
+	travelTypes = NorthType.objects.order_by('sort')
+
 	context_dict = {
+		'setouts':setOuts,
+		'dests':dests,
+		'traveltypes':travelTypes,
 		'links':linkObjs,
 		'S':systemInfo[0],
 		'nav':'north'
 	}
+
+	banner = NorthBanner.objects.order_by('-update')
+	if banner:
+		context_dict['banner'] = banner[0]
 
 	return render_to_response('ajx/north.html',context_dict,context)
 
