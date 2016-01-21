@@ -11,8 +11,8 @@ $(document).ready(function() {
 		countAdult = 1,
 		countKid = 0;
 
-	start = function(reduce, text, add, count) {
-		less = function() {
+		start = function(reduce, text, add, count) {
+			less = function() {
 				if (parseInt(text.value) > 0) {
 					count -= 1;
 					text.value = count;

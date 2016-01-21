@@ -345,6 +345,8 @@ class SystemInfo(models.Model):
 	name = models.CharField(max_length = 100, verbose_name = '网站名称')
 	tel = models.CharField(max_length = 20, verbose_name = '客服电话')
 	url = models.URLField(verbose_name = '域名地址')
+	version = models.IntegerField(default = 0, verbose_name = '版本')
+	logo = models.ImageField(upload_to ='logo/', verbose_name = '网站LOGO', help_text = '大小174X74')
 
 	def __unicode__(self):
 		return u'基础信息'
@@ -406,7 +408,7 @@ class MadeTravelType(models.Model):
 
 #定制预算
 class MadeBudget(models.Model):
-	name = models.CharField(max_length = 50, verbose_name = '预算')
+	name = models.CharField(max_length = 100, verbose_name = '预算')
 	sort =  models.IntegerField(default = 0, verbose_name = "排序")
 
 	def __unicode__(self):
@@ -418,6 +420,7 @@ class MadeBudget(models.Model):
 
 #定制订单
 class MadeOrder(models.Model):
+	code = models.CharField(max_length = 50, verbose_name = '订单编号')
 	name = models.CharField(max_length = 50, verbose_name = '姓名')
 	tel = models.CharField(max_length = 50, verbose_name = '电话')
 	mail = models.CharField(max_length = 50, verbose_name = '邮箱', null = True, blank = True)
@@ -430,8 +433,8 @@ class MadeOrder(models.Model):
 	date = models.DateField(verbose_name = '出发日期')
 	days = models.IntegerField(default = 10, verbose_name = '出行时长')
 	persons = models.IntegerField(default = 10, verbose_name = '出行人数')
-	budget = models.ForeignKey(MadeBudget, verbose_name = '预算')
-	update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
+	budget = models.CharField(max_length = 100, verbose_name = '预算')
+	update = models.DateTimeField(verbose_name = '下单时间', auto_now = True)
 
 	def __unicode__(self):
 		return self.name + u'的订单'

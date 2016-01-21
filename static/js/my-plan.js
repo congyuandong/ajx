@@ -31,6 +31,31 @@ $(document).ready(function () {
         $('#dialogueComplete').hide();
     });
 
+    tabs(".tab-hd", "active", ".tab-bd");
+
+    $(".dest_mdd_dl_qb").click(function () {
+        $(this).find("a").addClass("active");
+        $(".dest_mdd_bd").children("li").hide();
+        $(".dest_mdd_hd li").removeClass("active");
+        ;
+    });
+
+    function tabs(tabTit, on, tabCon) {
+        $(tabCon).each(function () {
+            $(this).children().eq(0).show();
+        });
+        $(tabTit).each(function () {
+            $(this).children().eq(0).addClass(on);
+        });
+        $(tabTit).children().click(function () {
+            $(".dest_mdd_dl_qb").find("a").removeClass("active");
+
+            $(this).addClass(on).siblings().removeClass(on);
+            var index = $(tabTit).children().index(this);
+            $(tabCon).children().eq(index).show().siblings().hide();
+        });
+    }
+
     function buttonFun0() {
         $('.destination').on('click', 'a', function () {
             var $this = $(this);
@@ -302,7 +327,7 @@ $(document).ready(function () {
 
             if (end == 1) return ;
 
-            var $active = $talkQuestion.find('.items-a .active');
+            var $active = $talkQuestion.find('.items-a .active em');
             var sel = $talkQuestion.find('.select-txt').val();
             var len = $active.length;
             if (len != 0 || sel != '') {
@@ -476,9 +501,33 @@ $(document).ready(function () {
                 $dialogueComplete.find('.tex').text(tex);
 
                 // 最后这条是生成订单号放的。目前是写死订单号
-                $dialogueComplete.find('.code').text('25461358');
+                var code = getOrderCode();
+                $dialogueComplete.find('.code').text(code);
 
                 animScroll(oDialogue, 0);
+
+                //提交订单数据
+                var dest = $('[data-rel="#talkQuestion1"]').find('.even').text();
+                var setout = $('[data-rel="#talkQuestion2"]').find('.even').text();
+                var traveltype = $('[data-rel="#talkQuestion3"]').find('.even').text();
+                var date = $('[data-rel="#talkQuestion4"]').find('.even').text();
+                var days = $('[data-rel="#talkQuestion5"]').find('.even').text();
+                var persons = $('[data-rel="#talkQuestion6"]').find('.even').text();
+                var budget = $('[data-rel="#talkQuestion7"]').find('.even').text();
+
+                $.ajax({
+                    url: '/w/made/',
+                    type: 'POST',
+                    data: {'code':code,'name':name,'tel':phone,'mail':email,
+                            'wechat':weixin,'contacttime':time,'special':tex,
+                            'dest':dest,'setout':setout,'traveltype':traveltype,
+                            'date':date,'days':days,'persons':persons,'budget':budget},
+                    dataType: 'json',
+                    success: function(result) {
+                        //log(result);
+                    },
+                    error: function(){}
+                });
             } else {
                 $dialogTips.show();
             }
@@ -654,42 +703,24 @@ $(document).ready(function () {
             animScroll(oDialogue, fish.one(fish.one(this).attr('data-rel'))[0].offsetTop - oDialogue.offsetTop + 50);
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
+
+Date.prototype.Format = function (fmt) {
+    var o = {
+        "M+": this.getMonth() + 1, //月份 
+        "d+": this.getDate(), //日 
+        "h+": this.getHours(), //小时 
+        "m+": this.getMinutes(), //分 
+        "s+": this.getSeconds(), //秒 
+        "q+": Math.floor((this.getMonth() + 3) / 3), //季度 
+        "S": this.getMilliseconds() //毫秒 
+    };
+    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    for (var k in o)
+    if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    return fmt;
+}
+
+function getOrderCode(){
+    return (new Date()).Format('yyyyMMddhhmmssS');
+}

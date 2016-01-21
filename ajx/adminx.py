@@ -43,6 +43,7 @@ class GlobalSetting(object):
 					{'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(BannerSlide, 'changelist')},
 					{'title': '首页大图', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(BannerList, 'changelist')},
 					{'title': '友情链接', 'icon': 'fa fa-link', 'url': self.get_model_url(Links, 'changelist')},
+					{'title': '系统信息', 'icon': 'fa fa-cog', 'url': self.get_model_url(SystemInfo, 'changelist')},
 				)},
 			)
 
@@ -138,6 +139,12 @@ class LinksAdmin(object):
 	list_per_page = 20
 	ordering = ['sort']
 
+class SystemInfoAdmin(object):
+	list_display = ['name', 'tel', 'url', 'logo', 'version']
+	list_editable = ['name', 'tel', 'url', 'version']
+	list_per_page = 20
+	ordering = ['version']
+
 class MadeSetOutAdmin(object):
 	list_display = ['name', 'types', 'sort']
 	list_editable = ['name', 'types', 'sort']
@@ -150,14 +157,14 @@ class MadeDestAdmin(object):
 	list_editable = ['name', 'types', 'sort']
 	search_fields = ['name']
 	list_per_page = 20
-	ordering = ['sort']
+	ordering = ['types', 'sort']
 
 class MadeDestOutAdmin(object):
 	list_display = ['name', 'types', 'sort']
 	list_editable = ['name', 'types', 'sort']
 	search_fields = ['name']
 	list_per_page = 20
-	ordering = ['sort']
+	ordering = ['types', 'sort']
 
 class MadeTravelTypeAdmin(object):
 	list_display = ['name', 'sort']
@@ -174,7 +181,7 @@ class MadeBudgetAdmin(object):
 	ordering = ['sort']
 
 class MadeOrderAdmin(object):
-	list_display = ['name', 'tel', 'dest', 'setout', 'date', 'persons', 'days', 'budget']
+	list_display = ['code', 'name', 'tel', 'dest', 'setout', 'date', 'persons', 'days', 'budget', 'update', 'special']
 	search_fields = ['name', 'tel']
 	list_per_page = 20
 	ordering = ['-update']
@@ -224,3 +231,4 @@ xadmin.site.register(MadeDestOut,MadeDestOutAdmin)
 xadmin.site.register(MadeTravelType,MadeTravelTypeAdmin)
 xadmin.site.register(MadeBudget,MadeBudgetAdmin)
 xadmin.site.register(MadeOrder,MadeOrderAdmin)
+xadmin.site.register(SystemInfo,SystemInfoAdmin)

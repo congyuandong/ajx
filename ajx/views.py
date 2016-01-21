@@ -1,7 +1,6 @@
 #coding:utf-8
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render_to_response,render,get_object_or_404,get_list_or_404
 from django.template import RequestContext
-from django.shortcuts import render_to_response
 from django.http import HttpResponse,HttpResponseRedirect
 from django.http import Http404
 
@@ -10,6 +9,7 @@ import simplejson as json
 import tools as T
 
 from models import *
+from forms import *
 
 #首页
 def Index(request):
@@ -20,13 +20,15 @@ def Index(request):
 	destOutObjs = Destination.objects.filter(types = 2).order_by('sort')[0:6]
 	slideBannerObjs = BannerSlide.objects.order_by('sort')[0:5]
 	linkObjs = Links.objects.order_by('sort')
-	
+	systemInfo = get_list_or_404(SystemInfo)
+
 	context_dict = {
 		'setouts':setOutObjs,
 		'destins':destInObjs,
 		'destouts':destOutObjs,
 		'slidebanners':slideBannerObjs,
 		'links':linkObjs,
+		'S':systemInfo[0],
 		'nav':'index'
 	}
 
@@ -87,6 +89,7 @@ def RouteDetailPage(request, rid):
 
 	linkObjs = Links.objects.order_by('sort')
 	routeObj = get_object_or_404(Route, id = rid)
+	systemInfo = get_list_or_404(SystemInfo)
 	classObjs = Classification.objects.filter(route = routeObj).order_by('sort')
 	airlinesGo = RouteAirplane.objects.filter(route = routeObj, isgo = 1).order_by('sort')
 	airlinesBack = RouteAirplane.objects.filter(route = routeObj, isgo = 2).order_by('sort')
@@ -95,6 +98,7 @@ def RouteDetailPage(request, rid):
 	context_dict = {
 		'route':routeObj,
 		'links':linkObjs,
+		'S':systemInfo[0],
 		'classes':classObjs,
 		'data':{'year':today.year,'month':today.month},
 		'airlines':{'golines':airlinesGo,'backlines':airlinesBack,'golinesCount':len(airlinesGo),'backlinesCount':len(airlinesBack)},
@@ -155,8 +159,10 @@ def North(request):
 	context = RequestContext(request)
 
 	linkObjs = Links.objects.order_by('sort')
+	systemInfo = get_list_or_404(SystemInfo)
 	context_dict = {
 		'links':linkObjs,
+		'S':systemInfo[0],
 		'nav':'north'
 	}
 
@@ -174,9 +180,34 @@ def Made(request):
 	context = RequestContext(request)
 	context_dict = {}
 
+	if request.method == 'POST':
+		response = {'code':1}
+		madeOrderData = request.POST.copy()
+		madeOrderForm = MadeOrderForm(data = madeOrderData)
+		if madeOrderForm.is_valid():
+			response['code'] = 1
+			madeOrderForm.save()
+		else:
+			response['code'] = 0
+
+	 	return HttpResponse(json.dumps(response),content_type="application/json")
+
 	linkObjs = Links.objects.order_by('sort')
+	systemInfo = get_list_or_404(SystemInfo)
+	setOuts = MadeSetOut.objects.order_by('types', 'sort')
+	destIns = MadeDest.objects.order_by('types', 'sort')
+	destOuts = MadeDestOut.objects.order_by('types', 'sort')
+	travelTypes = MadeTravelType.objects.order_by('sort')
+	budgets = MadeBudget.objects.order_by('sort')
+
 	context_dict = {
+		'setOuts':setOuts,
+		'destIns':destIns,
+		'destOuts':destOuts,
+		'travelTypes':travelTypes,
+		'budgets':budgets,
 		'links':linkObjs,
+		'S':systemInfo[0],
 		'nav':'made'
 	}
 

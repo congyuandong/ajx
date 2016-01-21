@@ -86,137 +86,68 @@
 
                                 <div class="region-content">
                                     <div class="region-items items-a" style="display: block;">
-                                        <a>北京</a>
-                                        <a>九寨沟</a>
-                                        <a>厦门</a>
-                                        <a>桂林</a>
-                                        <a>云南</a>
-                                        <a>西藏</a>
-                                        <a>韩国</a>
-                                        <a>台湾</a>
-                                        <a>新加坡</a>
-                                        <a>泰国</a>
-                                        <a>巴厘岛</a>
-                                        <a>欧洲</a>
-                                        <a>美国</a>
-                                        <a>加拿大</a>
-                                        <a>古巴</a>
-                                        <a>南极</a>
-                                        <a>毛里求斯</a>
-                                        <a>新加坡</a>
+                                        {% for dest in destIns %}
+                                        {% if dest.types == 0 %}
+                                        <a>{{dest.name}}</a>
+                                        {% endif %}
+                                        {% endfor %}
                                     </div>
                                     <div class="region-items items-a">
-                                        <a>黄山</a>
-                                        <a>乌镇</a>
-                                        <a>泰山</a>
-                                        <a>厦门</a>
-                                        <a>青岛</a>
-                                        <a>北京</a>
-                                        <a>西安</a>
-                                        <a>丽江</a>
-                                        <a>九寨沟</a>
-                                        <a>稻城亚丁</a>
-                                        <a>张家界</a>
-                                        <a>桂林</a>
-                                        <a>三亚</a>
-                                        <a>敦煌</a>
-                                        <a>重庆</a>
-                                        <a>宁夏</a>
-                                        <a>内蒙古</a>
-                                        <a>青海</a>
-                                        <a>新疆</a>
-                                        <a>云南</a>
-                                        <a>西藏</a>
-                                        <a>贵州</a>
+                                        {% for dest in destIns %}
+                                        {% if dest.types == 1 %}
+                                        <a>{{dest.name}}</a>
+                                        {% endif %}
+                                        {% endfor %}
                                     </div>
                                     
                                     <dl class="region-items items-a">
                                         <dt>欧洲</dt>
                                         <dd>
-                                            <a>意大利</a>
-                                            <a>德国</a>
-                                            <a>法国</a>
-                                            <a>西班牙</a>
-                                            <a>葡萄牙</a>
-                                            <a>希腊</a>
-                                            <a>瑞士</a>
-                                            <a>奥地利</a>
-                                            <a>匈牙利</a>
-                                            <a>荷兰</a>
-                                            <a>比利时</a>
-                                            <a>英国</a>
-                                            <a>摩纳哥</a>
-                                            <a>卢森堡</a>
-                                            <a>波兰</a>
-                                            <a>芬兰</a>
-                                            <a>挪威</a>
-                                            <a>瑞典</a>
-                                            <a>丹麦</a>
-                                            <a>捷克</a>
-                                            <a>俄罗斯</a>
-                                            <a>冰岛</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 0 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                         <dt>亚洲</dt>
                                         <dd>
-                                            <a>韩国</a>
-                                            <a>日本</a>
-                                            <a>泰国</a>
-                                            <a>新加坡</a>
-                                            <a>柬埔寨</a>
-                                            <a>斯里兰卡</a>
-                                            <a>尼泊尔</a>
-                                            <a>不丹</a>
-                                            <a>印度</a>
-                                            <a>越南</a>
-                                            <a>菲律宾</a>
-                                            <a>马来西亚</a>
-                                            <a>沙巴</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 1 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                         <dt>大洋洲</dt>
                                         <dd>
-                                            <a>澳大利亚</a>
-                                            <a>新西兰</a>
-                                            <a>萨摩亚</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 2 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                         <dt>美洲</dt>
                                         <dd>
-                                            <a>加拿大</a>
-                                            <a>美国</a>
-                                            <a>墨西哥</a>
-                                            <a>阿根廷</a>
-                                            <a>巴西</a>
-                                            <a>古巴</a>
-                                            <a>秘鲁</a>
-                                            <a>智利</a>
-                                            <a>玻利维亚</a>
-                                            <a>厄瓜多尔</a>
-                                            <a>哥斯达黎加</a>
-                                            <a>南极</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 3 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                         <dt>海岛</dt>
                                         <dd>
-                                            <a>巴厘岛</a>
-                                            <a>普吉岛</a>
-                                            <a>苏梅岛</a>
-                                            <a>马尔代夫</a>
-                                            <a>帕劳</a>
-                                            <a>沙巴</a>
-                                            <a>长滩岛</a>
-                                            <a>塞班岛</a>
-                                            <a>夏威夷</a>
-                                            <a>塞舌尔</a>
-                                            <a>大溪地</a>
-                                            <a>萨摩亚</a>
-                                            <a>斐济</a>
-                                            <a>毛里求斯</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 4 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                         <dt>中东非洲</dt>
                                         <dd>
-                                            <a>迪拜</a>
-                                            <a>南非</a>
-                                            <a>肯尼亚</a>
-                                            <a>以色列</a>
-                                            <a>土耳其</a>
+                                            {% for dest in destOuts %}
+                                            {% if dest.types == 5 %}
+                                            <a>{{dest.name}}</a>
+                                            {% endif %}
+                                            {% endfor %}
                                         </dd>
                                     </dl>
 
@@ -270,49 +201,19 @@
 
                                 <div class="region-content">
                                     <div class="region-items items-a" style="display: block;">
-                                        <a>北京</a>
-                                        <a>九寨沟</a>
-                                        <a>厦门</a>
-                                        <a>桂林</a>
-                                        <a>云南</a>
-                                        <a>西藏</a>
-                                        <a>韩国</a>
-                                        <a>台湾</a>
-                                        <a>新加坡</a>
-                                        <a>泰国</a>
-                                        <a>巴厘岛</a>
-                                        <a>欧洲</a>
-                                        <a>美国</a>
-                                        <a>加拿大</a>
-                                        <a>古巴</a>
-                                        <a>南极</a>
-                                        <a>毛里求斯</a>
-                                        <a>新加坡</a>
+                                        {% for setout in setOuts %}
+                                        {% if setout.types == 0 %}
+                                        <a>{{setout.name}}</a>
+                                        {% endif %}
+                                        {% endfor %}
                                     </div>
 
                                     <div class="region-items items-a">
-                                        <a>黄山</a>
-                                        <a>乌镇</a>
-                                        <a>泰山</a>
-                                        <a>厦门</a>
-                                        <a>青岛</a>
-                                        <a>北京</a>
-                                        <a>西安</a>
-                                        <a>丽江</a>
-                                        <a>九寨沟</a>
-                                        <a>稻城亚丁</a>
-                                        <a>张家界</a>
-                                        <a>桂林</a>
-                                        <a>三亚</a>
-                                        <a>敦煌</a>
-                                        <a>重庆</a>
-                                        <a>宁夏</a>
-                                        <a>内蒙古</a>
-                                        <a>青海</a>
-                                        <a>新疆</a>
-                                        <a>云南</a>
-                                        <a>西藏</a>
-                                        <a>贵州</a>
+                                        {% for setout in setOuts %}
+                                        {% if setout.types == 1 %}
+                                        <a>{{setout.name}}</a>
+                                        {% endif %}
+                                        {% endfor %}
                                     </div>
                                     
                                     
@@ -358,9 +259,9 @@
                             <h6>亲，喜欢什么样的旅游方式？</h6>
 
                             <div class="ly-mode items-a">
-                                <a>自由行</a>
-                                <a>跟团游</a>
-                                <a>我不确定</a>
+                                {% for types in travelTypes %}
+                                <a>{{types.name}}</a>
+                                {% endfor %}
                             </div>
 
                             <div class="dialogue-btn" id="dialogueBtn3">
@@ -437,17 +338,17 @@
 
                             <div class="yx-day-mode">
                                 <div class="items-a">
-                                    <a>3天</a>
-                                    <a>5天</a>
-                                    <a>10天</a>
+                                    <a><em>3</em>天</a>
+                                    <a><em>5</em>天</a>
+                                    <a><em>10</em>天</a>
                                 </div>
 
                                 <div class="yx-day-sel">
                                     <label>游玩天数 </label>
                                     <select class="select-txt">
                                         <option value="" selected="selected">请选天数</option>
-                                        <option value="3">1天</option>
-                                        <option value="4">2天</option>
+                                        <option value="1">1天</option>
+                                        <option value="2">2天</option>
                                         <option value="3">3天</option>
                                         <option value="4">4天</option>
                                         <option value="5">5天</option>
@@ -571,10 +472,9 @@
 
                             <div class="budgeting">
                                 <div class="items-a">
-                                    <a>0-3000元/人</a>
-                                    <a>3000-6000元/人</a>
-                                    <a>6000-10000元/人</a>
-                                    <a>10000元以上/人</a>
+                                    {% for budget in budgets %}
+                                    <a>{{budget.name}}</a>
+                                    {% endfor %}
                                 </div>
                             </div>
 
@@ -645,7 +545,7 @@
                                         <li class="form-group">
                                             <div class="textarea-control">
                                                 <label>特殊要求：</label>
-                                                <textarea class="textarea-text" data-target="tex">爱简疯狂大姐夫口大街饭卡艰苦奋斗就阿卡否定句阿卡打飞机阿卡打飞机阿克江打开否定句安康法克放大放大卡飞</textarea>
+                                                <textarea class="textarea-text" data-target="tex"></textarea>
                                             </div>
                                         </li>
                                     </ul>
@@ -681,7 +581,7 @@
                             <div class="dialogue-footer">
                                 <p>您的需求单已经提交，</p>
                                 <p>我们会在2小时内和您电话确认。</p>
-                                <p>如果您还有其他要求，请致电：400-0450-718</p>
+                                <p>如果您还有其他要求，请致电：{{S.tel}}</p>
                             </div>
                         </div>
                         <div class="dialog-layout"></div>
@@ -698,96 +598,12 @@
 {% include "ajx/includes/footer.html" %}
 {% include "ajx/includes/sidebar.html" %}
 
-<script type="text/javascript">
-    $(function () {
-        function tabs(tabTit, on, tabCon) {
-            $(tabCon).each(function () {
-                $(this).children().eq(0).show();
-            });
-            $(tabTit).each(function () {
-                $(this).children().eq(0).addClass(on);
-            });
-            $(tabTit).children().click(function () {
-                $(".dest_mdd_dl_qb").find("a").removeClass("active");
+{% endblock %}
 
-                $(this).addClass(on).siblings().removeClass(on);
-                var index = $(tabTit).children().index(this);
-                $(tabCon).children().eq(index).show().siblings().hide();
-            });
-        }
-
-        tabs(".tab-hd", "active", ".tab-bd");
-    });
-
-
-    $(document).ready(function (e) {
-        $(".dest_mdd_dl_qb").click(function () {
-            $(this).find("a").addClass("active");
-            $(".dest_mdd_bd").children("li").hide();
-            $(".dest_mdd_hd li").removeClass("active");
-            ;
-        });
-
-
-    });
-
-
-</script>
-
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $(window).scroll(function () {
-
-        });
-//当点击跳转链接后，回到页面顶部位置
-        $("#back-to-top").click(function () {
-            $("body,html").animate({scrollTop: 0}, 1000);
-            return false;
-        });
-    });
-</script>
-
-
-<script type="text/javascript">
-    $(".cha").click(function () {
-        $(".sidebar").hide()
-        $(".ycl_dd").hide()
-        $(".xs").slideDown();
-    })
-
-    $(".xs").click(function () {
-        $(".sidebar").show()
-        $(".ycl_dd").show()
-        $(".xs").slideUp();
-    })
-
-</script>
-
+{% block js %}
 <script type="text/javascript" src="{% static 'js/jquery.SuperSlide.min.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/fish.1.4.7.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/Calendar.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/my-plan.js'%}"></script>
-<script>
-    $(document).ready(function (e) {
-
-        $(window).scroll(
-            function () {
-                if (( $(window).scrollTop()) >= 625) {
-                    $(".xianlumoban_ul").addClass("ab");
-                } else {
-                    $(".xianlumoban_ul").removeClass("ab");
-                }
-            }
-        );
-
-    });
-</script>
-
-{% endblock %}
-
-{% block js %}
 <script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
 {% endblock %}
