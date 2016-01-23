@@ -2,9 +2,6 @@
 from django import template
 register = template.Library()
 
-import sys
-sys.path.append("..")
-from ajx.models import SetOut,Destination
 from datetime import date
 
 
@@ -46,6 +43,7 @@ def index_left(context, setouts, destins, destouts):
 			result['except_d'] = "&%s" % params.urlencode()
 		else:
 			result['except_d'] = ''
+		params = context['request'].GET.copy()
 		if 'm' in params:
 			if int(params['m']) != -1:
 				result['mall'] = 1
@@ -55,8 +53,6 @@ def index_left(context, setouts, destins, destouts):
 			result['except_m'] = "&%s" % params.urlencode()
 		else:
 			result['except_m'] = ''
-
-
 	return result
 
 register.inclusion_tag('ajx/includes/index_left.html', takes_context=True)(index_left)

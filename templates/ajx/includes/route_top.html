@@ -1,0 +1,85 @@
+<div class="about_box destination_con">
+	<dl>
+		<dt class="dest_cfd">出发地：</dt>
+		<dd {% if sid == -1 or not sid %}class="dest_this"{% endif %}>
+			<a href="?s=-1{{except_s}}">全部</a>
+		</dd>
+		{% for setout in setouts %}
+			<dd {% if sid == setout.id %}class="dest_this"{% endif %}><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></dd>
+		{% endfor %}
+	</dl>
+	<div class="tab dest_mdd">
+		<div class="dest_mdd_top">
+			<dl class="dest_mdd_dl fl">
+				<dt>目的地：</dt>
+				<dd class="dest_mdd_dl_qb">
+					<a href="?d=-1{{except_d}}" {% if did == -1 or not did %}class="active"{% endif %}>全部</a>
+				</dd>
+			</dl>
+			<ul class="tab-hd dest_mdd_hd fl">
+				<li class="dest_sj3 {% if dfid == 0 %}active{% endif %}">黑龙江</li>
+				<li class="dest_sj2 {% if dfid == 1 %}active{% endif %}">吉林</li>
+				<li class="dest_sj2 {% if dfid == 2 %}active{% endif %}">辽宁</li>
+			</ul>
+		</div>
+		<ul class="tab-bd dest_mdd_bd">
+			<li {% if dfid == 0 %}style="display: list-item;"{% endif %}>
+				<div class="dest_hide">
+					<div class="dest_hide_l fl">
+						<h2>黑龙江所有地区</h2>
+					</div>
+					<div class="dest_hide_r fl">
+						<ul class="dist_mdd_show_con">
+							{% for dest in dests %}
+							{% if dest.types == 0 %}
+							<li {% if did == dest.id %}class="active"{% endif %}><a href="?d={{dest.id}}{{except_d}}">{{dest.name}}</a></li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li {% if dfid == 1 %}style="display: list-item;"{% endif %}>
+				<div class="dest_hide">
+					<div class="dest_hide_l fl">
+						<h2>吉林所有地区</h2>
+					</div>
+					<div class="dest_hide_r fl">
+						<ul class="dist_mdd_show_con">
+							{% for dest in dests %}
+							{% if dest.types == 1 %}
+							<li {% if did == dest.id %}class="active"{% endif %}><a href="?d={{dest.id}}{{except_d}}">{{dest.name}}</a></li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</li>
+			<li {% if dfid == 2 %}style="display: list-item;"{% endif %}>
+				<div class="dest_hide">
+					<div class="dest_hide_l fl">
+						<h2>辽宁所有地区</h2>
+					</div>
+					<div class="dest_hide_r fl">
+						<ul class="dist_mdd_show_con">
+							{% for dest in dests %}
+							{% if dest.types == 2 %}
+							<li {% if did == dest.id %}class="active"{% endif %}><a href="?d={{dest.id}}{{except_d}}">{{dest.name}}</a></li>
+							{% endif %}
+							{% endfor %}
+						</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<dl class="dest_cplx_w">
+		<dt class="dest_cplx">产品类型：</dt>
+		<dd {% if tid == -1 or not tid %}class="dest_this"{% endif %}>
+			<a href="?t=-1{{except_t}}">全部</a>
+		</dd>
+		{% for traveltype in traveltypes %}
+			<dd {% if tid == traveltype.id %}class="dest_this"{% endif %}><a href="?t={{traveltype.id}}{{except_t}}">{{traveltype.name}}</a></dd>
+		{% endfor %}
+	</dl>
+</div>

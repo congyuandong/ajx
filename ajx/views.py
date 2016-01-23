@@ -77,7 +77,8 @@ def Index(request):
 		indexItemObjs.append({'type':'ad','content':listbanners[index]})
 	# 计算结束
 
-	context_dict['indexitems'] = indexItemObjs;
+	context_dict['indexitems'] = indexItemObjs
+	print indexItemObjs
 	
 	return render_to_response('ajx/index.html',context_dict,context)
 
@@ -177,6 +178,24 @@ def North(request):
 	banner = NorthBanner.objects.order_by('-update')
 	if banner:
 		context_dict['banner'] = banner[0]
+
+
+	#获取筛选数据
+	s = int(request.GET.get('s','-1'))
+	d = int(request.GET.get('d','-1'))
+	t = int(request.GET.get('t','-1'))
+
+	kwargs = {}
+	if s > -1:
+		kwargs['setOut__id'] = s
+	if d > -1:
+		kwargs['destination__id'] = d
+	if t > -1:
+		kwargs['northType__id'] = t
+	print kwargs
+
+	routeObjs = NorthRoute.objects.filter(**kwargs).order_by('-update')
+	context_dict['routes'] = routeObjs
 
 	return render_to_response('ajx/north.html',context_dict,context)
 

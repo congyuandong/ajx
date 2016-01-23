@@ -2,9 +2,9 @@
 {% load i18n %}
 <div class="pagination">
     {% if page_obj.has_previous %}
-        <a href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}">上一页</a>
+        <a class="dest_page_s" href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}">上一页</a>
     {% else %}
-        <a class="disabled">上一页</a>
+        <a class="disabled dest_page_s">上一页</a>
     {% endif %}
     {% for page in pages %}
         {% if page %}
@@ -18,9 +18,9 @@
         {% endif %}
     {% endfor %}
     {% if page_obj.has_next %}
-        <a href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}" class="next">下一页</a>
+        <a class="dest_page_x" href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}">下一页</a>
     {% else %}
-        <a class="disabled">下一页</a>
+        <a class="disabled dest_page_x">下一页</a>
     {% endif %}
 </div>
 {% endif %}

@@ -153,8 +153,8 @@ class Route(models.Model):
 	marketPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='市场价格')
 	realPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='优惠价格')
 	childPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='儿童价格', null = True, blank = True)
-	destination = models.ForeignKey(Destination, verbose_name = '出发地')
-	setOut = models.ForeignKey(SetOut, verbose_name = '目的地')
+	destination = models.ForeignKey(Destination, verbose_name = '目的地')
+	setOut = models.ForeignKey(SetOut, verbose_name = '出发地')
 	addition = models.ManyToManyField(Addition, verbose_name = '附加产品', null = True, blank = True)
 	goType = models.IntegerField(default = 0, verbose_name = '去程交通', choices = TRAFFIC_CHOICES)
 	backType = models.IntegerField(default = 0, verbose_name = '返程交通', choices = TRAFFIC_CHOICES)
@@ -499,3 +499,67 @@ class NorthType(models.Model):
 	class Meta:
 		verbose_name = '产品类型'
 		verbose_name_plural = '产品类型管理'
+
+#东北游线路表
+class NorthRoute(models.Model):
+	name = models.CharField(max_length = 200, verbose_name = '线路名称')
+	code = models.CharField(max_length = 20, verbose_name = '线路编号')
+	ifAct = models.IntegerField(default = 0, verbose_name = '是否上架', choices = YESORNO_CHOICES)
+	listPic = models.ImageField(upload_to ='route/', verbose_name = '列表页图片', help_text="大小314*174")
+	summary = models.CharField(max_length = 200, verbose_name = '线路简介')
+	supplyName = models.CharField(max_length = 100, verbose_name = '供应商名称')
+	marketPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='市场价格')
+	realPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='优惠价格')
+	childPrice = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='儿童价格', null = True, blank = True)
+	destination = models.ForeignKey(NorthDest, verbose_name = '目的地')
+	setOut = models.ForeignKey(NorthSetOut, verbose_name = '出发地')
+	addition = models.ManyToManyField(Addition, verbose_name = '附加产品', null = True, blank = True)
+	goType = models.IntegerField(default = 0, verbose_name = '去程交通', choices = TRAFFIC_CHOICES)
+	backType = models.IntegerField(default = 0, verbose_name = '返程交通', choices = TRAFFIC_CHOICES)
+	origin = models.CharField(max_length = 200, verbose_name = '线路来源', help_text = '本产品由XXXX旅行社提供服务')
+	singleRoom = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name = '单房价')
+	needConfirm = models.IntegerField(default = 1, verbose_name = '二次确认', choices = YESORNO_CHOICES)
+	types = models.IntegerField(default = 0, verbose_name = '线路类型', choices = ROUTE_CHOICES)
+	feature = models.IntegerField(default = 0, verbose_name = '线路特色', choices = FEATURE_CHOICES)
+	northType = models.ForeignKey(NorthType, verbose_name = '产品类型')
+ 	adultLeft = models.IntegerField(default = 0, verbose_name = '成人余位')
+	childLeft = models.IntegerField(default = 0, verbose_name = '儿童余位', null = True, blank = True)
+	advance = models.IntegerField(default = 3, verbose_name = '报名提前天数')
+	day = models.IntegerField(default = 0, verbose_name = '出游天数(白天)')
+	night = models.IntegerField(default = 0, verbose_name = '出游天数(夜晚)')
+	hotelStar = models.IntegerField(default = 0, verbose_name = '酒店星级', null=True,blank=True)
+	detail = UEditorField(verbose_name='产品详情',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	cost = UEditorField(verbose_name='费用说明',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	ship = UEditorField(verbose_name='轮船信息',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	traffic = UEditorField(verbose_name='参考交通',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	hotel = UEditorField(verbose_name='参考住宿',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	visa = UEditorField(verbose_name='签证信息',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	notice = UEditorField(verbose_name='订购须知',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	netsign = UEditorField(verbose_name='网签协议',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	supplier = UEditorField(verbose_name='供应商信息',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+	update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
+
+	def __unicode__(self):
+		return self.name
+
+	class Meta:
+		verbose_name = '线路'
+		verbose_name_plural = '线路管理'

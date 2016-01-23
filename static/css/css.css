@@ -460,7 +460,6 @@
 }
 
 .con_div1_c li {
-    display: none;
     padding: 0px;
 }
 
@@ -3434,6 +3433,38 @@ a.btn:hover {
     display: block;
 }
 
+.dest_mdd_bd .dist_mdd_show_con li a:hover{
+    background: #6cbcc5;
+    color: #fff;
+    -moz-border-radius: 3px;
+    /* Gecko browsers */
+    -webkit-border-radius: 3px;
+    /* Webkit browsers */
+    border-radius: 3px;
+    /* W3C syntax */
+    text-decoration:none;
+}
+
+.dest_mdd_bd .dist_mdd_show_con li a {
+    color: #666;
+    height: 20px;
+    padding: 0px 8px;
+    display: inline-block;
+    line-height: 20px;
+}
+
+.dest_mdd_bd .dist_mdd_show_con .active a{
+    background: #6cbcc5;
+    color: #fff;
+    -moz-border-radius: 3px;
+    /* Gecko browsers */
+    -webkit-border-radius: 3px;
+    /* Webkit browsers */
+    border-radius: 3px;
+    /* W3C syntax */
+    text-decoration:none;
+}
+
 .dest_mdd_dl_qb .active {
     background: #6cbcc5 url(../images/destination_jingling.png) 55px -145px no-repeat;
     color: #fff;
@@ -3550,7 +3581,6 @@ a.btn:hover {
 }
 
 .dest_tab_con li {
-    display: none;
     padding: 0;
 }
 
@@ -3564,7 +3594,7 @@ a.btn:hover {
     padding: 0px;
     background: #fff;
     margin-bottom: 25px;
-    margin-left: 26px;
+    margin-left: 14px;
 }
 
 .dest_tab_ul_pic {
@@ -3609,7 +3639,7 @@ a.btn:hover {
 }
 
 .dest_tab_ul_2_p {
-    width: 188px;
+    max-width: 240px;
     padding-left: 12px;
 }
 
@@ -3722,10 +3752,6 @@ a.btn:hover {
     line-height: 32px;
     padding-left: 10px;
     font-size: 14px;
-}
-
-.dest_tab_con .dest_tab_con_ul .dest_tab_con_ul_liw {
-    margin-left: 0px;
 }
 
 
