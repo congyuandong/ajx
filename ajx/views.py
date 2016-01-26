@@ -49,7 +49,6 @@ def Index(request):
 
 	#对路线和广告重新排列
 	routes = Route.objects.filter(**kwargs).order_by('-update')
-	print routes
 	listbanners = BannerList.objects.order_by('sort')
 	indexItemObjs = []
 	counter = 0
@@ -117,7 +116,6 @@ def RouteDetailPage(request, rid):
 		calendars = RouteCalendar(request, today.year, today.month, classObjs[0].id)
 		context_dict['calendars'] = calendars['calendars']
 		if 'go' in calendars.keys():
-			print calendars['go']
 			context_dict['date'] = calendars['go']['date']
 			context_dict['data']['left'] = calendars['go']['left']
 		else:
@@ -191,7 +189,6 @@ def North(request):
 		kwargs['destination__id'] = d
 	if t > -1:
 		kwargs['northType__id'] = t
-	print kwargs
 
 	routeObjs = NorthRoute.objects.filter(**kwargs).order_by('-update')
 	context_dict['routes'] = routeObjs
