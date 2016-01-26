@@ -186,10 +186,12 @@
 
 .index_right_top ul li a {
     color: #838383;
+    cursor: pointer;
 }
 
 .index_right_top ul li a:hover {
     color: #44afbd;
+    cursor: pointer;
 }
 
 .index_right_top ul .index_right_top_li7 {
@@ -3234,10 +3236,12 @@ a.btn:hover {
 
 .about_right_top ul li a {
     color: #838383;
+    cursor: pointer;
 }
 
 .about_right_top ul li a:hover {
     color: #44afbd;
+    cursor: pointer;
 }
 
 .about_right_top ul .index_right_top_li7 {

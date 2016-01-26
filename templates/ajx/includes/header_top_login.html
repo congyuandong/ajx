@@ -1,5 +1,6 @@
 {% load staticfiles %}
 <ul>
+	{% if not request.session.LOGIN %}
 	<li>
 		<a class="popup" data="login">我的订单</a>
 	</li>
@@ -13,4 +14,19 @@
 	</li>
 	<li>|</li>
 	<li class="index_right_top_li7">{{S.tel}}</li>
+	{% else %}
+	<li>
+		<a href="/w/logout/">退出</a>
+	</li>
+	<li>|</li>
+	<li>
+		<a href="/w/order/">我的订单</a>
+	</li>
+	<li>|</li>
+	<li>
+		欢迎您,<a>{{request.session.USER.nick}}</a>
+	</li>
+	<li>|</li>
+	<li class="index_right_top_li7">{{S.tel}}</li>
+	{% endif %}
 </ul>

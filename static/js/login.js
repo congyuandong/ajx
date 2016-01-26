@@ -85,7 +85,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/index.php/Home/Login/login',
+            url: '/w/login/',
             data: {
                 account: user_account,
                 password: user_password,
@@ -94,7 +94,7 @@ $(document).ready(function() {
             success: function(data) {
                 if(data.code == 1){
                     location.reload(true);
-                }else if(data.code == -1){
+                }else{
                     $('.error_tip').text('用户名或者密码错误');
                 }
             }

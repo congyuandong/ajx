@@ -51,6 +51,7 @@ class GlobalSetting(object):
 					{'title': '首页大图', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(BannerList, 'changelist')},
 					{'title': '友情链接', 'icon': 'fa fa-link', 'url': self.get_model_url(Links, 'changelist')},
 					{'title': '系统信息', 'icon': 'fa fa-cog', 'url': self.get_model_url(SystemInfo, 'changelist')},
+					{'title': '验证码', 'icon': 'fa fa-inbox', 'url': self.get_model_url(RandomCode, 'changelist')},
 				)},
 			)
 
@@ -71,7 +72,7 @@ class NorthRouteAdmin(object):
 	ordering = ['-update']
 
 class UserInfoAdmin(object):
-	list_display = ['account', 'phone', 'email', 'nick', 'sex', 'birthday']
+	list_display = ['account', 'password', 'phone', 'email', 'nick', 'sex', 'birthday']
 	list_editable = ['phone', 'email', 'nick', 'sex', 'birthday']
 	search_fields = ['account', 'phone', 'email', 'nick']
 	list_per_page = 20
@@ -228,6 +229,10 @@ class NorthTypeAdmin(object):
 	list_per_page = 20
 	ordering = ['sort']
 
+class RandomCodeAdmin(object):
+	list_display = ['tel', 'code', 'time']
+	list_per_page = 20
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -279,3 +284,4 @@ xadmin.site.register(NorthSetOut,NorthSetOutAdmin)
 xadmin.site.register(NorthDest,NorthDestAdmin)
 xadmin.site.register(NorthType,NorthTypeAdmin)
 xadmin.site.register(NorthRoute,NorthRouteAdmin)
+xadmin.site.register(RandomCode,RandomCodeAdmin)

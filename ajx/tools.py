@@ -1,6 +1,18 @@
 #coding:utf-8
 import calendar
 import datetime
+import requests
+import md5,base64
+import simplejson as json
+import string,random
+from models import *
+
+#查找某个模型的数据是否存在
+def CheckExist(model,kwargs):
+	objects = model.objects.filter(**kwargs)
+	if objects:
+		return True
+	return False
 
 def getcal(y, m):  
 	# 从周日开始  
@@ -30,6 +42,51 @@ def getcal(y, m):
 	result = []  
 	result.append(r1) # 第一周  
 	for c in ccal:    # 其他周  
-		result.append([datetime.date(y,m,i) for i in c])  
-	result.append(r2) # 最后一周  
+		result.append([datetime.date(y,m,i) for i in c])
+	result.append(r2) # 最后一周
 	return result
+
+
+#发送验证短信
+# to 电话号码
+SMS_URL = 'https://sandboxapp.cloopen.com:8883/2013-12-26/Accounts/%s/SMS/TemplateSMS?sig=%s'
+SMS_AccountSid = '8a48b5514b827f85014bbec1fe910626'
+SMS_AccountToken = '87cef17530f548188f2307095a13775a'
+SMS_AppID = 'aaf98f894b827e71014bbecb335a06f2'
+SMS_TemplateID = '1'
+def SendSMS(to):
+	batch = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+	signature = SMS_AccountSid + SMS_AccountToken + batch
+	sigParameter = md5.new(signature).hexdigest().upper()
+	url = SMS_URL%(SMS_AccountSid,sigParameter)
+
+	src = SMS_AccountSid + ':' + batch
+	auth = base64.encodestring(src).strip()
+	headers = {'Accept':'application/json', 'content-type':'application/json;charset=utf-8', 'Authorization':auth}
+
+	code = RandCode()
+	payload = {'to':to, 'appId':SMS_AppID, 'templateId':SMS_TemplateID, 'datas':'[' + code + ', 5]'}
+
+	response = requests.post(url, data=json.dumps(payload), headers=headers)
+	response = response.json()
+	statusCode = response['statusCode']
+	if statusCode == '000000':
+		if CheckExist(RandomCode,{'tel':to}):
+			randomCode_obj = RandomCode.objects.get(tel__exact = to)
+			randomCode_obj.code = code
+			randomCode_obj.time = datetime.datetime.now()
+			randomCode_obj.save()
+		else:
+			randomCode_obj = RandomCode(tel = to, code = code, time = datetime.datetime.now())
+			randomCode_obj.save()
+		return True
+	else:
+		return False
+
+#随机产生六个数字
+def RandCode():
+	return string.join(random.sample(['1','2','3','4','5','6','7','8','9','0'], 6)).replace(' ','')
+
+if __name__ == '__main__':
+	#SendSMS('13136652521')
+	pass 

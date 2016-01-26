@@ -4,7 +4,7 @@ from django.template import RequestContext
 from django.http import HttpResponse,HttpResponseRedirect
 from django.http import Http404
 
-from datetime import date
+from datetime import date,datetime
 import simplejson as json
 import tools as T
 
@@ -78,7 +78,6 @@ def Index(request):
 	# 计算结束
 
 	context_dict['indexitems'] = indexItemObjs
-	print indexItemObjs
 	
 	return render_to_response('ajx/index.html',context_dict,context)
 
@@ -243,3 +242,68 @@ def Made(request):
 	}
 
 	return render_to_response('ajx/made.html',context_dict,context)
+
+#获取随机验证码
+def GetRandomCode(request):
+	response_dict = {}
+	if request.method == 'GET':
+		tel = request.GET.get('tel','')
+		if len(tel) != 11:
+			response_dict['status'] = 0
+		else:
+			randomCodeObj = RandomCode.objects.filter(tel = tel)
+			if randomCodeObj:
+				if (datetime.now() - randomCodeObj[0].time).seconds < 60:
+					response_dict['status'] = 2
+				else:
+					if T.SendSMS(tel) == True:
+						response_dict['status'] = 1
+					else:
+						response_dict['status'] = 0
+			else:
+				if T.SendSMS(tel) == True:
+					response_dict['status'] = 1
+				else:
+					response_dict['status'] = 0
+	else:
+		response_dict['status'] = 0
+	return HttpResponse(json.dumps(response_dict),content_type="application/json")
+
+#判断用户的验证码是否错误或者超时 5min
+def CheckRandomCode(tel, code):
+	randomCode_obj = RandomCode.objects.filter(tel = tel)
+	if randomCode_obj:
+		if randomCode_obj[0].code == code and (datetime.now() - randomCode_obj[0].time).seconds < 300:
+			return True
+		else:
+			return False
+	else:
+		return False
+
+def Login(request):
+	response_dict = {}
+	if request.method == 'POST':
+		account = request.POST.get('account','')
+		password = request.POST.get('password','')
+		remember = request.POST.get('remember','')
+
+		if T.CheckExist(UserInfo,{'account':account, 'password':password}):
+			response_dict['code'] = 1
+			userObj = UserInfo.objects.get(account__exact = account)
+			if remember == 'false':
+				request.session.set_expiry(False)
+			else:
+				request.session.set_expiry(7 * 24 * 3600)
+			request.session['USER'] = {'account':userObj.account, 'nick':userObj.nick}
+			request.session['LOGIN'] = True
+		else:
+			response_dict['code'] = 0
+	else:
+		response_dict['code'] = 0
+	return HttpResponse(json.dumps(response_dict),content_type="application/json")
+
+def Logout(request):
+	if request.session.has_key('LOGIN'):
+		del request.session['LOGIN']
+		del request.session['USER']
+	return HttpResponseRedirect('/')
