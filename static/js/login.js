@@ -1,3 +1,5 @@
+var getcode_time = 60;
+
 $(document).ready(function() {
     $('.popup').on('click', function() {
         var $layer = '';
@@ -101,6 +103,19 @@ $(document).ready(function() {
         });
     });
 
+    $('.getLoginCode').on('click', function(){
+        $('.getLoginCode').text('60s');
+        // $.ajax({
+        //     type: 'GET',
+        //     url: '/w/code/?tel=' + tel,
+        //     success: function(data) {
+        //         if(data.code == 1){
+                    
+        //         }
+        //     }
+        // });
+    });
+
 });
 
 function checkAccount(account) {
@@ -123,4 +138,18 @@ function tabs(tabTit, on, tabCon, tabIndex) {
         var index = $(tabTit).children().index(this);
         $(tabCon).children().eq(index).show().siblings().hide();
     });
+}
+
+//禁止获取验证码
+function disable_getcode(){
+    var load_timeout = $.cookie('load_timeout');
+    if (load_timeout >= 0) {
+        $('#getcode_span').text(load_timeout+'s');
+        $.cookie('load_timeout' , load_timeout - 1);
+        setTimeout("disable_getcode()", 1000);
+    }else{
+        $('#getcode').removeClass('disabled');
+        //$('#span_refresh').css("color","#017aff");
+        $('#getcode_span').text('获取');
+    }
 }

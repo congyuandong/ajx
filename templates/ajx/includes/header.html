@@ -2,7 +2,11 @@
 <div class="about_top">
     <div class="about_box">
         <div class="about_logo fl">
+            {% if S.logo %}
+            <h1 style="background: url(media/{{S.logo}}) no-repeat;">在旅行</h1>
+            {% else %}
             <h1>在旅行</h1>
+            {% endif %}
         </div>
         <div class="about_top_r fr">
             <div class="about_right_top">

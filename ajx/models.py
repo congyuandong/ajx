@@ -352,7 +352,7 @@ class SystemInfo(models.Model):
 	tel = models.CharField(max_length = 20, verbose_name = '客服电话')
 	url = models.URLField(verbose_name = '域名地址')
 	version = models.IntegerField(default = 0, verbose_name = '版本')
-	logo = models.ImageField(upload_to ='logo/', verbose_name = '网站LOGO', help_text = '大小174X74')
+	logo = models.ImageField(upload_to ='logo/', verbose_name = '网站LOGO', help_text = '大小213X85', null = True, blank = True)
 
 	def __unicode__(self):
 		return u'基础信息'

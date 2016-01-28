@@ -15,9 +15,15 @@
 <div class="overall">
 <div class="container container1">
 	<div class="index_left">
-    	<div class="logo">
-        	<h1>在旅行</h1>
+    	{% if S.logo %}
+        <div class="logo" style="background: url(media/{{S.logo}}) no-repeat;">
+            <h1>在旅行</h1>
         </div>
+        {% else %}
+        <div class="logo">
+            <h1>在旅行</h1>
+        </div>
+        {% endif %}
        	<div class="xqym_left_tite gensuigundong_daohagn">
             <div class="xqym_left_1">
                 <h2>{{route.setOut.name}}</h2>

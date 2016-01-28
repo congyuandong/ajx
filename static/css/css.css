@@ -24,7 +24,7 @@
 .logo {
     width: 213px;
     height: 85px;
-    background: url(../images/../images/logo_03.png) no-repeat;
+    background: url(../images/logo.png) no-repeat;
     margin-top: 15px;
     margin-bottom: 42px;
 }
@@ -3172,15 +3172,14 @@ a.btn:hover {
 
 .about_logo {
     width: 200px;
-    height: 74px;
+    height: 85px;
 }
 
 .about_logo h1 {
-    width: 174px;
-    height: 74px;
+    width: 213px;
+    height: 85px;
     text-indent: -9999px;
-    background: url(../images/logo_about.png) no-repeat;
-    margin-top: 6px;
+    background: url(../images/logo.png) no-repeat;
 }
 
 .about_top_r {

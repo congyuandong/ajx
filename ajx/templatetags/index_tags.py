@@ -5,7 +5,7 @@ register = template.Library()
 from datetime import date
 
 
-def index_left(context, setouts, destins, destouts):
+def index_left(context, setouts, destins, destouts, S):
 
 	month = date.today().month
 	months = []
@@ -19,7 +19,8 @@ def index_left(context, setouts, destins, destouts):
 		'setouts':setouts,
 		'destins':destins,
 		'destouts':destouts,
-		'months':months
+		'months':months,
+		'S':S
 	}
 	
 	if 'request' in context:

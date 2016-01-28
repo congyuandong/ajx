@@ -1,8 +1,14 @@
 <div class="index_left">
 	<a href="/">
-    	<div class="logo">
-        	<h1>在旅行</h1>
+        {% if S.logo %}
+    	<div class="logo" style="background: url(media/{{S.logo}}) no-repeat;">
+            <h1>在旅行</h1>
         </div>
+        {% else %}
+        <div class="logo">
+            <h1>在旅行</h1>
+        </div>
+        {% endif %}
     </a>
     
     <div class="outer">
