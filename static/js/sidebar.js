@@ -26,7 +26,7 @@ $(document).ready(function() {
 		$(".xs").slideUp();
 	})
 
-	var title = "在旅行-专注于东北旅游服务！";
+	var title = "在旅行-专注超值尾单、自由行定制旅游！";
 	var pic = "http://www.i-xing.com/Public/page/images/logo_03.png";
 
 	$('body').xuanfengSnsShare({

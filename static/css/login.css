@@ -23,6 +23,8 @@
 .tab_popup_bd_dl1 dt{ width:70px; line-height:32px;color:#5d5d5d;}
 .tab_popup_bd_dl1,.tab_popup_bd_dl1 dd{ height:32px;}
 .error_tip {padding-left: 70px; color: red;}
+.success_tip {padding-left: 70px; color: black;}
+.popup_yd .disabled {pointer-events: none;cursor: not-allowed;filter: alpha(opacity=65);-webkit-box-shadow: none;box-shadow: none;opacity: .65;}
 
 .tab_popup_bd_dl1_1{width:210px; margin-right:10px;}
 .tab_popup_bd_dl1_1 input{ border:1px solid #e1e1e1; height:29px; width:188px; padding:0 10px; line-height:30px; background:none; outline:none;color:#5d5d5d;}

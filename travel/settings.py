@@ -147,3 +147,9 @@ STATICFILES_FINDERS = (
 )
 
 TEMPLATE_DIRS = [os.path.join(BASE_DIR, 'templates')]
+
+#Mail Server Config
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_HOST_USER = 'blvxing@163.com'
+EMAIL_HOST_PASSWORD = 'blvxing02'
+EMAIL_USE_TLS = True

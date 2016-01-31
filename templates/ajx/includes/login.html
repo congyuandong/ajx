@@ -43,16 +43,18 @@
                 <ul class="tab-children tab_popup_bd">
                     <li>
                         <form>
+                            <div class="error_tip"></div>
+                            <div class="success_tip"></div>
                             <dl class="tab_popup_bd_dl1">
                                 <dt>手机号码：</dt>
                                 <dd class="tab_popup_bd_dl1_1">
-                                    <input name="" type="text" />
+                                    <input id="account" type="text" data="tel"/>
                                 </dd>
                             </dl>
                             <dl class="tab_popup_bd_dl1">
                                 <dt>验 证 码：</dt>
                                 <dd class="tab_popup_bd_dl1_1">
-                                    <input name="" type="text" />
+                                    <input id="code" type="text" />
                                 </dd>
                                 <dd class="tab_popup_bd_dl1_2">
                                     <a class="getLoginCode">获取验证码</a>
@@ -61,17 +63,17 @@
                             <dl class="tab_popup_bd_dl2">
                                 <dd class="tab_popup_bd_dl2_1">
                                     <span>
-                                        <input name="" type="checkbox" value="" />
+                                        <input id="checked" type="checkbox" value="" />
                                     </span>
                                     记住我
                                 </dd>
                                 <dd class="tab_popup_bd_dl2_2">
-                                    <a href="__MODULE__/Login/find_pwd">忘记密码？</a>
+                                    <a href="/w/forget/">忘记密码？</a>
                                 </dd>
                             </dl>
                             <dl class="tab_popup_bd_dl3">
                                 <dd>
-                                    <input id="btn_quick_login"  value="登 录" class="detail_close"></dd>
+                                    <input id="btn_quick_login"  value="登 录" readonly></dd>
                             </dl>
                         </form>
                     </li>
@@ -99,7 +101,7 @@
                                     记住我
                                 </dd>
                                 <dd class="tab_popup_bd_dl2_2">
-                                    <a href="#">忘记密码？</a>
+                                    <a href="/w/forget/">忘记密码？</a>
                                 </dd>
                             </dl>
                             <dl class="tab_popup_bd_dl3">
@@ -110,10 +112,11 @@
                     <li>
                         <form>
                             <div class="error_tip"></div>
+                            <div class="success_tip"></div>
                             <dl class="tab_popup_bd_dl1">
                                 <dt>账号：</dt>
                                 <dd class="tab_popup_bd_dl1_1 tab_popup_bd_dl1_col">
-                                    <input id="user_account" type="text" placeholder="请填写手机号或邮箱"/>
+                                    <input id="account" type="text" placeholder="请填写手机号或邮箱" data="account"/>
                                 </dd>
                             </dl>
                             <dl class="tab_popup_bd_dl1">
@@ -130,13 +133,11 @@
                             </dl>
                             <dl class="tab_popup_bd_dl1">
                                 <dt>验证码：</dt>
-                                <dd class="tab_popup_bd_dl1_3">
+                                <dd class="tab_popup_bd_dl1_1">
                                     <input id="verify" type="text" />
                                 </dd>
-                                <dd class="tab_popup_bd_dl1_4">
-                                    <a href="#">
-                                        <img src='' title="点击刷新验证码"/>
-                                    </a>
+                                <dd class="tab_popup_bd_dl1_2">
+                                    <a class="getLoginCode">获取验证码</a>
                                 </dd>
                             </dl>
                             <dl class="tab_popup_bd_dl5">
@@ -152,10 +153,9 @@
                             </dl>
                             <dl class="tab_popup_bd_dl3">
                                 <dd>
-                                    <input id="btn_reg"  value="注 册"></dd>
+                                    <input id="btn_reg"  value="注 册" readonly></dd>
                             </dl>
                         </form>
-                        <!--script type="text/javascript" src="__PUBLIC__/page/js/popupo_yd_input.js"></script-->
                     </li>
                 </ul>
             </div>

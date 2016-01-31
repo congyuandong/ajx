@@ -6,6 +6,7 @@ import md5,base64
 import simplejson as json
 import string,random
 from models import *
+from django.core.mail import send_mail
 
 #查找某个模型的数据是否存在
 def CheckExist(model,kwargs):
@@ -87,6 +88,25 @@ def SendSMS(to):
 def RandCode():
 	return string.join(random.sample(['1','2','3','4','5','6','7','8','9','0'], 6)).replace(' ','')
 
-if __name__ == '__main__':
-	#SendSMS('13136652521')
-	pass 
+def SendMailCode(address):
+	code = RandCode()
+	if CheckExist(RandomCode,{'tel':address}):
+		randomCode_obj = RandomCode.objects.get(tel__exact = address)
+		randomCode_obj.code = code
+		randomCode_obj.time = datetime.datetime.now()
+		randomCode_obj.save()
+	else:
+		randomCode_obj = RandomCode(tel = address, code = code, time = datetime.datetime.now())
+		randomCode_obj.save()
+	send_mail('在旅行验证码','您的验证码为:' + code + ',请在5分钟内输入该验证码','blvxing@163.com',[address],fail_silently=False)
+
+#判断用户的验证码是否错误或者超时 5min
+def CheckRandomCode(account, code):
+	randomCode_obj = RandomCode.objects.filter(tel = account)
+	if randomCode_obj:
+		if randomCode_obj[0].code == code and (datetime.datetime.now() - randomCode_obj[0].time).seconds < 300:
+			return True
+		else:
+			return False
+	else:
+		return False

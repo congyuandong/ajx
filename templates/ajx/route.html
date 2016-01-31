@@ -2,7 +2,7 @@
 {% load staticfiles %}
 {% load extra_tags %}
 
-{% block title %}{{route.name}}|在旅行{% endblock %}
+{% block title %}{{route.name}}|{{S.name}}{% endblock %}
 
 {% block css %}
 <link href="{% static 'css/calendar.css'%}" rel="stylesheet" type="text/css">

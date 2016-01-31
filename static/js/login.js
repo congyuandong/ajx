@@ -1,4 +1,6 @@
-var getcode_time = 60;
+//验证码倒计时长
+var codeTime = 10,
+    lastTime = codeTime;
 
 $(document).ready(function() {
     $('.popup').on('click', function() {
@@ -35,92 +37,215 @@ $(document).ready(function() {
 
     });
 
-    $('.tab_popup_bd_dl1_4 img').on('click', function() {
-        $(this).attr('src', "/Home/View/Public/Script/checkcode.php?" + Math.random());
+    //快速登录
+    $('#btn_quick_login').on('click', function() {
+        var form = $(this).parentsUntil('li');
+        var account = form.find('#account').val();
+        var code = form.find('#code').val();
+        var checked = form.find('#checked').get(0).checked;
+        var errorTip = form.find('.error_tip');
+        var successTip = form.find('.success_tip');
+
+        if (checkTel(account)) {
+            $.ajax({
+                type: 'POST',
+                url: '/w/qlogin/',
+                data: {
+                    account: account,
+                    code: code,
+                    remember: checked
+                },
+                success: function(data) {
+                    if (data.code == 1) {
+                        location.reload(true);
+                    } else {
+                        successTip.text('');
+                        errorTip.text('验证码错误');
+                    }
+                }
+            });
+        } else {
+            successTip.text('');
+            errorTip.text('手机号码格式不正确');
+        }
+
     });
 
+    //注册逻辑
     $('#btn_reg').on('click', function() {
-        var form = $(this).parent().parent().parent();
-        var user_account = form.find('#user_account').val();
+        var form = $(this).parentsUntil('li');
+        var user_account = form.find('#account').val();
         var user_password = form.find('#user_password').val();
         var reuser_password = form.find('#reuser_password').val();
         var verify = form.find('#verify').val();
         var checked = form.find('#cc_read').get(0).checked;
+        var errorTip = form.find('.error_tip');
+        var successTip = form.find('.success_tip');
 
         if (checkAccount(user_account)) {
             if (user_password == reuser_password && user_password != '') {
-                if (checked == true) {
-                    $.ajax({
-                        type: 'POST',
-                        url: '/index.php/Home/Register/register',
-                        data: {
-                            active_code: verify,
-                            user_account: user_account,
-                            user_password: user_password
-                        },
-                        success: function(data) {
-                            if(data.code == -1) {
-                                $('.error_tip').text('验证码错误');
-                            }else if(data.code == -2) {
-                                $('.error_tip').text('账户已存在');
-                            }else if(data.code == 1) {
-                                location.reload(true);   
-                            }
+                if (verify != '') {
+                    if (checked == true) {
+                        var regType = 'tel';
+                        if (checkMail(user_account)) {
+                            regType = 'mail';
                         }
-                    });
+                        $.ajax({
+                            type: 'POST',
+                            url: '/w/reg/',
+                            data: {
+                                code: verify,
+                                account: user_account,
+                                password: user_password,
+                                type:regType
+                            },
+                            success: function(data) {
+                                if (data.code == -1) {
+                                    successTip.text('');
+                                    errorTip.text('验证码错误');
+                                } else if (data.code == -2) {
+                                    successTip.text('');
+                                    errorTip.text('账户已存在');
+                                } else if (data.code == 1) {
+                                    location.reload(true);
+                                }
+                            }
+                        });
+                    } else {
+                        successTip.text('');
+                        errorTip.text('请阅读并同意服务协议');
+                    }
                 } else {
-                    $('.error_tip').text('请阅读并同意服务协议');
+                    successTip.text('');
+                    errorTip.text('请输入验证码');
                 }
             } else {
-                $('.error_tip').text('两次密码不一样');
+                successTip.text('');
+                errorTip.text('两次密码不一样');
             }
         } else {
-            $('.error_tip').text('账户格式不正确');
+            successTip.text('');
+            errorTip.text('账户格式不正确');
         }
     });
-
+    
+    //登录逻辑
     $('#btn_login').on('click', function() {
-        var form = $(this).parent().parent().parent();
-        var user_account = form.find('#user_account').val();
-        var user_password = form.find('#user_password').val();
+        var form = $(this).parentsUntil('li');
+        var account = form.find('#user_account').val();
+        var password = form.find('#user_password').val();
         var checked = form.find('#cc_remember').get(0).checked;
+        var errorTip = form.find('.error_tip');
 
         $.ajax({
             type: 'POST',
             url: '/w/login/',
             data: {
-                account: user_account,
-                password: user_password,
+                account: account,
+                password: password,
                 remember: checked
             },
             success: function(data) {
-                if(data.code == 1){
+                if (data.code == 1) {
                     location.reload(true);
-                }else{
-                    $('.error_tip').text('用户名或者密码错误');
+                } else {
+                    errorTip.text('用户名或者密码错误');
                 }
             }
         });
     });
 
-    $('.getLoginCode').on('click', function(){
-        $('.getLoginCode').text('60s');
-        // $.ajax({
-        //     type: 'GET',
-        //     url: '/w/code/?tel=' + tel,
-        //     success: function(data) {
-        //         if(data.code == 1){
-                    
-        //         }
-        //     }
-        // });
+    //获取短信或者邮件验证码
+    $('.getLoginCode').on('click', function() {
+        $(this).addClass('disabled');
+        disable_getcode();
+        var form = $(this).parentsUntil('li');
+        var account = form.find('#account').val();
+        var accountType = form.find('#account').attr('data');
+        var errorTip = form.find('.error_tip');
+        var successTip = form.find('.success_tip');
+
+        if (accountType == 'tel') {
+            if (checkTel(account)) {
+                $.ajax({
+                    type: 'GET',
+                    url: '/w/code/?tel=' + account,
+                    success: function(data) {
+                        if (data.code == 1) {
+                            errorTip.text('');
+                            successTip.text('发送成功,请注意查收');
+                        } else if(data.code == 2) {
+                            errorTip.text('');
+                            successTip.text('验证码未失效,请稍后再试');
+                        } else {
+                            errorTip.text('发送失败,请联系客服');
+                        }
+                    }
+                });
+            } else {
+                errorTip.text('手机号码格式不正确');
+            }
+        } else if (accountType == 'account') {
+            if (checkAccount(account)) {
+                if (checkTel(account)) {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/w/code/?tel=' + account,
+                        success: function(data) {
+                            if (data.code == 1) {
+                                errorTip.text('');
+                                successTip.text('发送成功，请注意查收');
+                            } else {
+                                errorTip.text('发送失败，请联系客服');
+                            }
+                        }
+                    });
+                } else {
+                    $.ajax({
+                        type: 'GET',
+                        url: '/w/mcode/?mail=' + account,
+                        success: function(data) {
+                            if (data.code == 1) {
+                                errorTip.text('');
+                                successTip.text('发送成功，请注意查收');
+                            } else {
+                                errorTip.text('发送失败，请联系客服');
+                            }
+                        }
+                    });
+                }
+            } else {
+                errorTip.text('账户格式不正确');
+            }
+        }
     });
 
 });
 
-function checkAccount(account) {
+//禁止获取验证码
+function disable_getcode() {
+    if (lastTime > 0) {
+        lastTime -= 1;
+        $('.getLoginCode').text(lastTime + 's');
+        setTimeout("disable_getcode()", 1000);
+    } else {
+        $('.getLoginCode').removeClass('disabled');
+        lastTime = codeTime;
+        $('.getLoginCode').text('获取验证码');
+    }
+}
+
+function checkTel(account) {
+    return (/^1[0-9]{10}$/).test(account);
+}
+
+function checkMail(account) {
     var mail = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return (/^1[0-9]{10}$/).test(account) || mail.test(account);
+    return mail.test(account);
+}
+
+function checkAccount(account) {
+    return checkTel(account) || checkMail(account);
 }
 
 function tabs(tabTit, on, tabCon, tabIndex) {
@@ -138,18 +263,4 @@ function tabs(tabTit, on, tabCon, tabIndex) {
         var index = $(tabTit).children().index(this);
         $(tabCon).children().eq(index).show().siblings().hide();
     });
-}
-
-//禁止获取验证码
-function disable_getcode(){
-    var load_timeout = $.cookie('load_timeout');
-    if (load_timeout >= 0) {
-        $('#getcode_span').text(load_timeout+'s');
-        $.cookie('load_timeout' , load_timeout - 1);
-        setTimeout("disable_getcode()", 1000);
-    }else{
-        $('#getcode').removeClass('disabled');
-        //$('#span_refresh').css("color","#017aff");
-        $('#getcode_span').text('获取');
-    }
 }

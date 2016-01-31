@@ -568,8 +568,8 @@ class NorthRoute(models.Model):
 随机验证码
 '''
 class RandomCode(models.Model):
-	tel = models.CharField(max_length=20, verbose_name='手机号码')
-	code = models.CharField(max_length=10, verbose_name='验证码')
+	tel = models.CharField(max_length = 100, verbose_name = '账户')
+	code = models.CharField(max_length = 10, verbose_name = '验证码')
 	time = models.DateTimeField(verbose_name = '发送时间')
 
 	def __unicode__(self):
