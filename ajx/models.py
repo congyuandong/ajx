@@ -82,7 +82,7 @@ NORTH_DEST_CHOICES =(
 
 #用户表
 class UserInfo(models.Model):
-	account = models.CharField(max_length = 50, verbose_name = '账户')
+	account = models.CharField(max_length = 50, verbose_name = '账户', unique = True)
 	password = models.CharField(max_length = 20, verbose_name = '密码', null = True, blank = True)
 	phone = models.CharField(max_length = 20, verbose_name = '手机号码', null = True, blank = True)
 	email = models.CharField(max_length = 50, verbose_name = '邮箱', null = True, blank = True)
@@ -563,6 +563,19 @@ class NorthRoute(models.Model):
 	class Meta:
 		verbose_name = '线路'
 		verbose_name_plural = '线路管理'
+
+class NorthPicList(models.Model):
+	title = models.CharField(max_length = 100, verbose_name = '标题')
+	route = models.ForeignKey(NorthRoute, verbose_name = '线路')
+	image = models.ImageField(upload_to ='north/', verbose_name = '风景图', help_text="大小469*279")
+	sort =  models.IntegerField(default = 0, verbose_name = '排序')
+
+	def __unicode__(self):
+		return self.title
+
+	class Meta:
+		verbose_name = '风景图'
+		verbose_name_plural = '风景图管理'
 
 '''
 随机验证码

@@ -28,6 +28,18 @@ ALLOWED_HOSTS = ['*']
 
 DOMAIN = "http://www.blvxing.com"
 
+QQ_APP_ID= '101286757'
+QQ_APP_SECRET = 'ed87eea816cf2bcdd95da3b590d7d978'
+QQ_REDIRECT_URL = 'http://blvxing.com/w/snslogin/callqq'
+
+WECHAT_APP_ID= 'wx95fb9a684a4ca7a7'
+WECHAT_APP_SECRET = 'ea06a70f0fa2650a0db10c6f2bfab70c'
+WECHAT_REDIRECT_URL = 'http://www.blvxing.com/w/snslogin/callwx'
+
+WB_APP_ID= '2578905430'
+WB_APP_SECRET = '2ae7f863565a07893d99eb41bfdafd09'
+WB_REDIRECT_URL = 'http://www.blvxing.com/w/snslogin/callwb'
+
 # Application definition
 
 INSTALLED_APPS = (

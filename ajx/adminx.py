@@ -26,6 +26,7 @@ class GlobalSetting(object):
 				)},
 				{'title': '东北游','menus':(
 					{'title': '线路管理', 'icon': 'fa fa-train', 'url': self.get_model_url(NorthRoute, 'changelist')},
+					{'title': '风景图片', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(NorthPicList, 'changelist')},
 					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(NorthSetOut, 'changelist')},
 					{'title': '目的地', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(NorthDest, 'changelist')},
 					{'title': '产品类型', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(NorthType, 'changelist')},
@@ -233,6 +234,13 @@ class RandomCodeAdmin(object):
 	list_display = ['tel', 'code', 'time']
 	list_per_page = 20
 
+class NorthPicListAdmin(object):
+	list_display = ['title', 'route', 'sort']
+	list_editable = ['title', 'sort']
+	search_fields = ['title']
+	list_per_page = 20
+	ordering = ['route', 'sort']
+
 class XadminUEditorWidget(UEditorWidget):
 	def __init__(self,**kwargs):
 		self.ueditor_options=kwargs
@@ -285,3 +293,4 @@ xadmin.site.register(NorthDest,NorthDestAdmin)
 xadmin.site.register(NorthType,NorthTypeAdmin)
 xadmin.site.register(NorthRoute,NorthRouteAdmin)
 xadmin.site.register(RandomCode,RandomCodeAdmin)
+xadmin.site.register(NorthPicList,NorthPicListAdmin)

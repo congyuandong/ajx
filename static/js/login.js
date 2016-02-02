@@ -1,5 +1,5 @@
 //验证码倒计时长
-var codeTime = 10,
+var codeTime = 60,
     lastTime = codeTime;
 
 $(document).ready(function() {

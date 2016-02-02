@@ -1,11 +1,11 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
+{% load extra_tags %}
 
 {% block title %}东北游详情|{{S.name}}{% endblock %}
 
 {% block css %}
-<link href="{% static 'css/reset1.css'%}" rel="stylesheet" type="text/css" />
-<link href="{% static 'css/css.css'%}" rel="stylesheet" type="text/css" />
+
 {% endblock %}
 
 {% block main %}
@@ -114,18 +114,17 @@ function set_cur(n){
 {% include "ajx/includes/login.html" %}
 {% include "ajx/includes/header.html" %}
 <div class="cl"></div>
-
 <div class="destination_mbx">
-	<p>首页 > 东北游 > 黑龙江景区</p>
+	<p>首页 > 东北游 > {{route.name}}</p>
 </div>
 <div class="special_con">
 	<div class="special_con_top">
-    	<div class="special_con_top_h fl">
-        	<h2>自由行</h2>
+    	<div class="special_con_top_h special_con_top_h{{route.types|odd:6}} fl">
+        	<h2>{{route.get_types_display}}</h2>
         </div>
         <div class="special_con_top_r fl">
-        	<h2>不散的祝福盛宴，清迈的泼水狂欢！2015泰历新年泼水节</h2>
-            <p><span>（编号：24658461）</span>深圳/香港直航！特惠！泰国曼谷芭堤雅豪华6日跟团游全面升级！全程当地5星酒店！</p>
+        	<h2>{{route.name}}</h2>
+          <p><span>（编号：{{route.code}}）</span>{{route.summary}}</p>
         </div>	
     </div>
     <div class="cl"></div>
@@ -133,26 +132,16 @@ function set_cur(n){
     	<div class="special_con_1_banner fl">
             <div id="jcImg" class="TmpStyle">
                 <ul>
-                    <li><a><img src="images/t1.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t2.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t3.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t4.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t5.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t6.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t7.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t8.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t9.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t10.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t5.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t4.jpg" height="279" width="469" /></a></li>
-                    <li><a><img src="images/t1.jpg" height="279" width="469" /></a></li>
+                    {% for pic in piclist %}
+                    <li><a><img src="media/{{pic.image}}" alt="{{pic.title}}"></a></li>
+                    {% endfor %}
                 </ul>
             </div>
         </div>
         <div class="special_con_1_r fl">
         	<div class="special_con_1_r_1">
-        		<p>儿童：￥2548起/人</p>
-                <p class="special_con_1_r_1_d">￥<span>9864</span>元/人</p>
+        		<p>儿童：￥{{route.childPrice}}起/人</p>
+                <p class="special_con_1_r_1_d">￥<span>{{route.realPrice}}</span>元/人</p>
                 <div class="special_con_1_r_1_an"><input name="" type="button" /></div>
             </div>
 			<div class="special_con_1_r_2">
@@ -160,13 +149,13 @@ function set_cur(n){
 				<table width="450" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td width="92" height="33" align="center" valign="middle" class="pecial_con_1_bsh">起/止地</td>
-                    <td width="175" align="center" valign="middle">黑龙江起</td>
-                    <td width="175" align="center" valign="middle">沈阳止</td>
+                    <td width="175" align="center" valign="middle">{{route.setOut}}起</td>
+                    <td width="175" align="center" valign="middle">{{route.destination}}止</td>
                   </tr>
                   <tr>
                     <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">交通信息</td>
-                    <td align="center" valign="middle">飞机去</td>
-                    <td align="center" valign="middle">火车回</td>
+                    <td align="center" valign="middle">{{route.get_goType_display}}去</td>
+                    <td align="center" valign="middle">{{route.get_backType_display}}回</td>
                   </tr>
                   <tr>
                     <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">发团日期</td>
@@ -428,52 +417,8 @@ function set_cur(n){
 
 
 <div class="cl"></div>
-<div class="lowbg">
-<div class="footer">
-	<div class="foot">
-        <ul>
-            <li class="foot_li1">
-                <h2>优质出游</h2>
-                <p>精挑细选千种选择</p>
-            </li>
-            <li class="foot_li2">
-                <h2>保证低价</h2>
-                <p>同款产品低价承诺</p>
-            </li>
-            <li class="foot_li3">
-                <h2>72小时服务</h2>
-                <p>行前行后前后相伴</p>
-            </li>
-            <li class="foot_li4">
-                <h2>安全支付</h2>
-                <p>轻松、快捷、安全</p>
-            </li>
-            <li class="foot_li5">
-                <h2>透明消费</h2>
-                <p>透明行程明白消费</p>
-            </li>
-        </ul>
-	</div>
-</div>
-
-<div class="link">
-	<p><strong>友情链接：</strong> <a href="#">穷游</a> <a href="#">在路上</a> <a href="#">百程旅行网</a> <a href="#">春秋航空</a> <a href="#">游多多旅行网</a> <a href="#">多多驿站</a> <a href="#">布丁酒店</a> <a href="#">欣欣旅游网</a> <a href="#">驴妈妈旅游网</a> <a href="#">酷讯飞机票查询</a> <a href="#">腾邦飞人</a> <a href="#">悠哉旅游网</a> <a href="#">同程旅游</a> <a href="#">旅游线路</a> <a href="#">火车票查询</a> <a href="#">一起游</a> <a href="#">到到网</a> <a href="#">途牛旅游网</a> <a href="#">遨游旅游网</a> <a href="#">梦之旅</a> <a href="#">百酷旅行网</a></p>
-
-</div>
-<div class="low">
-	<p><a href="#">关于我们</a> | <a href="#">联系我们</a> | <a href="#">免责声明</a> | <a href="#">用户协议</a> | <a href="#">网签协议</a></p>
-    <p>黑龙江.哈尔滨 | 黑ICP备14007011号</p>
-    <p>Copyright © 2014-2015 i-xing.com All Rights Reserved. 在旅行 版权所有</p>
-	<div class="low_rz">
-    	<p>
-    	<a href="#"><img src="images/low_img_03.jpg" /></a>
-        <a href="#"><img src="images/low_img_05.jpg" /></a>
-        <a href="#"><img src="images/low_img_07.jpg" /></a>
-        <a href="#"><img src="images/low_img_09.jpg" /></a>
-        </p>
-    </div>
-</div>
-</div>
+{% include "ajx/includes/footer.html" %}
+{% include "ajx/includes/sidebar.html" %}
 
 <script type="text/javascript">
 $(function(){
@@ -510,113 +455,6 @@ $(document).ready(function(e) {
 
 
 </script>
-<div class="sidebar-outer">
-	<div class="sidebar">
-    	<div class="sidebar_top_pic"><img src="images/sidebar_top_pic.png" /></div>
-    	<ul class="sidebar_ul">
-        	<li class="sidebar_list" id="one" style="margin-top:15px;">
-            	<div class="sidebar_li"></div>
-                <div class="sidebar-box sidebar-box-one" style="width:255px;height: 50px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                    <div class="sidebar-box_inner1">
-                        <span class="sanjiaoright_one"></span>
-                        <div class="sidebar-box_hezuo">
-                        	<span>合作账号登录</span><a href="#" class="ycl_1"></a><a href="#" class="ycl_2"></a><a href="#" class="ycl_3"></a><a href="#" class="ycl_4"></a>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="sidebar_list">
-                <div class="sidebar_li sidebar_android"></div>
-                <div class="sidebar-box" style="display: none; height: 216.32032150611823px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                    <div class="sidebar-box_inner">
-                        <span class="sanjiaoright"></span>
-                        
-                        <p class="sidebar-box_text sidebar-box_zxkf"><a href="#">在线客服</a></p>
-                        <p class="sidebar-box_text">请拨打400电话咨询</p>
-                        <p class="sidebar-box_text">工作时间：8:00-16:00</p>
-                    </div>
-                </div>
-            </li>
-            
-            <li class="sidebar_list">
-                <div class="sidebar_li sidebar_dianhua"></div>
-                <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                    <div class="sidebar-box_inner">
-                        <span class="sanjiaoright"></span>
-                        
-                        <p class="sidebar-box_text">请拨打电话：</p>
-                        <p class="sidebar-box_text" style=" font-weight:bold; font-size:16px; font-family:微软雅黑;">400-0450-718</p>
-                    </div>
-                </div>
-            </li>
-            <li class="sidebar_list">
-                <div class="sidebar_li sidebar_weixin"></div>
-                <div class="sidebar-box" style="display: none; height: 222px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                    <div class="sidebar-box_inner">
-                        <span class="sanjiaoright"></span>
-                        <div class="sidebar-box_pic"><img width="148" height="148" src="images/er-download-wx.png"></div>
-                        <p class="sidebar-box_text">扫一扫关注微信</p>
-                        <p class="sidebar-box_text">更多惊喜等着你</p>
-                    </div>
-                </div>
-            </li>
-            <li class="sidebar_list">
-                <div class="sidebar_li sidebar_weibo"></div>
-                <div class="sidebar-box" style="display: none; height: 80px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                    <div class="sidebar-box_inner">
-                        <span class="sanjiaoright"></span>
-                        <div class="sidebar-box_weibo">
-                        <a href="#" target="_blank"><img width="100" height="30" style="width: 100px;height: 30px; display: block; margin: 0 auto;" src="images/er-download-wb.png"></a>
-                        </div>
-                        <p class="sidebar-box_text">关注@在旅行</p>
-                    </div>
-                </div>
-            </li>
-            
-        </ul>
-    </div>
-	<div class="ycl_dd">
-    	<div class="sidebar_list" id="two">
-            <div class="sidebar_li sidebar_text"></div>
-            <div class="sidebar-box sidebar-box-two sidebar-box__message"  style="display: none; height: 242px; padding-top: 0px; margin-top: 0px; padding-bottom: 0px; margin-bottom: 0px;">
-                <div class="sidebar-box_inner sidebar-box_inner__message">
-                    <span class="sanjiaoright-two"></span>
-                    <p class="sidebar-box_textarea-top">有任何意见和建议,请留言~</p>
-                    <textarea class="sidebar-box_textarea" id="leaveMessageTexxtarea" name="message" placeholder="请留下您宝贵的意见"></textarea><a class="sidebar-box_submit" id="leaveMessage">提交</a>
-                </div>
-            </div>
-        </div>
-		<p id="back-to-top"><a href="#top"></a></p>
-    </div>
-
-</div>
-
-
-
-
-
-<script type="text/javascript">
-$(document).ready(function(){
-
-$(function () {
-$(window).scroll(function(){
-
-});
-//当点击跳转链接后，回到页面顶部位置
-$("#back-to-top").click(function(){
-$("body,html").animate({scrollTop:0},1000);
-return false;
-});
-});
-});
-</script>
-
-
-
-
-<script src="js/jquery.SuperSlide.min.js"></script>
-
-
 
 <script>
 	$(document).ready(function(e) {
@@ -639,4 +477,5 @@ return false;
 {% block js %}
 <script type="text/javascript" src="{% static 'js/jQuery-jcImg.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/northdetail.js'%}"></script>
 {% endblock %}

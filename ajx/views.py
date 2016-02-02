@@ -196,9 +196,24 @@ def North(request):
 	return render_to_response('ajx/north.html',context_dict,context)
 
 #东北游详细页面
-def NorthDetail(request):
+def NorthDetail(request, nid):
 	context = RequestContext(request)
-	context_dict = {}
+
+	routeObj = get_object_or_404(NorthRoute, id = nid)
+	linkObjs = Links.objects.order_by('sort')
+	systemInfo = get_list_or_404(SystemInfo)
+	picListObjs = NorthPicList.objects.filter(route = routeObj).order_by('sort')[0:8]
+
+	context_dict = {
+		'route':routeObj,
+		'links':linkObjs,
+		'S':systemInfo[0],
+		'piclist':picListObjs,
+		'nav':'north'
+	}
+
+
+
 
 	return render_to_response('ajx/northdetail.html',context_dict,context)
 

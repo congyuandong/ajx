@@ -3856,6 +3856,13 @@ a.btn:hover {
     margin-top: 2px;
 }
 
+.special_con_top_h0 {
+    width: 91px;
+    height: 49px;
+    background: url(../images/special_6.png) no-repeat;
+    margin-top: 2px;
+}
+
 .special_con_top_h1 {
     width: 91px;
     height: 49px;
@@ -3888,13 +3895,6 @@ a.btn:hover {
     width: 91px;
     height: 49px;
     background: url(../images/special_5.png) no-repeat;
-    margin-top: 2px;
-}
-
-.special_con_top_h6 {
-    width: 91px;
-    height: 49px;
-    background: url(../images/special_6.png) no-repeat;
     margin-top: 2px;
 }
 
@@ -3976,6 +3976,11 @@ a.btn:hover {
 #jcImg ul li a {
     position: absolute;
     z-index: 11;
+}
+
+#jcImg ul li img {
+    height: 279px;
+    width: 469px;
 }
 
 #smallImg {
