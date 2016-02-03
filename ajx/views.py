@@ -117,6 +117,7 @@ def RouteDetailPage(request, rid):
 		context_dict['calendars'] = calendars['calendars']
 		if 'go' in calendars.keys():
 			context_dict['date'] = calendars['go']['date']
+			context_dict['dateid'] = calendars['go']['dateid']
 			context_dict['data']['left'] = calendars['go']['left']
 		else:
 			context_dict['date'] = date.today().strftime('%Y-%m-%d')
@@ -137,9 +138,9 @@ def RouteCalendar(request, year, month, classid):
 		for day in week:
 			goObjs = GoDate.objects.filter(classification__id = classid, date = day)
 			if goObjs:
-				oneWeek.append({'has':1,'day':day.day,'date':day.strftime('%Y-%m-%d'),'left':goObjs[0].left,'price':int(goObjs[0].price)})
+				oneWeek.append({'has':1,'day':day.day,'date':day.strftime('%Y-%m-%d'),'left':goObjs[0].left,'price':int(goObjs[0].price),'dateid':goObjs[0].id})
 				if 'go' not in response.keys():
-					response['go'] = {'date':goObjs[0].date.strftime('%Y-%m-%d'),'left':goObjs[0].left}
+					response['go'] = {'date':goObjs[0].date.strftime('%Y-%m-%d'),'left':goObjs[0].left, 'dateid':goObjs[0].id}
 			else:
 				oneWeek.append({'has':0,'day':day.day})
 		calendars.append(oneWeek)
@@ -258,3 +259,54 @@ def Made(request):
 	}
 
 	return render_to_response('ajx/made.html',context_dict,context)
+
+#订单确认
+#params:
+#	t: 'route' route 'north' north route
+#	rid: route id
+#	gid: GoDate id
+#	cid: Classification id
+#	adult,child
+def OrderConfirm(request):
+	context = RequestContext(request)
+
+	systemInfo = get_list_or_404(SystemInfo)
+	linkObjs = Links.objects.order_by('sort')
+	context_dict = {
+		'links':linkObjs,
+		'S':systemInfo[0]
+	}
+
+	if request.method == 'POST':
+		print request.POST
+#{u'cid': [u'1'], u'adult': [u'1'], u'child': [u'0'], u'dateid': [u'5']\}>
+#{u'dateid': [u'1'], u'child': [u'0'], u'adult': [u'1']}>
+		routeType = request.POST.get('t','')
+		rid = int(request.POST.get('rid','-1'))
+		adult = int(request.POST.get('adult','0'))
+		child = int(request.POST.get('child','0'))
+		dateid = int(request.POST.get('dateid','-1'))
+		if routeType == 'route':
+			cid = int(request.POST.get('cid','-1'))
+
+			routeObj = get_object_or_404(Route, id = rid)
+			classObj = get_object_or_404(Classification, id = cid)
+			goDateObj = get_object_or_404(GoDate, classification = classObj, id = dateid)
+			
+			modifyUrl = '/w/route/' + str(routeObj.id)
+
+			context_dict['route'] = routeObj
+			context_dict['url'] = modifyUrl
+			context_dict['godate'] = goDateObj
+			context_dict['quantity'] = {'adult':adult,'child':child,'single':1}
+		elif routeType == 'north':
+			routeObj = get_object_or_404(Route, id = rid)
+
+			modifyUrl = '/w/nd/' + str(routeObj.id)
+
+			context_dict['route'] = routeObj
+			context_dict['url'] = modifyUrl
+		else:
+			raise Http404
+
+	return render_to_response('ajx/confirm.html',context_dict,context)

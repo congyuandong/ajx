@@ -43,12 +43,17 @@ $(document).ready(function() {
 	//产品分类
 	$(".pro-select-type li").on("click", function() {
 		$(this).addClass("current").siblings().removeClass("current");
-		$("input[name=data-classid]").val($(this).data("classid"));
+		$("input[name=cid]").val($(this).data("classid"));
 		loadCalendar(0);
 	});
 
 	//日历点击事件
 	$(".has-data").on("click", clickCalendar);
+
+	//提交订单
+	$(".submit_left").on("click", function() {
+		$(".submit_right").click();
+	});
 
 	//滚动事件
 	scrollListener();
@@ -57,7 +62,7 @@ $(document).ready(function() {
 function clickCalendar() {
 	var startDate = $(this).data("date");
 	$(".start-date-date").text(startDate);
-	$("input[name=select-date]").val(startDate);
+	$("input[name=dateid]").val($(this).data("dateid"));
 	startDate = new Date(startDate);
 	$(".start-date-week").text(weeks[startDate.getDay()]);
 }
@@ -66,7 +71,7 @@ function loadCalendar(act) {
 	var calendar = $("#calendar-body"),
 		year = parseInt($("input[name=data-year]").val()),
 		month = parseInt($("input[name=data-month]").val()),
-		classid = parseInt($("input[name=data-classid]").val());
+		classid = parseInt($("input[name=cid]").val());
 
 	if (act == -1) {
 		if (month == 1) {
@@ -104,7 +109,7 @@ function loadCalendar(act) {
 						if (day.has == 0) {
 							content += "<td><span class=\"date-num\">" + day.day + "</span></td>"
 						} else {
-							content += "<td class=\"has-data\" data-date=\"" + day.date + "\"><span class=\"date-num\">" + day.day + "</span><span class=\"txt-notice\">余位:" + day.left + "</span><span class=\"txt-notice\">￥" + day.price + "</span></td>";
+							content += "<td class=\"has-data\" data-date=\"" + day.date + "\" data-dateid=\"" + day.dateid  + "\"><span class=\"date-num\">" + day.day + "</span><span class=\"txt-notice\">余位:" + day.left + "</span><span class=\"txt-notice\">￥" + day.price + "</span></td>";
 						}
 					}
 					content += "</tr>";

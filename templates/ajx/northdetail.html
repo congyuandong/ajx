@@ -38,65 +38,79 @@
       </div>
     </div>
     <div class="special_con_1_r fl">
-      <div class="special_con_1_r_1">
-        <p>儿童：￥{{route.childPrice}}起/人</p>
-        <p class="special_con_1_r_1_d">￥<span>{{route.realPrice}}</span>元/人</p>
-        <div class="special_con_1_r_1_an"><input name="" type="button" /></div>
-      </div>
-			<div class="special_con_1_r_2">
-        <h2>方案详情</h2>
-				<table width="450" border="0" cellpadding="0" cellspacing="0">
-          <tr>
-            <td width="92" height="33" align="center" valign="middle" class="pecial_con_1_bsh">起/止地</td>
-            <td width="175" align="center" valign="middle">{{route.setOut}}起</td>
-            <td width="175" align="center" valign="middle">{{route.destination}}止</td>
-          </tr>
-          <tr>
-            <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">交通信息</td>
-            <td align="center" valign="middle">{{route.get_goType_display}}去</td>
-            <td align="center" valign="middle">{{route.get_backType_display}}回</td>
-          </tr>
-          <tr>
-            <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">发团日期</td>
-            <td align="center" valign="middle"></td>
-            <td align="center" valign="middle">
-              {% if godates %}
-              <select name="godate" id="godate">
-                <volist name="godate" id="vo">
-                  {% for godate in godates %}
-                  <option value="{{godate.id}}">{{godate.date}}</option>
-                  {% endfor %}
-                </volist>
-              </select>
-              {% endif %}
-            </td>
-          </tr>
-          <tr>
-            <td height="53" align="center" valign="middle" class="pecial_con_1_bsh">出行人数</td>
-            <td align="center" valign="middle">
-            <div class="special_con_1_jj">
-           	    <div class="wrap fl">
-                    <div class="reduce reduce1 reduceAdult"><a>-</a></div>
-                    <input class="text text1 textAdult" type="text" value="1"/>
-                    <div class="add add1 addAdult"><a>+</a></div>
-                </div>
-                <div class="fl special_con_1_ren">成年</div>
-            </div>   
-            </td>
-            <td align="center" valign="middle">
-            <div  class="special_con_1_jj">
-                <div class="wrap fl">
-                    <div class="reduce reduce1 reduceKid"><a>-</a></div>
-                    <input class="text text1 textKid" type="text" value="0"/>
-                    <div class="add add1 addKid"><a>+</a></div>
-                </div>
-                <div class="fl special_con_1_ren">儿童</div>
-            </div>    
-            </td>
-          </tr>
-   		  </table>
-			</div>
-      <div class="special_con_1_r_3"><input name="" type="button"  value="二次确认"/></div>
+      <form action="/w/confirm/" method="post">
+        <input type="hidden" name="t" value="north" />
+        <input type="hidden" name="rid" value="{{route.id}}" />
+        <div class="special_con_1_r_1">
+          <p>儿童：￥{{route.childPrice}}起/人</p>
+          <p class="special_con_1_r_1_d">￥<span>{{route.realPrice}}</span>元/人</p>
+          <div class="special_con_1_r_1_an">
+            {% if request.session.LOGIN %}
+            <input type="submit" value=""/>
+            {% else %}
+            <input class="popup" data="login"/>
+            {% endif %}
+          </div>
+        </div>
+  			<div class="special_con_1_r_2">
+          <h2>方案详情</h2>
+  				<table width="450" border="0" cellpadding="0" cellspacing="0">
+            <tr>
+              <td width="92" height="33" align="center" valign="middle" class="pecial_con_1_bsh">起/止地</td>
+              <td width="175" align="center" valign="middle">{{route.setOut}}起</td>
+              <td width="175" align="center" valign="middle">{{route.destination}}止</td>
+            </tr>
+            <tr>
+              <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">交通信息</td>
+              <td align="center" valign="middle">{{route.get_goType_display}}去</td>
+              <td align="center" valign="middle">{{route.get_backType_display}}回</td>
+            </tr>
+            <tr>
+              <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">发团日期</td>
+              <td align="center" valign="middle"></td>
+              <td align="center" valign="middle">
+                {% if godates %}
+                <select name="dateid">
+                  <volist>
+                    {% for godate in godates %}
+                    <option value="{{godate.id}}">{{godate.date}}</option>
+                    {% endfor %}
+                  </volist>
+                </select>
+                {% endif %}
+              </td>
+            </tr>
+            <tr>
+              <td height="53" align="center" valign="middle" class="pecial_con_1_bsh">出行人数</td>
+              <td align="center" valign="middle">
+              <div class="special_con_1_jj">
+             	    <div class="wrap fl">
+                      <div class="reduce reduce1 reduceAdult"><a>-</a></div>
+                      <input class="text text1 textAdult" name="adult" type="text" value="1"/>
+                      <div class="add add1 addAdult"><a>+</a></div>
+                  </div>
+                  <div class="fl special_con_1_ren">成年</div>
+              </div>   
+              </td>
+              <td align="center" valign="middle">
+              <div  class="special_con_1_jj">
+                  <div class="wrap fl">
+                      <div class="reduce reduce1 reduceKid"><a>-</a></div>
+                      <input class="text text1 textKid" name="child" type="text" value="0"/>
+                      <div class="add add1 addKid"><a>+</a></div>
+                  </div>
+                  <div class="fl special_con_1_ren">儿童</div>
+              </div>    
+              </td>
+            </tr>
+     		  </table>
+  			</div>
+        {% if route.needConfirm == 1%}
+        <div class="special_con_1_r_3 ec"><input name="" type="button"  value="二次确认"/><div class="erciqueren_special"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与爱简行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div></div>
+        {% else %}
+        <div class="special_con_1_r_3 lj"><input name="" type="button"  value="立即确认"/><div class="erciqueren_special"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与爱简行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div></div>
+        {% endif %}
+      </form>
     </div>
   </div><!--special_con_div1-->
 </div><!--special_con-->

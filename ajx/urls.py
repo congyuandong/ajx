@@ -17,4 +17,5 @@ urlpatterns = patterns('',
 	url(r'^logout/$',libs.Logout, name='Logout'),
 	url(r'^reg/$',libs.Reg, name='Reg'),
 	url(r'^snslogin/(.+)$',libs.SNSLogin, name='SNSLogin'),
+	url(r'^confirm/$',views.OrderConfirm, name='OrderConfirm'),
 	)

@@ -66,7 +66,11 @@
             </div>
             <div class="xqym_left_3">
                 <p><img src="{% static 'images/xqym_ph.png'%}" /></p>
-                <a href="javascript:void(0)" class="detail_hf">立即订购</a>                
+                {% if request.session.LOGIN %}
+                <a class="submit_left">立即订购</a>  
+                {% else %}
+                <a class="popup" data="login">立即订购</a>  
+                {% endif %}              
             </div>
        </div>
         
@@ -125,7 +129,7 @@
                                     {% if day.has == 0 %}
                                     <td><span class="date-num">{{day.day}}</span></td>
                                     {% else %}
-                                    <td class="has-data" data-date="{{day.date}}"><span class="date-num">{{day.day}}</span><span class="txt-notice">余位:{{day.left}}</span><span class="txt-notice">￥{{day.price}}</span></td>
+                                    <td class="has-data" data-date="{{day.date}}" data-dateid="{{day.dateid}}"><span class="date-num">{{day.day}}</span><span class="txt-notice">余位:{{day.left}}</span><span class="txt-notice">￥{{day.price}}</span></td>
                                     {% endif %}
                                     {% endfor %}
                                 </tr>
@@ -135,115 +139,114 @@
                     </div>
                 </div>
                 <div class="pro_d_box">
-                    <div class="sp_icon" style="display:none"></div>
-                       <div class="parameter">
-                        <dl>
-                            <dt>产品价格：</dt>
-                            <dd>
-                                <div class="price">￥{{route.realPrice}}</div>
-                                <span class="old_price" style="float:left;margin-top: 6px; font-size: 13px;">￥{{route.marketPrice}}</span>
-                                <div class="price_tip">
-                                    <a class="qj_link" href="javascript:void(0)">【起价说明】</a>
-                                    <!--起价说明弹出层-->
-                                    <div class="popup_tip">
-                                    本起价是可选出发日期中，按双人出行共住一间房核算的最低单人价格。产品价格会根据您所选择的出发日期、出行人数、入住酒店房型、航班或交通以及所选附加服务的不同而有所差别。
-                                   	<span><img src="{% static 'images/xsj.jpg'%}" /></span>
-                                   	</div>
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>儿童价：</dt>
-                            <dd>
-                                <div class="price_hei">￥{{route.childPrice}}</div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>产品类型：</dt>
-                            <dd>
-                                <div class="route_type_icon_{{route.types|odd:6}}">{{route.get_types_display}}</div>
-                                <div class="pay_way_icon">{% if route.needConfirm == 1%}二次确认{% else %}立即确认{% endif %}<div class="confirm_show"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与在旅行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div>
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>目的地：</dt>
-                            <dd>
-                                <p>{{route.destination}}</p>
-                            </dd>
-                        </dl>
-                        <dl>
-                            <dt>出发地点：</dt>
-                            <dd>{{route.setOut}}</dd>
-                        </dl>
-                        <dl>
-                            <dt>交通信息：</dt>
-                            <dd>{{route.get_goType_display}}去/{{route.get_backType_display}}回 </dd>
-                        </dl>
-                        <dl>
-                            <dt>出游天数：</dt>
-                            <dd> {{route.day}} 天</dd>
-                        </dl>
-                        <dl>
-                            <dt>报名时间：</dt>
-                            <dd>建议提前 {{route.advance}} 天以上预订
-                            </dd>
-                        </dl>
-                        <dl class="info-item">
-                        <dt>产品分类：</dt>
-                        <dd>
-                            <input type="hidden" name="data-classid" value="{{data.classid}}" />
-                            <ul class="pro-select-type">
-                                {% for class in classes %}
-                                {% if forloop.first %}
-                                <li class="pro-type-item current" data-classid="{{class.id}}">
-                                    <a><span>{{class.name}}</span></a>
-                                    <b></b>
-                                </li>
-                                {% else %}
-                                <li class="pro-type-item" data-classid="{{class.id}}">
-                                    <a><span>{{class.name}}</span></a>
-                                    <b></b>
-                                </li>
-                                {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </dd>
-                        </dl>
-                        <dl class="info-item">
-                            <dt>出发日期：</dt>
-                            <dd>
-                               <div class="start-date" id="selectedDate" title="请在左侧的价格日历中选择出发日期">
-                                    <input type="hidden" name="select-date" value="{{date}}">
-                                    <em class="fn-fr start-date-week">星期{{date|week}}</em>
-                                    <em class="start-date-date">{{date}}</em>
-                                </div>
-                            </dd>
-                        </dl>
-                        <dl class="info-item">
-                            <dt>游客信息：</dt>
-                            <dd class="wrap wrap1">
-                                <div class="reduce reduceAdult add_dw2"><img src="{% static 'images/j_top_03.jpg'%}"></div>
-                                <input class="text textAdult add_dw3" type="text" value="1"/>
-                                <div class="add addAdult add_dw1"><img src="{% static 'images/j_bottom_03.jpg'%}"></div>
-                            </dd>
-            
-            
-                            <dd class="wrap wrap1 wrap2">
-                                <div class="reduce reduceAdult add_dw2"><img src="{% static 'images/j_top_03.jpg'%}"></div>
-                                <input class="text textAdult add_dw3" type="text" value="0"/>
-                                <div class="add addAdult add_dw1"><img src="{% static 'images/j_bottom_03.jpg'%}"></div>
-                            </dd>
-                            
-                        </dl>
-
-                                        
-                        <input type="hidden" id="time_can_buy_value">
-                        <input type="submit" value="" id="confirm_buy_002" class="BII-ec buy_button button detail_hf" data-bii-ecv="{&#39;id&#39;:2365,&#39;pos&#39;:&#39;right&#39;}" style=" ">
-                        
-                      </div>
-                    <div class="cl"></div>
-                    
+                    <form action="/w/confirm/" method="post">
+                        <input type="hidden" name="t" value="route" />
+                        <input type="hidden" name="rid" value="{{route.id}}" />
+                        <div class="parameter">
+                            <dl>
+                                <dt>产品价格：</dt>
+                                <dd>
+                                    <div class="price">￥{{route.realPrice}}</div>
+                                    <span class="old_price" style="float:left;margin-top: 6px; font-size: 13px;">￥{{route.marketPrice}}</span>
+                                    <div class="price_tip">
+                                        <a class="qj_link" href="javascript:void(0)">【起价说明】</a>
+                                        <!--起价说明弹出层-->
+                                        <div class="popup_tip">
+                                        本起价是可选出发日期中，按双人出行共住一间房核算的最低单人价格。产品价格会根据您所选择的出发日期、出行人数、入住酒店房型、航班或交通以及所选附加服务的不同而有所差别。
+                                       	<span><img src="{% static 'images/xsj.jpg'%}" /></span>
+                                       	</div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>儿童价：</dt>
+                                <dd>
+                                    <div class="price_hei">￥{{route.childPrice}}</div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>产品类型：</dt>
+                                <dd>
+                                    <div class="route_type_icon_{{route.types|odd:6}}">{{route.get_types_display}}</div>
+                                    <div class="pay_way_icon">{% if route.needConfirm == 1%}二次确认{% else %}立即确认{% endif %}<div class="confirm_show"><p>网站上展示可预订之服务分为"立即确认"及"二次确认"两种。"立即确认"的服务的剩余名额即"余位"为准确的，旅游者下单之后可立即支付，支付成功即认为交易成功。"二次确认"产品的"余位"仅供参考，旅游者下单后无法立即支付，需与在旅行工作人员联系，待工作人员确认后方可支付。支付成功同样认为交易成功。</p></div>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>目的地：</dt>
+                                <dd>
+                                    <p>{{route.destination}}</p>
+                                </dd>
+                            </dl>
+                            <dl>
+                                <dt>出发地点：</dt>
+                                <dd>{{route.setOut}}</dd>
+                            </dl>
+                            <dl>
+                                <dt>交通信息：</dt>
+                                <dd>{{route.get_goType_display}}去/{{route.get_backType_display}}回 </dd>
+                            </dl>
+                            <dl>
+                                <dt>出游天数：</dt>
+                                <dd> {{route.day}} 天</dd>
+                            </dl>
+                            <dl>
+                                <dt>报名时间：</dt>
+                                <dd>建议提前 {{route.advance}} 天以上预订
+                                </dd>
+                            </dl>
+                            <dl class="info-item">
+                                <dt>产品分类：</dt>
+                                <dd>
+                                    <input type="hidden" name="cid" value="{{data.classid}}" />
+                                    <ul class="pro-select-type">
+                                        {% for class in classes %}
+                                        {% if forloop.first %}
+                                        <li class="pro-type-item current" data-classid="{{class.id}}">
+                                            <a><span>{{class.name}}</span></a>
+                                            <b></b>
+                                        </li>
+                                        {% else %}
+                                        <li class="pro-type-item" data-classid="{{class.id}}">
+                                            <a><span>{{class.name}}</span></a>
+                                            <b></b>
+                                        </li>
+                                        {% endif %}
+                                        {% endfor %}
+                                    </ul>
+                                </dd>
+                            </dl>
+                            <dl class="info-item">
+                                <dt>出发日期：</dt>
+                                <dd>
+                                   <div class="start-date">
+                                        <input type="hidden" name="dateid" value="{{dateid}}">
+                                        <em class="fn-fr start-date-week">星期{{date|week}}</em>
+                                        <em class="start-date-date">{{date}}</em>
+                                    </div>
+                                </dd>
+                            </dl>
+                            <dl class="info-item">
+                                <dt>游客信息：</dt>
+                                <dd class="wrap wrap1">
+                                    <div class="reduce reduceAdult add_dw2"><img src="{% static 'images/j_top_03.jpg'%}"></div>
+                                    <input class="text textAdult add_dw3" name="adult" type="text" value="1"/>
+                                    <div class="add addAdult add_dw1"><img src="{% static 'images/j_bottom_03.jpg'%}"></div>
+                                </dd>
+                                <dd class="wrap wrap1 wrap2">
+                                    <div class="reduce reduceAdult add_dw2"><img src="{% static 'images/j_top_03.jpg'%}"></div>
+                                    <input class="text textAdult add_dw3" name="child" type="text" value="0"/>
+                                    <div class="add addAdult add_dw1"><img src="{% static 'images/j_bottom_03.jpg'%}"></div>
+                                </dd>
+                            </dl>
+                            {% if request.session.LOGIN %}
+                            <input type="submit" class="button submit_right" value="">
+                            {% else %}
+                            <input value="" class="button popup" data="login">
+                            {% endif %}
+                        </div>
+                    </form>
+                    <div class="cl"></div> 
                 </div>
             </div>
             <div class="cl"></div>

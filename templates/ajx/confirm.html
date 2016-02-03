@@ -1,0 +1,137 @@
+{% extends "ajx/base.html" %}
+{% load staticfiles %}
+
+{% block title %}订单确认|{{S.name}}{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/confirm.css'%}">
+{% endblock %}
+
+{% block main %}
+
+{% include "ajx/includes/login.html" %}
+{% include "ajx/includes/header.html" %}
+
+<div class="makeSure">
+	<h1 class="h1">确认订单</h1>
+	<h2 class="h2_title">线路信息</h2>
+	<div class="makeSure_road">
+		<table id="changeOrder">
+			<thead>
+				<tr>
+					<td class="first">产品名称</td>
+					<td>类型</td>
+					<td>单价</td>
+					<td>数量</td>
+					<td>价格</td>
+					<td>操作</td>
+				</tr>
+			</thead>
+			<tbody id="innerChangeOrder">
+				<tr>
+					<td class="first">
+						<p class="blue pName">
+							<a href="{{url}}" target="blank">{{route.name}}</a>
+						</p>
+						<p>{{route.setOut}}-{{route.destination}}</p>
+						<p>{{godate.date|date:'Y-m-d'}}出发</p>
+					</td>
+					<td class="type type_road">
+						<p></p>
+					</td>
+					<td class="orange">
+						<p class="priceSign">
+							<span class="priceOne">成&nbsp;&nbsp;&nbsp;人：￥</span>
+							<span>{{godate.price}}</span>
+						</p>
+						<p class="priceSign">
+							<span class="priceOne">儿&nbsp;&nbsp;&nbsp;童：￥</span>
+							<span>{{godate.childPrice}}</span>
+						</p>
+						<p class="priceSign">
+							<span class="priceOne">单房差：￥</span>
+							<span id="diff_per_room">{{route.singleRoom}}</span>
+						</p>
+					</td>
+					<td class="tableNumb">
+						<p>x {{quantity.adult}}</p>
+						<p>x {{quantity.child}}</p>
+						<p>x {{quantity.single}}</p>
+					</td>
+					<td class="orange">
+						<p>
+							<span>￥</span>
+							<span>{{godate.price}}</span>
+						</p>
+						<p>
+							<span>￥</span>
+							<span>{{godate.childPrice}}</span>
+						</p>
+						<p>
+							<span>￥</span>
+							<span>{{route.singleRoom}}</span>
+						</p>
+					</td>
+					<td class="blue">
+						<a href="{{url}}">修改</a>
+					</td>
+				</tr>
+				<tr>
+					<td class="first"></td>
+					<td class="type type_safe"></td>
+					<td class="orange"></td>
+					<td class="tableNumb"></td>
+					<td class="orange"></td>
+					<td class="blue"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="input_info">
+		<h2 class="h2_title">联系人信息</h2>
+		<div class="make_input">
+			<label>
+				<p>
+					<b>*</b>联系人姓名 : 
+				</p>
+				<input name="contact_name" id="contact_name" value="" type="text" >
+				<p class="Nerr">请输入联系人姓名</p>
+			</label>
+			<label>
+				<p>
+					<b>*</b>手机号码 : 
+				</p>
+				<input autocomplete="off" name="contact_tel" id="contact_tel" type="text">
+				<p class="Terr">请输入手机号码</p>
+			</label>
+			<input class="phone_verify_btn success" name="get_random_key" id="get_random_key" value="点击获取" style="clear:none; float:left;margin: -48px 0 0 361px; background:#49bdcc; border: none;display: none; width:110px;height:32px;font-size: 16px;" type="button">
+			<label id="label-random-key" style="display: none">
+				<p><b>*</b>验证码 : </p>
+				<input name="random_key" id="random_key" value="1" style="width: 100px" type="text">
+				<p id="random_key_error" style="color: red; display: none; text-align: left;padding-left: 4px;">请输入验证码</p>
+			</label>
+			<label>
+				<p><b>*</b>邮件地址 : </p>
+				<input value="" name="contact_email" id="contact_email" type="text"><p class="Eerr">请输入邮件地址</p>
+			</label>
+		</div>
+		<div class="message">
+			<textarea name="od_lv_info" id="od_lv_info"></textarea>
+			<p>留言 : </p>
+		</div>
+	</div>
+	<div class="submit_foot">
+	  <label id="label-buy-notice"><input checked="checked" type="checkbox"><p>我同意爱简行<a target="blank" href="#" style="color: #19aabd;">网签协议</a></p></label>
+	  <input value="提交订单" id="buy_button" type="submit" onclick="return checkBuy_button()">
+	  <p>应付总额 : ￥<span id="total_money">1000</span></p>
+	</div>
+</div>
+
+{% include "ajx/includes/footer.html" %}
+{% include "ajx/includes/sidebar.html" %}
+
+{% endblock %}
+
+{% block js %}
+<script type="text/javascript" src="{% static 'js/order.js'%}"></script>
+{% endblock %}
