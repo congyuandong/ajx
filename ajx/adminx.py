@@ -27,6 +27,8 @@ class GlobalSetting(object):
 				{'title': '东北游','menus':(
 					{'title': '线路管理', 'icon': 'fa fa-train', 'url': self.get_model_url(NorthRoute, 'changelist')},
 					{'title': '风景图片', 'icon': 'fa fa-file-image-o', 'url': self.get_model_url(NorthPicList, 'changelist')},
+					{'title': '参考行程', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(NorthRouteDetail, 'changelist')},
+					{'title': '出团日期', 'icon': 'fa fa-calendar', 'url': self.get_model_url(NorthGoDate, 'changelist')},
 					{'title': '出发地', 'icon': 'fa fa-location-arrow', 'url': self.get_model_url(NorthSetOut, 'changelist')},
 					{'title': '目的地', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(NorthDest, 'changelist')},
 					{'title': '产品类型', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(NorthType, 'changelist')},
@@ -120,12 +122,13 @@ class GoDateAdmin(object):
 	list_editable = ['date', 'price', 'childPrice', 'left', 'childLeft']
 	search_fields = ['classification']
 	list_per_page = 20
+	ordering = ['classification', 'date']
 
-class RouteDetailAdmin(object):
+class NorthRouteDetailAdmin(object):
 	list_display = ['route', 'day', 'fromPlace', 'goType', 'endPlace', 'sort']
 	list_editable = ['day', 'fromPlace', 'goType', 'endPlace', 'sort']
-	search_fields = ['classification']
-	ordering = ['sort']
+	search_fields = ['route']
+	ordering = ['route', 'sort']
 	list_per_page = 20
 	style_fields = {'traffic':'ueditor', 'content':'ueditor'}
 
@@ -230,6 +233,21 @@ class NorthTypeAdmin(object):
 	list_per_page = 20
 	ordering = ['sort']
 
+class NorthGoDateAdmin(object):
+	list_display = ['route', 'date', 'left', 'childLeft']
+	list_editable = ['date', 'left', 'childLeft']
+	search_fields = ['route']
+	list_per_page = 20
+	ordering = ['route', 'date']
+
+class RouteDetailAdmin(object):
+	list_display = ['route', 'day', 'fromPlace', 'goType', 'endPlace', 'sort']
+	list_editable = ['day', 'fromPlace', 'goType', 'endPlace', 'sort']
+	search_fields = ['route']
+	ordering = ['route', 'sort']
+	list_per_page = 20
+	style_fields = {'traffic':'ueditor', 'content':'ueditor'}
+
 class RandomCodeAdmin(object):
 	list_display = ['tel', 'code', 'time']
 	list_per_page = 20
@@ -294,3 +312,5 @@ xadmin.site.register(NorthType,NorthTypeAdmin)
 xadmin.site.register(NorthRoute,NorthRouteAdmin)
 xadmin.site.register(RandomCode,RandomCodeAdmin)
 xadmin.site.register(NorthPicList,NorthPicListAdmin)
+xadmin.site.register(NorthGoDate,NorthGoDateAdmin)
+xadmin.site.register(NorthRouteDetail,NorthRouteDetailAdmin)

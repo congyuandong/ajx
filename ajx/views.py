@@ -203,12 +203,16 @@ def NorthDetail(request, nid):
 	linkObjs = Links.objects.order_by('sort')
 	systemInfo = get_list_or_404(SystemInfo)
 	picListObjs = NorthPicList.objects.filter(route = routeObj).order_by('sort')[0:8]
+	goDateObjs = NorthGoDate.objects.filter(route = routeObj).order_by('date')
+	routeSchedule = NorthRouteDetail.objects.filter(route = routeObj).order_by('sort')
 
 	context_dict = {
 		'route':routeObj,
 		'links':linkObjs,
 		'S':systemInfo[0],
 		'piclist':picListObjs,
+		'godates':goDateObjs,
+		'schedules':routeSchedule,
 		'nav':'north'
 	}
 

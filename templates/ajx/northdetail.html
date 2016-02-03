@@ -9,107 +9,6 @@
 {% endblock %}
 
 {% block main %}
-<script>
-$(function(){
-	$("#jcImg").jcImg({
-		speed : 400, // 动画速度
-		height :60,  // 缩略图高度设置
-		width : 100, // 缩略图宽度设置
-		textBg : .8, // 文本透明度设置
-		page : 4     // 每页缩略图显示个数
-	});
-});
-</script>
-
-<script>
-window.onload = function () {
-	(function () {
-		var reduceAdult = $(".reduce")[0],
-			textAdult = $(".text")[0],
-			addAdult = $(".add")[0],
-			reduceKid = $(".reduce")[1],
-			textKid = $(".text")[1],
-			addKid = $(".add")[1],
-			countAdult = 1,
-			countKid = 0;
-			start = function (reduce, text, add, count) {
-				less = function () {
-					if (parseInt(text.value) > 0) {
-						count -= 1;
-						text.value = count;
-						reduce.style.backgroundColor = "#EAEAEA";
-						if (count === 1) {
-							reduce.style.backgroundColor = "gray";
-						}
-					}
-				},
-				increase = function () {
-						count += 1;
-						text.value = count;
-						reduce.style.backgroundColor = "#EAEAEA";
-				};
-
-				reduce.onclick = less;
-				add.onclick = increase;
-			};
-
-			start(reduceAdult, textAdult, addAdult, countAdult);
-			start(reduceKid, textKid, addKid, countKid);
-
-	})();
-};
-</script>
-
-
-
-<script type="text/javascript">
-$(function(){
-	var s1_top = $("#s1").offset().top;
-	var s2_top = $("#s2").offset().top;
-	var s3_top = $("#s3").offset().top;
-	var s4_top = $("#s4").offset().top;
-	var s5_top = $("#s5").offset().top;
-	var s6_top = $("#s6").offset().top;
-	
-	//alert(tops);
-	$(window).scroll(function(){
-		var scroH = $(this).scrollTop();
-    if(scroH>=s6_top-90){
-      set_cur(".s6");
-    }else if(scroH>=s5_top-90){
-      set_cur(".s5");
-    }else if(scroH>=s4_top-90){
-      set_cur(".s4");
-    }else if(scroH>=s3_top-90){
-      set_cur(".s3");
-    }else if(scroH>=s2_top-90){
-      set_cur(".s2");
-    }else if(scroH>=s1_top-90){
-      set_cur(".s1");
-    }
-	});	
-				
-	$(".xianlumoban_ul li a").click(function() {
-		var el = $(this).attr('class');
-		$('html, body').animate({
-		 	scrollTop: $("#"+el).offset().top-45
-			},{
-         	easing: 'easeOutSine',
-         	duration: 900,
-         	complete:function(){
-			}
-	 	});
- 	});
-});
-
-function set_cur(n){
-	// if($(".xianlumoban_ul a").hasClass("cur")){
-		$(".xianlumoban_ul a").removeClass("cur");
-	// }
-	//alert(n);
-	$(".xianlumoban_ul a"+n).addClass("cur");
-}
-</script>
 
 {% include "ajx/includes/login.html" %}
 {% include "ajx/includes/header.html" %}
@@ -118,364 +17,226 @@ function set_cur(n){
 	<p>首页 > 东北游 > {{route.name}}</p>
 </div>
 <div class="special_con">
-	<div class="special_con_top">
-    	<div class="special_con_top_h special_con_top_h{{route.types|odd:6}} fl">
-        	<h2>{{route.get_types_display}}</h2>
-        </div>
-        <div class="special_con_top_r fl">
-        	<h2>{{route.name}}</h2>
-          <p><span>（编号：{{route.code}}）</span>{{route.summary}}</p>
-        </div>	
+  <div class="special_con_top">
+    <div class="special_con_top_h special_con_top_h{{route.types|odd:6}} fl">
+      <h2>{{route.get_types_display}}</h2>
     </div>
-    <div class="cl"></div>
-    <div class="special_con_div1">
-    	<div class="special_con_1_banner fl">
-            <div id="jcImg" class="TmpStyle">
-                <ul>
-                    {% for pic in piclist %}
-                    <li><a><img src="media/{{pic.image}}" alt="{{pic.title}}"></a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        <div class="special_con_1_r fl">
-        	<div class="special_con_1_r_1">
-        		<p>儿童：￥{{route.childPrice}}起/人</p>
-                <p class="special_con_1_r_1_d">￥<span>{{route.realPrice}}</span>元/人</p>
-                <div class="special_con_1_r_1_an"><input name="" type="button" /></div>
-            </div>
+    <div class="special_con_top_r fl">
+      <h2>{{route.name}}</h2>
+      <p><span>（编号：{{route.code}}）</span>{{route.summary}}</p>
+    </div>	
+  </div>
+  <div class="cl"></div>
+  <div class="special_con_div1">
+    <div class="special_con_1_banner fl">
+      <div id="jcImg" class="TmpStyle">
+        <ul>
+          {% for pic in piclist %}
+          <li><a><img src="media/{{pic.image}}" alt="{{pic.title}}"></a></li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    <div class="special_con_1_r fl">
+      <div class="special_con_1_r_1">
+        <p>儿童：￥{{route.childPrice}}起/人</p>
+        <p class="special_con_1_r_1_d">￥<span>{{route.realPrice}}</span>元/人</p>
+        <div class="special_con_1_r_1_an"><input name="" type="button" /></div>
+      </div>
 			<div class="special_con_1_r_2">
-            	<h2>方案详情</h2>
+        <h2>方案详情</h2>
 				<table width="450" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td width="92" height="33" align="center" valign="middle" class="pecial_con_1_bsh">起/止地</td>
-                    <td width="175" align="center" valign="middle">{{route.setOut}}起</td>
-                    <td width="175" align="center" valign="middle">{{route.destination}}止</td>
-                  </tr>
-                  <tr>
-                    <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">交通信息</td>
-                    <td align="center" valign="middle">{{route.get_goType_display}}去</td>
-                    <td align="center" valign="middle">{{route.get_backType_display}}回</td>
-                  </tr>
-                  <tr>
-                    <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">发团日期</td>
-                    <td align="center" valign="middle">2015-12-6</td>
-                    <td align="center" valign="middle">2015-12-6</td>
-                  </tr>
-                  <tr>
-                    <td height="53" align="center" valign="middle" class="pecial_con_1_bsh">出行人数</td>
-                    <td align="center" valign="middle">
-                    <div class="special_con_1_jj">
-                   	    <div class="wrap fl">
-                            <div class="reduce reduce1 reduceAdult"><a href="#">-</a></div>
-                            <input class="text text1 textAdult" type="text" value="1"/>
-                            <div class="add add1 addAdult"><a href="#">+</a></div>
-                        </div>
-                        <div class="fl special_con_1_ren">成年</div>
-                    </div>   
-                    </td>
-                    <td align="center" valign="middle">
-                    <div  class="special_con_1_jj">
-                        <div class="wrap fl">
-                            <div class="reduce reduce1 reduceKid"><a href="#">-</a></div>
-                            <input class="text text1 textKid" type="text" value="0"/>
-                            <div class="add add1 addKid"><a href="#">+</a></div>
-                        </div>
-                        <div class="fl special_con_1_ren">儿童</div>
-                    </div>    
-                    </td>
-                  </tr>
-   		  		</table>
+          <tr>
+            <td width="92" height="33" align="center" valign="middle" class="pecial_con_1_bsh">起/止地</td>
+            <td width="175" align="center" valign="middle">{{route.setOut}}起</td>
+            <td width="175" align="center" valign="middle">{{route.destination}}止</td>
+          </tr>
+          <tr>
+            <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">交通信息</td>
+            <td align="center" valign="middle">{{route.get_goType_display}}去</td>
+            <td align="center" valign="middle">{{route.get_backType_display}}回</td>
+          </tr>
+          <tr>
+            <td height="33" align="center" valign="middle" class="pecial_con_1_bsh">发团日期</td>
+            <td align="center" valign="middle"></td>
+            <td align="center" valign="middle">
+              {% if godates %}
+              <select name="godate" id="godate">
+                <volist name="godate" id="vo">
+                  {% for godate in godates %}
+                  <option value="{{godate.id}}">{{godate.date}}</option>
+                  {% endfor %}
+                </volist>
+              </select>
+              {% endif %}
+            </td>
+          </tr>
+          <tr>
+            <td height="53" align="center" valign="middle" class="pecial_con_1_bsh">出行人数</td>
+            <td align="center" valign="middle">
+            <div class="special_con_1_jj">
+           	    <div class="wrap fl">
+                    <div class="reduce reduce1 reduceAdult"><a>-</a></div>
+                    <input class="text text1 textAdult" type="text" value="1"/>
+                    <div class="add add1 addAdult"><a>+</a></div>
+                </div>
+                <div class="fl special_con_1_ren">成年</div>
+            </div>   
+            </td>
+            <td align="center" valign="middle">
+            <div  class="special_con_1_jj">
+                <div class="wrap fl">
+                    <div class="reduce reduce1 reduceKid"><a>-</a></div>
+                    <input class="text text1 textKid" type="text" value="0"/>
+                    <div class="add add1 addKid"><a>+</a></div>
+                </div>
+                <div class="fl special_con_1_ren">儿童</div>
+            </div>    
+            </td>
+          </tr>
+   		  </table>
 			</div>
-            <div class="special_con_1_r_3"><input name="" type="button"  value="二次确认"/></div>
-        </div>
-       
-    </div><!--special_con_div1-->
+      <div class="special_con_1_r_3"><input name="" type="button"  value="二次确认"/></div>
+    </div>
+  </div><!--special_con_div1-->
 </div><!--special_con-->
 <div class="cl"></div>
 <div class="special_con_div2">
 	<div class="wrap_dhgs">
-		
-	
-        <div class="xianlumoban mt20">
-        	<ul class="xianlumoban_ul">
-            	<li><a class="s1 cur">产品详情</a></li>
-                <li><a class="s2">费用说明</a></li>
-                <li><a class="s3">参考行程</a></li>
-                <li><a class="s4">购买须知</a></li>
-                <li><a class="s5">网签协议</a></li>
-                <li><a class="s6">热门推荐</a></li>
-            </ul>
-           
+    <div class="xianlumoban mt20">
+      <ul class="xianlumoban_ul">
+      	<li><a class="s1 cur">产品详情</a></li>
+        <li><a class="s2">费用说明</a></li>
+        <li><a class="s3">参考行程</a></li>
+        <li><a class="s4">购买须知</a></li>
+        <li><a class="s5">网签协议</a></li>
+        <li><a class="s6">热门推荐</a></li>
+      </ul>
+    </div>
+    <div class="jz_30w">
+      <div id="s1">
+          <div class="dr_title2 sTop" >
+               <h2>产品详情</h2><p class="note">本产品由{{route.supplyName}}提供服务</p>
+          </div>
+          <div class="editor_box">
+              {% autoescape off %} 
+              {{route.detail}}
+              {% endautoescape %}
+          </div>
+      </div><!--s1-->
+      <div class="cl"></div>
+      <div id="s2">
+        <div class="dr_title2">
+            <h2>费用说明</h2>
         </div>
-    
-    	<div class="jz_30w">
-     
-            <div id="s1">
-                <div class="dr_title2 sTop" >
-                     <h2>产品详情</h2><p class="note">本产品由中国山水旅行社提供服务</p>
-                </div>
-            
-                <div class="editor_box">
-                    <p class="h_yellow"><strong>爱小行赞一个</strong></p>
-                    <p>1、超多团期出发，包含清明节/五一假期哦！30公斤托运行李，直挂行李更省心~</p>
-                    <p>2、可登马来西亚第一高峰，也可浮潜去看美丽珊瑚礁~</p>
-                    <p>3、乘船去海平面红树林深处看奇特的长鼻猴和萤火虫~</p>
-                    <p>4、极致美食品味：老虎虾，老虎斑、象拔吃到饱！</p>
-                    <p><br></p><p class="h_yellow"><strong>可选附加产品</strong><br></p>
-                    <p><span style="color:#00b0f0;">+299元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">红树林寻访长鼻猴+萤火虫（下午出发）</span></a></p>
-                    <p><span style="color:#00b0f0;">+499元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">沙巴亚庇美人鱼岛浮潜一日游</span></a></p>
-                    <p><span style="color:#00b0f0;">+699元 &nbsp;</span><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;"><span style="color:#00b0f0;">沙巴亚庇环滩岛一日游（私人海岛）</span></a></p>
-                    <p><span style="color:#00b0f0;">+299元 &nbsp;</span><span style="color:#00b0f0;text-decoration:underline;"><a href="#" target="_blank" style="color:#00b0f0;text-decoration:underline;">沙巴亚庇东姑拉曼海岛公园两岛游（沙比岛和曼奴干岛)</a></span></p>
-                </div>
-            </div><!--s1-->
-            
-            <div class="cl"></div>
-            
-            <div id="s2">
-                <div class="dr_title2">
-                    <h2>费用说明</h2>
-                </div>
-                <h3 class="ri_title">费用包含</h3>
-                <div class="editor_box">
-                    <p>1、机票：机票含税</p></div>
-                <h3 class="ri_title">费用不含</h3>
-                <div class="editor_box">
-                    <p>1.全程导游、司机服务费、全程酒店；</p>
-                    <p>2.签证：马来西亚旅游签证</p>
-                    <p>3.私人性质的消费（如交通费、洗衣、电话、酒水、购物等）；<br></p>
-                    <p>4.出入境行李的海关税、搬运费、保管费和超重（件）行李托运费；航空公司临时加收的燃油附加费（我司只会在航空公司正式宣布加收燃油附加费时加收时，才向团队确认加收，加收的金额以航空公司定的为准）；</p>
-                    <p>5.单房差，个人小费，意外保险，自费项目</p>
-                    <p>6.行程外产生的超公里费或者超工时费</p>
-                    <p>7.因客人自身原因造成领事馆拒签或终止签证，需收取的签证损失费和机票损失费（机票一旦出票，便不可退票、不可签转，不可更改日期/航班/舱位；客人同时需承担机票或酒店取消费）；</p>
-                    <p>8.因不可抗拒因素（自然灾害、政治形势、政府法令、航空、铁路及公路出现紧急情况等）所引致的额外费用；旅行社协助解决，但不承担相关责任，同时我社保留对行程进行变更的权利。</p>
-                </div>
-            </div><!--s2-->
-            
-            <div class="cl"></div>
-        
-            <div id="s3">
-                <div class="dr_title2">
-                    <h2>参考行程</h2>
-                </div>
-                <div class="rdt_box">
-                    <dl>
-                        <dt>第 1 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">北京</div><div title="飞机" class="plane_icon"></div><div class="t1">台北</div>
-    
-                                                             <!--            <div title="轮船" class="ship_icon"></div>-->
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            <p><strong>参考航班：CI512  12:25（北京时间）-15:35（北京时间）<br />　　　　或 CI518  20:05（北京时间）-23:15（北京时间）</strong></p> 
-                            <p>请自行前往机场，开始愉快的旅途！</p>
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               <strong>行程：</strong>07:15空调旅游车到酒店接团出发， 前往永定高北土楼群。11:30抵达永定高北土楼群，享用午餐。12:00午餐后，游览,中国邮电部发行了一套"中国民居"邮票"世界文化遗产，【承启楼】被称为"土楼王"它的"高四层，楼四圈，上上下下四百间；圆中圆，圈套圈，历经沧桑三百年"，的独特建筑风格和庭园院落端庄丽脱的造型艺术，融与如诗的山乡神韵。【五云楼】俗称"不倒楼"，是没有石砌墙基，已有590多年沧桑变化，是高头乡江氏家族中现存最古老的建筑，具有愉快的土楼旅游！
-                               </div>
-                               <div class="xingcheng_pic">
-                                    <img src="images/xqym_1t_pic_03.jpg" />
-                               </div>
-                        </dd>
-                    </dl>
-                <div class="cl"></div>
-                    <dl>
-                        <dt>第 2 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">台北</div>
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               自由活动，行程任选。
-                               </div>
-                               <div class="xingcheng_pic">
-                                    <img src="images/xqym_2t_pic_03.jpg" />
-                               </div>
-                        </dd>
-                    </dl>
-                <div class="cl"></div>
-                    <dl>
-                        <dt>第 3 天</dt>
-                        <dd>
-                            <div class="tra_info fordetail">
-                                <div class="t1">台北</div><div title="飞机" class="plane_icon"></div><div class="t1">北京</div>
-                                                             <!--            <div title="轮船" class="ship_icon"></div>-->
-                            </div>
-                            <div class="cl"></div>
-                            <p></p>
-                            <p><strong>参考航班：CI512  12:25（北京时间）-15:35（北京时间）<br />　　　　或 CI518  20:05（北京时间）-23:15（北京时间）</strong></p> 
-                            <p>自行乘机返回北京，结束愉快行程！</p>
-                               <div class="tip">
-                               <strong>住宿：</strong>厦门市区准三星酒店&nbsp;&nbsp;<br>
-                               <strong>餐饮：</strong>早餐：敬请自理&nbsp;
-                                午餐：敬请自理&nbsp;
-                                晚餐：敬请自理
-                               </div>
-                               <div class="xingcheng">
-                               <strong>行程：</strong>07:15空调旅游车到酒店接团出发， 前往永定高北土楼群。11:30抵达永定高北土楼群，享用午餐。12:00午餐后，游览,中国邮电部发行了一套"中国民居"邮票"世界文化遗产，【承启楼】被称为"土楼王"它的"高四层，楼四圈，上上下下四百间；圆中圆，圈套圈，历经沧桑三百年"，的独特建筑风格和庭园院落端庄丽脱的造型艺术，融与如诗的山乡神韵。【五云楼】俗称"不倒楼"，是没有石砌墙基，已有590多年沧桑变化，是高头乡江氏家族中现存最古老的建筑，具有愉快的土楼旅游！
-                               </div>
-                               
-                        </dd>
-                   </dl>
-               </div>     
-            </div><!--s3-->
-            
-            <div class="cl"></div>
-                        
-            <div id="s4">
-                <div class="dr_title2" >
-                    <h2>购买须知</h2>
-                </div><h3 class="ri_title">费用包含</h3>
-                <div class="editor_box">
-                    <p><span style="font-size:14px;">1、全程往返机票、机税</span><br></p>
-                    <p>2、领队、导游、司机服务费（30元/人）。</p>
-                    <p>3、行程内所含景点门票</p> 
-                    <p>4、行程内团队餐食5早8正餐（酒店含早餐，正餐（25元/人）7菜1汤（3荤4素）或自助、特色餐（30元/人）</p>
-                    <p>5、行程内5晚酒店住宿(独立卫生间，热水器，空调)</p> 
-                    <p>6、当地空调旅游巴士</p>    
-                </div>
-           </div>  <!--s4-->
-                            
-           <div class="cl"></div>
-            
-            <div id="s5">
-                <div class="dr_title2">
-                    <h2>网络协议</h2>
-                </div>
-                <div class="editor_box">
-                    <p><span style="font-size:14px;">1、全程往返机票、机税</span><br></p>
-                    <p>2、领队、导游、司机服务费（30元/人）。</p>
-                    <p>3、行程内所含景点门票</p> 
-                    <p>4、行程内团队餐食5早8正餐（酒店含早餐，正餐（25元/人）7菜1汤（3荤4素）或自助、特色餐（30元/人）</p>
-                    <p>5、行程内5晚酒店住宿(独立卫生间，热水器，空调)</p> 
-                    <p>6、当地空调旅游巴士</p>    
-                </div>
-            </div>
-            
-            
-            
-           <div class="cl"></div>
-             
-                            
-           <div id="s6">
-                <div class="dr_title2">
-                    <h2>热门推荐</h2>
-                </div>
-                <ul class="rp_box_fordetail">
-                    <li>
-                        <div class="pic">
-                          <a href="#" target="_blank"><img src="images/550b9e6459e03.jpg" width="190" height="111"></a></div>
-                        <h4><a href="#" target="_blank">异域风情 | 泰新马9晚11天跟团游</a></h4>
-                        <p>￥4999起</p>
-                    </li>
-                    <li>
-                        <div class="pic">
-                          <a href="#" target="_blank"><img src="images/5480317c40194.jpg" width="190" height="111"></a></div>
-                        <h4><a href="#" target="_blank">飞去海岛过冬 | 沙巴四晚六天超级自由行（11月-12月·含圣诞）</a></h4>
-                        <p>￥2999起</p>
-                    </li>
-                    <li>
-                        <div class="pic">
-                          <a href="#" target="_blank"><img src="images/550b9e6459e03.jpg" width="190" height="111"></a></div>
-                        <h4><a href="#" target="_blank">异域风情 | 泰新马9晚11天跟团游</a></h4>
-                        <p>￥4999起</p>
-                    </li>
-                    <li class="nomargin">
-                        <div class="pic">
-                          <a href="#" target="_blank"><img src="images/5480346651017.jpg" width="190" height="111"></a></div>
-                        <h4><a href="#" target="_blank">享饕餮海鲜 | 沙巴四晚六天超级自由行（9月-10月·含十一）</a></h4>
-                        <p>￥2999起</p>
-                    </li>
-                       
-                </ul>
-                <div class="cl"></div>
-           </div><!--s5-->
-    
-    	</div><!--jz_30w-->
-    
-  </div><!--wrap_dhgs-->
-    
-    
+        <div class="editor_box">
+            {% autoescape off %} 
+            {{route.cost}}
+            {% endautoescape %}
+        </div>
+      </div><!--s2-->
+      <div class="cl"></div>
+      <div id="s3">
+          <div class="dr_title2">
+              <h2>参考行程</h2>
+          </div>
+          <div class="rdt_box">
+            {% for schedule in schedules %}
+            <dl>
+                <dt>第 {{schedule.day}} 天</dt>
+                <dd>
+                    <div class="tra_info fordetail">
+                        <div class="t1">{{schedule.fromPlace}}</div><div title="飞机" class="plane_icon"></div><div class="t1">{{schedule.endPlace}}</div>
+                    </div>
+                    <div class="cl"></div>
+                    <p></p>
+                    {% autoescape off %} 
+                    {{schedule.traffic}}
+                    {% endautoescape %}
+                    <div class="tip">
+                       <strong>住宿：</strong>{{schedule.hotel}}<br>
+                       <strong>餐饮：</strong>早餐：{{schedule.breakfast}}&nbsp;午餐：{{schedule.lunch}}&nbsp;晚餐：{{schedule.dinner}}
+                    </div>
+                    <div class="xingcheng">
+                        {% autoescape off %} 
+                        {{schedule.content}}
+                        {% endautoescape %}
+                    </div>
+                </dd>
+              </dl>
+              <div class="cl"></div>
+              {% endfor %}
+          </div>    
+      </div><!--s3-->
+      <div class="cl"></div>                  
+      <div id="s4">
+          <div class="dr_title2" >
+              <h2>订购须知</h2>
+          </div>
+          <div class="editor_box">
+            {% autoescape off %} 
+            {{route.notice}}
+            {% endautoescape %}   
+          </div>
+      </div>  <!--s4-->
+      <div class="cl"></div>
+      <div id="s5">
+          <div class="dr_title2">
+              <h2>网签协议</h2>
+          </div>
+          <div class="editor_box">
+            {% autoescape off %} 
+            {{route.netsign}}
+            {% endautoescape %}   
+          </div>
+      </div>
+      <div class="cl"></div>     
+      <div id="s6">
+          <div class="dr_title2">
+              <h2>热门推荐</h2>
+          </div>
+          <!--ul class="rp_box_fordetail">
+              <li>
+                  <div class="pic">
+                    <a href="#" target="_blank"><img src="images/550b9e6459e03.jpg" width="190" height="111"></a></div>
+                  <h4><a href="#" target="_blank">异域风情 | 泰新马9晚11天跟团游</a></h4>
+                  <p>￥4999起</p>
+              </li>
+              <li>
+                  <div class="pic">
+                    <a href="#" target="_blank"><img src="images/5480317c40194.jpg" width="190" height="111"></a></div>
+                  <h4><a href="#" target="_blank">飞去海岛过冬 | 沙巴四晚六天超级自由行（11月-12月·含圣诞）</a></h4>
+                  <p>￥2999起</p>
+              </li>
+              <li>
+                  <div class="pic">
+                    <a href="#" target="_blank"><img src="images/550b9e6459e03.jpg" width="190" height="111"></a></div>
+                  <h4><a href="#" target="_blank">异域风情 | 泰新马9晚11天跟团游</a></h4>
+                  <p>￥4999起</p>
+              </li>
+              <li class="nomargin">
+                  <div class="pic">
+                    <a href="#" target="_blank"><img src="images/5480346651017.jpg" width="190" height="111"></a></div>
+                  <h4><a href="#" target="_blank">享饕餮海鲜 | 沙巴四晚六天超级自由行（9月-10月·含十一）</a></h4>
+                  <p>￥2999起</p>
+              </li>
+                 
+          </ul-->
+          <div class="cl"></div>
+      </div>
+    </div>
+  </div>   
 </div><!--special_con_div2-->
-
-
 
 <div class="cl"></div>
 {% include "ajx/includes/footer.html" %}
 {% include "ajx/includes/sidebar.html" %}
-
-<script type="text/javascript">
-$(function(){
-    function tabs(tabTit,on,tabCon){
-	$(tabCon).each(function(){
-	  $(this).children().eq(0).show();
-	  });
-	$(tabTit).each(function(){
-	  $(this).children().eq(0).addClass(on);
-	  });
-     $(tabTit).children().click(function(){
-		$(".dest_mdd_dl_qb").find("a").removeClass("active");
-		
-        $(this).addClass(on).siblings().removeClass(on);
-         var index = $(tabTit).children().index(this);
-         $(tabCon).children().eq(index).show().siblings().hide();
-    });
-     }
-  tabs(".tab-hd","active",".tab-bd");
-   });
-   
-  
- 
-$(document).ready(function(e) {
-  $(".dest_mdd_dl_qb").click(function(){
-	  	$(this).find("a").addClass("active");
-		$(".dest_mdd_bd").children("li").hide();
-		$(".dest_mdd_hd li").removeClass("active");
-		;
-	});
-	
-
-});
-
-
-</script>
-
-<script>
-	$(document).ready(function(e) {
-       $(window).scroll(
-	   		function(){
-				if(( $(window).scrollTop())>=625) {
-				$(".xianlumoban_ul").addClass("ab");
-					}else{
-						$(".xianlumoban_ul").removeClass("ab");
-						}
-				}
-	   );
-
-    });
-</script>
-
 
 {% endblock %}
 
 {% block js %}
 <script type="text/javascript" src="{% static 'js/jQuery-jcImg.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/mouse_hover.js'%}"></script>
+<script type="text/javascript" src="{% static 'js/jquery.SuperSlide.min.js'%}"></script>
 <script type="text/javascript" src="{% static 'js/northdetail.js'%}"></script>
 {% endblock %}

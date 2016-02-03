@@ -564,6 +564,46 @@ class NorthRoute(models.Model):
 		verbose_name = '线路'
 		verbose_name_plural = '线路管理'
 
+#东北游参考行程安排
+class NorthRouteDetail(models.Model):
+	route = models.ForeignKey(NorthRoute, verbose_name = '路线')
+	day = models.IntegerField(default = 0, verbose_name = '第几天')
+	fromPlace = models.CharField(max_length = 100, verbose_name = '出发地')
+	goType = models.IntegerField(default = 0, verbose_name = '交通方式', choices = TRAFFIC_CHOICES)
+	endPlace = models.CharField(max_length = 100, verbose_name = '目的地')
+	breakfast = models.CharField(max_length = 100, verbose_name = '早餐')
+	lunch = models.CharField(max_length = 100, verbose_name = '午餐')
+	dinner = models.CharField(max_length = 100, verbose_name = '晚餐')
+	hotel = models.CharField(max_length = 100, verbose_name = '住宿')
+	traffic = UEditorField(verbose_name='参考交通',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000})
+	content = UEditorField(verbose_name='行程安排',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+		upload_settings={'imageMaxSize':2048000})
+	sort = models.IntegerField(default = 0,verbose_name="排序")
+
+	def __unicode__(self):
+		return self.route.name + u'第' + str(self.day) + u'天行程'
+
+	class Meta:
+		verbose_name = '行程'
+		verbose_name_plural = '行程安排'
+
+#出行日期管理
+class NorthGoDate(models.Model):
+	route = models.ForeignKey(NorthRoute, verbose_name = '路线')
+	date = models.DateField(verbose_name = '出行日期')
+	left = models.IntegerField(default = 0, verbose_name = '成人余位')
+	childLeft = models.IntegerField(default = 0, verbose_name = '儿童余位')
+
+	def __unicode__(self):
+		return self.route.name + u'出行日期'
+
+	class Meta:
+		verbose_name = '出行日期'
+		verbose_name_plural = '出行日期管理'
+
 class NorthPicList(models.Model):
 	title = models.CharField(max_length = 100, verbose_name = '标题')
 	route = models.ForeignKey(NorthRoute, verbose_name = '线路')
