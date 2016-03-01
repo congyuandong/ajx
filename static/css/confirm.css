@@ -534,21 +534,21 @@ h2.h2_title {
     background: url("../images/personal/icon.png") -212px 2px no-repeat;
 }
 
-.type_safe p {
+.type_safe p,.type_0 p {
     height: 20px;
     margin-left: 13px;
     width: 36px;
     background: url("../images/personal/icon.png") -179px 2px no-repeat;
 }
 
-.type_oneDay p {
+.type_oneDay p,.type_2 p {
     height: 20px;
     width: 55px;
     margin-left: 3px;
     background: url("../images/personal/icon.png") -40px 2px no-repeat;
 }
 
-.type_wifi p {
+.type_wifi p,.type_1 p {
     height: 20px;
     width: 62px;
     margin-left: 0;

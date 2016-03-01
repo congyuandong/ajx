@@ -76,14 +76,34 @@
 						<a href="{{url}}">修改</a>
 					</td>
 				</tr>
+                {% for addition in additions %}
 				<tr>
-					<td class="first"></td>
-					<td class="type type_safe"></td>
-					<td class="orange"></td>
-					<td class="tableNumb"></td>
-					<td class="orange"></td>
-					<td class="blue"></td>
+					<td class="first">
+                        <p class="blue pName">{{ addition.name }}</p>
+                    </td>
+					<td class="type type_{{ addition.types }}">
+                        <p></p>
+                    </td>
+					<td class="orange">
+                        <p class="priceSign">
+							<span class="priceOne">单&nbsp;&nbsp;&nbsp;人：￥</span>
+							<span>{{ addition.price }}</span>
+						</p>
+                    </td>
+					<td class="tableNumb">
+                        <p>x {{quantity.adult}}</p>
+                    </td>
+					<td class="orange">
+                        <p>
+							<span>￥</span>
+							<span>{{godate.price}}</span>
+						</p>
+                    </td>
+					<td class="blue">
+                        <input class="checkBox" onclick="" checked="checked" type="checkbox">
+                    </td>
 				</tr>
+                {% endfor %}
 			</tbody>
 		</table>
 	</div>
@@ -121,14 +141,16 @@
 		</div>
 	</div>
 	<div class="submit_foot">
-	  <label id="label-buy-notice"><input checked="checked" type="checkbox"><p>我同意爱简行<a target="blank" href="#" style="color: #19aabd;">网签协议</a></p></label>
-	  <input value="提交订单" id="buy_button" type="submit" onclick="return checkBuy_button()">
+	  <label id="label-buy-notice">
+	  	<input checked="checked" type="checkbox"/>
+	  	<p>我同意在旅行<a target="blank" href="#" style="color: #19aabd;">网签协议</a></p>
+	  </label>
+	  <input value="提交订单" id="buy_button" type="submit" onclick="return checkBuy_button()"/>
 	  <p>应付总额 : ￥<span id="total_money">1000</span></p>
 	</div>
 </div>
 
 {% include "ajx/includes/footer.html" %}
-{% include "ajx/includes/sidebar.html" %}
 
 {% endblock %}
 
