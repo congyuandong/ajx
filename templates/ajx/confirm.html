@@ -1,5 +1,6 @@
 {% extends "ajx/base.html" %}
 {% load staticfiles %}
+{% load extra_tags %}
 
 {% block title %}订单确认|{{S.name}}{% endblock %}
 
@@ -48,29 +49,35 @@
 							<span class="priceOne">儿&nbsp;&nbsp;&nbsp;童：￥</span>
 							<span>{{godate.childPrice}}</span>
 						</p>
+                        {% if quantity.single %}
 						<p class="priceSign">
 							<span class="priceOne">单房差：￥</span>
 							<span id="diff_per_room">{{route.singleRoom}}</span>
 						</p>
+                        {% endif %}
 					</td>
 					<td class="tableNumb">
 						<p>x {{quantity.adult}}</p>
 						<p>x {{quantity.child}}</p>
+                        {% if quantity.single %}
 						<p>x {{quantity.single}}</p>
+                        {% endif %}
 					</td>
 					<td class="orange">
 						<p>
 							<span>￥</span>
-							<span>{{godate.price}}</span>
+							<span>{{godate.price | multiply:quantity.adult}}</span>
 						</p>
 						<p>
 							<span>￥</span>
-							<span>{{godate.childPrice}}</span>
+							<span>{{godate.childPrice | multiply:quantity.child}}</span>
 						</p>
+                        {% if quantity.single %}
 						<p>
 							<span>￥</span>
-							<span>{{route.singleRoom}}</span>
+							<span>{{route.singleRoom | multiply:quantity.single}}</span>
 						</p>
+                        {% endif %}
 					</td>
 					<td class="blue">
 						<a href="{{url}}">修改</a>
@@ -87,20 +94,20 @@
 					<td class="orange">
                         <p class="priceSign">
 							<span class="priceOne">单&nbsp;&nbsp;&nbsp;人：￥</span>
-							<span>{{ addition.price }}</span>
+							<span>￥{{ addition.price }}</span>
 						</p>
                     </td>
 					<td class="tableNumb">
-                        <p>x {{quantity.adult}}</p>
+                        <p>x {{quantity.peoples}}</p>
                     </td>
 					<td class="orange">
                         <p>
 							<span>￥</span>
-							<span>{{godate.price}}</span>
+							<span>{{ addition.price | multiply:quantity.peoples}}</span>
 						</p>
                     </td>
 					<td class="blue">
-                        <input class="checkBox" onclick="" checked="checked" type="checkbox">
+                        <input class="checkBox" onclick="" checked="checked" type="checkbox" data-price="{{ addition.price | multiply:quantity.peoples}}">
                     </td>
 				</tr>
                 {% endfor %}
@@ -115,24 +122,24 @@
 					<b>*</b>联系人姓名 : 
 				</p>
 				<input name="contact_name" id="contact_name" value="" type="text" >
-				<p class="Nerr">请输入联系人姓名</p>
+				<p class="Nerr errorTip">请输入联系人姓名</p>
 			</label>
 			<label>
 				<p>
 					<b>*</b>手机号码 : 
 				</p>
 				<input autocomplete="off" name="contact_tel" id="contact_tel" type="text">
-				<p class="Terr">请输入手机号码</p>
+				<p class="Terr errorTip">请输入手机号码</p>
 			</label>
-			<input class="phone_verify_btn success" name="get_random_key" id="get_random_key" value="点击获取" style="clear:none; float:left;margin: -48px 0 0 361px; background:#49bdcc; border: none;display: none; width:110px;height:32px;font-size: 16px;" type="button">
+			<!--input class="phone_verify_btn success" name="get_random_key" id="get_random_key" value="点击获取" style="clear:none; float:left;margin: -48px 0 0 361px; background:#49bdcc; border: none;display: none; width:110px;height:32px;font-size: 16px;" type="button">
 			<label id="label-random-key" style="display: none">
 				<p><b>*</b>验证码 : </p>
 				<input name="random_key" id="random_key" value="1" style="width: 100px" type="text">
 				<p id="random_key_error" style="color: red; display: none; text-align: left;padding-left: 4px;">请输入验证码</p>
-			</label>
+			</label-->
 			<label>
 				<p><b>*</b>邮件地址 : </p>
-				<input value="" name="contact_email" id="contact_email" type="text"><p class="Eerr">请输入邮件地址</p>
+				<input value="" name="contact_email" id="contact_email" type="text"><p class="Eerr errorTip">请输入邮件地址</p>
 			</label>
 		</div>
 		<div class="message">
@@ -142,11 +149,11 @@
 	</div>
 	<div class="submit_foot">
 	  <label id="label-buy-notice">
-	  	<input checked="checked" type="checkbox"/>
+	  	<input checked="checked" type="checkbox" id="signCheck"/>
 	  	<p>我同意在旅行<a target="blank" href="#" style="color: #19aabd;">网签协议</a></p>
 	  </label>
-	  <input value="提交订单" id="buy_button" type="submit" onclick="return checkBuy_button()"/>
-	  <p>应付总额 : ￥<span id="total_money">1000</span></p>
+	  <input value="提交订单" id="buy_button" type="submit"/>
+	  <p>应付总额 : ￥<span id="total_money">{{ amount }}</span></p>
 	</div>
 </div>
 

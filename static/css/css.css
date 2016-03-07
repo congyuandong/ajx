@@ -2708,6 +2708,12 @@ a.btn:hover {
     background-position: -460px -360px;
 }
 
+input[disabled],input:disabled{
+    border:1px solid #DDD;
+    background-color:#F5F5F5;
+    color:#ACA899;
+}
+
 .input {
     width: 200px;
     line-height: 20px;
