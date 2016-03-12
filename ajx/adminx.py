@@ -38,6 +38,7 @@ class GlobalSetting(object):
             )},
             {'title': '订单管理 ', 'menus': (
                 {'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
+                {'title': '东北游订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(NorthOrder, 'changelist')},
                 {'title': '定制订单', 'icon': 'fa fa-shopping-bag', 'url': self.get_model_url(MadeOrder, 'changelist')},
             )},
             {'title': '用户管理', 'menus': (
@@ -150,12 +151,18 @@ class NorthRouteDetailAdmin(object):
 
 
 class OrderAdmin(object):
-    list_display = ['orderID', 'user', 'route', 'username', 'phone', 'adult', 'child', 'amount', 'status', 'comment',
-                    'date']
+    list_display = ['code', 'user', 'route', 'username', 'phone', 'adult', 'child', 'amount', 'status', 'comment']
     list_editable = ['status']
-    search_fields = ['orderID', 'username', 'phone']
+    search_fields = ['code', 'username', 'phone']
     list_per_page = 20
+    ordering = ['-time']
 
+class NorthOrderAdmin(object):
+    list_display = ['code', 'user', 'route', 'username', 'phone', 'adult', 'child', 'amount', 'status', 'comment']
+    list_editable = ['status']
+    search_fields = ['code', 'username', 'phone']
+    list_per_page = 20
+    ordering = ['-time']
 
 class BannerSlideAdmin(object):
     list_display = ['title', 'link', 'sort']
@@ -354,3 +361,4 @@ xadmin.site.register(RandomCode, RandomCodeAdmin)
 xadmin.site.register(NorthPicList, NorthPicListAdmin)
 xadmin.site.register(NorthGoDate, NorthGoDateAdmin)
 xadmin.site.register(NorthRouteDetail, NorthRouteDetailAdmin)
+xadmin.site.register(NorthOrder, NorthOrderAdmin)

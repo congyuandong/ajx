@@ -281,7 +281,7 @@ class RouteDetail(models.Model):
 
 #线路订单
 class Order(models.Model):
-    orderID = models.CharField(max_length = 20, verbose_name = '编号')
+    code = models.CharField(max_length = 20, verbose_name = '编号')
     user = models.ForeignKey(UserInfo, verbose_name = '用户')
     route = models.ForeignKey(Route, verbose_name = '路线')
     adult = models.IntegerField(default = 0, verbose_name = '成人数')
@@ -291,15 +291,16 @@ class Order(models.Model):
     username = models.CharField(max_length = 50, verbose_name = '用户姓名')
     phone = models.CharField(max_length = 20, verbose_name = '电话号码')
     email = models.CharField(max_length = 200, verbose_name = '邮箱')
-    comment = models.CharField(max_length = 500, verbose_name = '留言')
+    comment = models.CharField(max_length = 500, verbose_name = '留言', null = True, blank = True)
     classification = models.ForeignKey(Classification, verbose_name = '套餐')
-    date = models.DateField(verbose_name = '出行日期')
+    #date = models.DateField(verbose_name = '出行日期')
     goDate = models.ForeignKey(GoDate, verbose_name = '出行日期')
-    time = models.DateTimeField(verbose_name = '下单时间')
+    time = models.DateTimeField(verbose_name = '下单时间',auto_now = True)
     ifsingle = models.IntegerField(default = 0, verbose_name = '是否单房', choices = YESORNO_CHOICES)
+    addition = models.ManyToManyField(Addition, verbose_name = '附加产品', null = True, blank = True)
 
     def __unicode__(self):
-        return u'订单编号' + self.orderID
+        return u'订单编号' + self.code
 
     class Meta:
         verbose_name = '订单'
@@ -631,3 +632,29 @@ class RandomCode(models.Model):
     class Meta:
         verbose_name = '验证码'
         verbose_name_plural = '验证码管理'
+
+#东北游订单
+class NorthOrder(models.Model):
+    code = models.CharField(max_length = 20, verbose_name = '编号')
+    user = models.ForeignKey(UserInfo, verbose_name = '用户')
+    route = models.ForeignKey(NorthRoute, verbose_name = '路线')
+    adult = models.IntegerField(default = 0, verbose_name = '成人数')
+    child = models.IntegerField(default = 0, verbose_name = '儿童数')
+    amount = models.DecimalField(max_digits = 12, decimal_places = 2, verbose_name='总价')
+    status = models.IntegerField(default = 0, verbose_name = '订单状态')
+    username = models.CharField(max_length = 50, verbose_name = '用户姓名')
+    phone = models.CharField(max_length = 20, verbose_name = '电话号码')
+    email = models.CharField(max_length = 200, verbose_name = '邮箱')
+    comment = models.CharField(max_length = 500, verbose_name = '留言', null = True, blank = True)
+    #date = models.DateField(verbose_name = '出行日期')
+    goDate = models.ForeignKey(NorthGoDate, verbose_name = '出行日期')
+    time = models.DateTimeField(verbose_name = '下单时间',auto_now = True)
+    ifsingle = models.IntegerField(default = 0, verbose_name = '是否单房', choices = YESORNO_CHOICES)
+    addition = models.ManyToManyField(Addition, verbose_name = '附加产品', null = True, blank = True)
+
+    def __unicode__(self):
+        return u'订单编号' + self.code
+
+    class Meta:
+        verbose_name = '订单'
+        verbose_name_plural = '订单管理'
