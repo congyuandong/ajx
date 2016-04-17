@@ -1,0 +1,25 @@
+.user-center {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+}
+.user-center .side-nav {
+    float: left;
+    width: 230px;
+}
+
+.user-center .main-content {
+    float: left;
+    width: 710px;
+}
+
+.user-center .side-nav .nav-list dt {
+    padding-top: 14px;
+    border-bottom: 1px solid #dfdfdf;
+}
+
+.user-center .side-nav .nav-list dt span {
+    font-size: 18px;
+    color: #111;
+}

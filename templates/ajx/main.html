@@ -1,0 +1,42 @@
+{% extends "ajx/base.html" %}
+{% load staticfiles %}
+
+{% block title %}个人中心|在旅行{% endblock %}
+
+{% block css %}
+<link href="{% static 'css/center.css'%}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+
+{% block main %}
+    {% include "ajx/includes/login.html" %}
+    {% include "ajx/includes/header.html" %}
+
+    <div class="user-center">
+        <div class="side-nav">
+            <div class="nav-list">
+                <dt>
+                    <span>我的信息</span>
+                </dt>
+                <dd>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </dd>
+                <dt>
+                    <span>订单信息</span>
+                </dt>
+
+                
+            </div>
+        </div>
+        <div class="main-content">right</div>
+        <div class="cl"></div>
+    </div>
+
+    {% include "ajx/includes/footer.html" %}
+{% endblock %}
+
+{% block js %}
+{% endblock %}
