@@ -20,4 +20,5 @@ urlpatterns = patterns('',
     url(r'^confirm/$',views.OrderConfirm, name='OrderConfirm'),
     url(r'^order/$',views.RouteOrder, name='RouteOrder'),
     url(r'^main/$',views.Main, name='Main'),
+    url(r'^about/(\w+)$',views.About, name='About'),
     )

@@ -1,0 +1,79 @@
+.about_con {
+    clear: both;
+    overflow: auto;
+    margin-top: 18px;
+    margin-bottom: 25px;
+    background: #fff;
+    padding: 30px 0px;
+}
+
+.about_con_left {
+    width: 200px;
+    position: relative;
+    left: 5px;
+}
+
+.about_con_left ul li {
+    height: 46px;
+}
+
+.about_con_left ul li a {
+    height: 46px;
+    background: url(../images/about_left_li.png) 25px -5px no-repeat;
+    display: block;
+    text-align: center;
+    line-height: 46px;
+    color: #666;
+}
+
+.about_con_left ul li a:hover, .about_con_left ul li .about_now {
+    background: url(../images/about_left_li.png) 25px -102px no-repeat;
+    color: #5ebfca;
+}
+
+.about_con_right {
+    width: 674px;
+    border-left: 1px solid #f0efef;
+    padding: 0px 90px 0px 35px;
+    overflow: hidden;
+}
+
+.about_con_r_1 {
+    overflow: hidden;
+}
+
+.about_con_r_1 h2, .about_con_r_2 h2 {
+    color: #4ABDCC;
+    margin-bottom: 15px;
+}
+
+.about_con_r_1 p {
+    color: #666;
+    font-size: 14px;
+    font-family: 微软雅黑;
+    line-height: 30px;
+    text-indent: 2em;
+}
+
+.about_con_r_1 p span {
+    color: #FF7E29;
+}
+
+.about_con_r_1 h3 {
+    color: #666;
+    margin: 15px 0px;
+    text-indent: 1em;
+    line-height: 40px;
+}
+
+.about_con_r_2 {
+    margin-top: 10px;
+}
+
+.about_con_r_2 p img {
+    width: 500px;
+}
+
+.about_con_r_2 p {
+    padding-left: 90px;
+}
