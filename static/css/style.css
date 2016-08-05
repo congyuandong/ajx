@@ -110,6 +110,10 @@ body .f14{
     font-size: 14px;
 }
 
+.hidden {
+    display: none;
+}
+
 
 
 /*sidebar*/

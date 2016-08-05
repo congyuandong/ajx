@@ -23,9 +23,9 @@
                     {% endif %}
                     {% for setout in setouts %} 
                     {% if sid == setout.id %}
-                    <li class="active"><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
+                    <li class="active{% if forloop.counter > 6 %} hidden{% endif %}"><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
                     {% else %}
-                    <li><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
+                    <li{% if forloop.counter > 6 %} class="hidden"{% endif %}><a href="?s={{setout.id}}{{except_s}}">{{setout.name}}</a></li>
                     {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
@@ -45,9 +45,9 @@
                     {% endif %}
                     {% for destin in destins %}
                     {% if did == destin.id %}
-                    <li class="active"><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
+                    <li class="active{% if forloop.counter > 6 %} hidden{% endif %}"><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
                     {% else %}
-                    <li><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
+                    <li{% if forloop.counter > 6 %} class="hidden"{% endif %}><a href="?d={{destin.id}}{{except_d}}">{{destin.name}}</a></li>
                     {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
@@ -63,13 +63,13 @@
                     {% if dall == 1 %}
                     <li><a href="?d=-1{{except_d}}">全部</a></li>
                     {% else %}
-                    <li class="active"><a href="?d=-1{{except_d}}">全部</a></li>
+                    <li class="active{% if forloop.counter > 6 %} hidden{% endif %}"><a href="?d=-1{{except_d}}">全部</a></li>
                     {% endif %}
                     {% for destout in destouts %} 
                     {% if did == destout.id %}
                     <li class="active"><a href="?d={{destout.id}}{{except_d}}">{{destout.name}}</a></li>
                     {% else %}
-                    <li><a href="?d={{destout.id}}{{except_d}}">{{destout.name}}</a></li>
+                    <li{% if forloop.counter > 6 %} class="hidden"{% endif %}><a href="?d={{destout.id}}{{except_d}}">{{destout.name}}</a></li>
                     {% endif %}
 					{% endfor %}
                     <li class="i_more hbg_wu"><a href="javascript:void(0)">更多>></a></li>
