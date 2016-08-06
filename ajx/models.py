@@ -266,7 +266,7 @@ class RouteDetail(models.Model):
     hotel = models.CharField(max_length = 100, verbose_name = '住宿')
     traffic = UEditorField(verbose_name='参考交通',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
-        upload_settings={'imageMaxSize':2048000})
+        upload_settings={'imageMaxSize':2048000}, null = True, blank = True)
     content = UEditorField(verbose_name='行程安排',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
         upload_settings={'imageMaxSize':2048000})
@@ -578,7 +578,7 @@ class NorthRouteDetail(models.Model):
     hotel = models.CharField(max_length = 100, verbose_name = '住宿')
     traffic = UEditorField(verbose_name='参考交通',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
-        upload_settings={'imageMaxSize':2048000})
+        upload_settings={'imageMaxSize':2048000}, null = True, blank = True)
     content = UEditorField(verbose_name='行程安排',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
         upload_settings={'imageMaxSize':2048000})

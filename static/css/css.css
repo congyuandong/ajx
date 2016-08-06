@@ -3073,7 +3073,6 @@ input[disabled],input:disabled{
     width: 30px;
     height: 20px;
     margin: 3px 5px 0 0;
-    background: url(../images/css_sp1.png) no-repeat 5px -143px;
 }
 
 .tra_info .ship_icon {
@@ -3085,6 +3084,25 @@ input[disabled],input:disabled{
 }
 
 .tra_info .bus_icon {
+    background: url(../images/css_sp1.png) no-repeat -142px -143px;
+}
+.tra_info .traffic {
+    float: left;
+    width: 30px;
+    height: 20px;
+    margin: 3px 5px 0 0;
+}
+
+.tra_info .traffic0 {
+    background: url(../images/css_sp1.png) no-repeat 5px -143px;
+}
+.tra_info .traffic1 {
+    background: url(../images/css_sp1.png) no-repeat -37px -143px;
+}
+.tra_info .traffic2 {
+    background: url(../images/css_sp1.png) no-repeat -114px -143px;
+}
+.tra_info .traffic3 {
     background: url(../images/css_sp1.png) no-repeat -142px -143px;
 }
 
