@@ -529,6 +529,7 @@ class NorthRoute(models.Model):
     day = models.IntegerField(default = 0, verbose_name = '出游天数(白天)')
     night = models.IntegerField(default = 0, verbose_name = '出游天数(夜晚)')
     hotelStar = models.IntegerField(default = 0, verbose_name = '酒店星级', null=True,blank=True)
+    godataInfo = models.CharField(max_length = 200, verbose_name = '发团日期信息', help_text = '例如:每周四')
     detail = UEditorField(verbose_name='产品详情',imagePath="ueditor/images/",
         filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
         upload_settings={'imageMaxSize':2048000},null=True,blank=True)
