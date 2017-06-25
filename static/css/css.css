@@ -483,6 +483,25 @@
     height: 204px;
 }
 
+.traffic {
+    width: 30px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.traffic0 {
+    background: url(../images/css_sp1.png) no-repeat 5px -143px;
+}
+.traffic1 {
+    background: url(../images/css_sp1.png) no-repeat -37px -143px;
+}
+.traffic2 {
+    background: url(../images/css_sp1.png) no-repeat -114px -143px;
+}
+.traffic3 {
+    background: url(../images/css_sp1.png) no-repeat -142px -143px;
+}
+
 .dw {
     width: 49px;
     height: 37px;

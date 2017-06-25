@@ -77,8 +77,9 @@
                                 <div class="con_1_c_1_r_2">
                                 	<dl class="con_1_c_1_r_dl1">
                                     	<dt>交通：</dt>
-                                        <dd>{{item.content.get_goType_display}}去</dd>
-                                        <dd>{{item.content.get_backType_display}}回</dd>
+                                        <dd>{{ item.content.setOut }}</dd>
+                                        <dd title="{{schedule.get_goType_display}}" class="traffic traffic{{item.content.goType}}"></dd>
+                                        <dd>{{ item.content.destination }}</dd>
                                     </dl>
                                     <dl class="con_1_c_1_r_dl2">
                                     	<dt>日期：</dt>
