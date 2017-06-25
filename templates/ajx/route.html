@@ -49,18 +49,34 @@
             </div><!--xqym_left_1-->
             <div class="xqym_left_1 xqym_left_2">
                 <h2>快速导航</h2>
-                <ul>
-                    <li><a class="gundong1 cur">概要信息</a></li>
-                    <li><a class="gundong2">产品详情</a></li>
-                    <li><a class="gundong3">费用说明</a></li>
-                    <li><a class="gundong4">邮轮信息</a></li>
-                    <li><a class="gundong5">参考交通</a></li>
-                    <li><a class="gundong6">参考住宿</a></li>
-                    <li><a class="gundong7">签证信息</a></li>
-                    <li><a class="gundong8">参考行程</a></li>
-                    <li><a class="gundong9">订购须知</a></li>
-                    <li><a class="gundong10">网签协议</a></li>
-                    <li><a class="gundong11">推荐产品</a></li>
+                <ul class="sidemenu">
+                    <li class="cur"><a>概要信息</a></li>
+                    {% if route.detail %}
+                    <li><a>产品详情</a></li>
+                    {% endif %}
+                    {% if route.cost %}
+                    <li><a>费用说明</a></li>
+                    {% endif %}
+                    {% if route.ship %}
+                    <li><a>邮轮信息</a></li>
+                    {% endif %}
+                    <li><a>参考交通</a></li>
+                    {% if route.hotel %}
+                    <li><a>参考住宿</a></li>
+                    {% endif %}
+                    {% if route.visa %}
+                    <li><a>签证信息</a></li>
+                    {% endif %}
+                    {% if schedules %}
+                    <li><a>参考行程</a></li>
+                    {% endif %}
+                    {% if route.notice %}
+                    <li><a>订购须知</a></li>
+                    {% endif %}
+                    {% if route.netsign %}
+                    <li><a>网签协议</a></li>
+                    {% endif %}
+                    <li><a>推荐产品</a></li>
                 </ul>
                 <div class="cl"></div>
             </div>
@@ -95,7 +111,7 @@
         </div>
         
         <div class="ir_box">   
-            <div class="dr_title2" id="gundong1">
+            <div class="dr_title2">
                 <h2>概要信息</h2>
                 <div class="cl"></div>
             </div>
@@ -251,7 +267,7 @@
             </div>
             <div class="cl"></div>
             {% if route.detail %}
-            <div class="dr_title2"  id="gundong2">
+            <div class="dr_title2" >
                 <h2>产品详情</h2><p class="note">本产品由{{route.supplyName}}提供服务</p>
             </div>
             <div class="editor_box">
@@ -262,7 +278,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.cost %}
-            <div class="dr_title2" id="gundong3">
+            <div class="dr_title2">
                 <h2>费用说明</h2>
             </div>
             <div class="editor_box">
@@ -273,7 +289,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.ship %}
-            <div class="dr_title2" id="gundong4">
+            <div class="dr_title2">
                 <h2>游轮信息</h2>
             </div>
             <div class="editor_box">
@@ -283,7 +299,7 @@
             </div>
             <div class="cl"></div>
             {% endif %}
-            <div class="dr_title2"  id="gundong5">
+            <div class="dr_title2" >
                 <h2>参考交通</h2>
             </div>
             <div class="editor_box">
@@ -355,7 +371,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.hotel %}
-            <div class="dr_title2"  id="gundong6">
+            <div class="dr_title2" >
                 <h2>参考住宿</h2>
             </div>
             <div class="editor_box">
@@ -366,7 +382,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.visa %}
-            <div class="dr_title2"  id="gundong7">
+            <div class="dr_title2" >
                 <h2>签证信息</h2>
             </div>
             <div class="editor_box">
@@ -377,7 +393,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if schedules %}
-            <div class="dr_title2" id="gundong8">
+            <div class="dr_title2">
                 <h2>参考行程</h2>
             </div>
             <div class="rdt_box">
@@ -410,7 +426,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.notice %}
-            <div class="dr_title2"  id="gundong9">
+            <div class="dr_title2" >
                 <h2>订购须知</h2>
             </div>
             <div class="editor_box">
@@ -421,7 +437,7 @@
             <div class="cl"></div>
             {% endif %}
             {% if route.netsign %}
-            <div class="dr_title2" id="gundong10">
+            <div class="dr_title2">
                 <h2>网签协议</h2>
             </div>
             <div class="editor_box">
@@ -431,7 +447,7 @@
             </div>
             <div class="cl"></div>
             {% endif %}
-            <div class="dr_title2"  id="gundong11">
+            <div class="dr_title2">
                 <h2>相关产品</h2>
             </div>
             <ul class="rp_box_fordetail">

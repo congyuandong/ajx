@@ -1157,7 +1157,7 @@
     color: #666;
 }
 
-.gensuigundong_daohagn a.cur {
+.gensuigundong_daohagn .cur a{
     background: url(../images/xqym_left_spirit.png) -3px -154px no-repeat;
     color: #fff;
 }
