@@ -13,9 +13,11 @@ def odd(dividend, divisor):
 
 @register.filter(name = 'week')
 def week(value):
-    value = datetime.strptime(value,'%Y-%m-%d')
-    weeks = ['一','二','三','四','五','六','日']
-    return weeks[value.weekday()]
+    if value:
+        value = datetime.strptime(value,'%Y-%m-%d')
+        weeks = ['一','二','三','四','五','六','日']
+        return weeks[value.weekday()]
+    return ''
 
 @register.filter(name = 'multiply')
 def multiply(v1, v2):
