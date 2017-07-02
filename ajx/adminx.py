@@ -193,6 +193,8 @@ class SystemInfoAdmin(object):
     list_editable = ['name', 'tel', 'url', 'version']
     list_per_page = 20
     ordering = ['version']
+    style_fields = {'about': 'ueditor', 'contact': 'ueditor', 'clause': 'ueditor', 'agreement': 'ueditor',
+                    'netsign': 'ueditor', 'flow': 'ueditor', 'invition': 'ueditor', 'supplier': 'ueditor'}
 
 
 class MadeSetOutAdmin(object):

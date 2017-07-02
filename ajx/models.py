@@ -354,6 +354,30 @@ class SystemInfo(models.Model):
     url = models.URLField(verbose_name = '域名地址')
     version = models.IntegerField(default = 0, verbose_name = '版本')
     logo = models.ImageField(upload_to ='logo/', verbose_name = '网站LOGO', help_text = '大小213X85', null = True, blank = True)
+    about = UEditorField(verbose_name='关于我们',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    contact = UEditorField(verbose_name='联系我们',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    clause = UEditorField(verbose_name='免责条款',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    agreement = UEditorField(verbose_name='用户协议',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    netsign = UEditorField(verbose_name='网签协议',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    flow = UEditorField(verbose_name='预订流程',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    invition = UEditorField(verbose_name='达人招聘',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
+    supplier = UEditorField(verbose_name='供应商',imagePath="ueditor/images/",
+        filePath="ueditor/files/",settings=settings.UEDITOR_SETTINGS['config'],
+        upload_settings={'imageMaxSize':2048000},null=True,blank=True)
 
     def __unicode__(self):
         return u'基础信息'
