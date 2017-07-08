@@ -36,6 +36,9 @@ class GlobalSetting(object):
                 {'title': '产品类型', 'icon': 'fa fa-cutlery', 'url': self.get_model_url(NorthType, 'changelist')},
                 {'title': '横幅广告', 'icon': 'fa fa-picture-o', 'url': self.get_model_url(NorthBanner, 'changelist')},
             )},
+            {'title': '优惠广场', 'menus': (
+                {'title': '优惠管理', 'icon': 'fa fa-map-marker', 'url': self.get_model_url(Promotion, 'changelist')},
+            )},
             {'title': '订单管理 ', 'menus': (
                 {'title': '线路订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(Order, 'changelist')},
                 {'title': '东北游订单', 'icon': 'fa fa-suitcase', 'url': self.get_model_url(NorthOrder, 'changelist')},
@@ -304,6 +307,12 @@ class NorthPicListAdmin(object):
     list_per_page = 20
     ordering = ['route', 'sort']
 
+class PromotionAdmin(object):
+    list_display = ['name', 'banner', 'link', 'expiry', 'sort']
+    list_editable = ['banner', 'link', 'sort']
+    search_field = ['title']
+    list_per_page = 20
+    ordering = ['sort']
 
 class XadminUEditorWidget(UEditorWidget):
     def __init__(self, **kwargs):
@@ -364,3 +373,4 @@ xadmin.site.register(NorthPicList, NorthPicListAdmin)
 xadmin.site.register(NorthGoDate, NorthGoDateAdmin)
 xadmin.site.register(NorthRouteDetail, NorthRouteDetailAdmin)
 xadmin.site.register(NorthOrder, NorthOrderAdmin)
+xadmin.site.register(Promotion, PromotionAdmin)

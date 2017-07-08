@@ -683,3 +683,20 @@ class NorthOrder(models.Model):
     class Meta:
         verbose_name = '订单'
         verbose_name_plural = '订单管理'
+
+# 促销广告 最多六个
+class Promotion(models.Model):
+    name = models.CharField(max_length = 200, verbose_name = '标题')
+    banner = models.ImageField(upload_to ='promotion/',verbose_name='图片')
+    link = models.URLField(verbose_name = '链接地址')
+    sort =  models.IntegerField(default=0,verbose_name="排序")
+    expiry = models.DateTimeField(verbose_name = '失效时间')
+    update = models.DateTimeField(verbose_name = '更新日期', auto_now = True)
+
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = '特惠广场'
+        verbose_name_plural = '优惠管理'
+

@@ -6,28 +6,15 @@
     <li class="index_nav_thgc_show  {% if nav == 'thgc' %}class='thisclass'{% endif %}">
         <a href="#">特惠广场</a>
         <div class="hot">
-            <img src="{% static 'images/hot.png'%}" />
+            <img src="{% static 'images/hot.png' %}"/>
         </div>
 
         <div class="index_nav_ztxl">
-            <a href="#">
-                <img src="{% static 'images/index_nav_xl_pic_03.jpg'%}" />
-            </a>
-            <a href="#">
-                <img src="{% static 'images/index_nav_xl_pic_05.jpg'%}" />
-            </a>
-            <a href="#">
-                <img src="{% static 'images/index_nav_xl_pic_10.jpg'%}" />
-            </a>
-            <a href="#">
-                <img src="{% static 'images/index_nav_xl_pic_12.jpg'%}" />
-            </a>
-            <a href="#" class="index_nav_ztxl_w">
-                <img src="{% static 'images/index_nav_xl_pic_16.jpg'%}" />
-            </a>
-            <a href="#" class="index_nav_ztxl_w">
-                <img src="{% static 'images/index_nav_xl_pic_18.jpg'%}" />
-            </a>
+            {% for p in promotions %}
+                <a href="{{ p.link }}" target="_blank">
+                    <img src="/media/{{ p.banner }}" alt="{{ p.name }}"/>
+                </a>
+            {% endfor %}
         </div>
     </li>
     <li {% if nav == 'north' %}class="thisclass"{% endif %}>
