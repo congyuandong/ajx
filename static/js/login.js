@@ -4,24 +4,12 @@ var codeTime = 60,
 
 $(document).ready(function () {
     $('.search_but').on('click', function () {
-        $.ajax({
-            url: '/w/search/',
-            type: 'POST',
-            data: {
-                d: $('.search_in input').val()
-            }
-        });
+        search($('.search_in input').val());
     });
 
     $('.search_in').bind('keydown', function (e) {
         if (e.keyCode == '13') {
-            $.ajax({
-                url: '/w/search/',
-                type: 'POST',
-                data: {
-                    d: $('.search_in input').val()
-                }
-            });
+            search($('.search_in input').val());
             e.preventDefault();
         }
     });
@@ -285,5 +273,18 @@ function tabs(tabTit, on, tabCon, tabIndex) {
         $(this).addClass(on).siblings().removeClass(on);
         var index = $(tabTit).children().index(this);
         $(tabCon).children().eq(index).show().siblings().hide();
+    });
+}
+
+function search(dest) {
+    $.ajax({
+        url: '/w/search/',
+        type: 'POST',
+        data: {
+            d: dest
+        },
+        success: function (response) {
+            location.href = response.redirect_to;
+        }
     });
 }
