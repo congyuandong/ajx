@@ -5,6 +5,7 @@ import libs
 urlpatterns = patterns('',
     url(r'^$', views.Index, name='Index'),
     url(r'^index/$', views.Index, name='Index'),
+    url(r'^search/$', views.Search, name='Search'),
     url(r'^made/$', views.Made, name='Made'),
     url(r'^north/$', views.North, name='North'),
     url(r'^nd/(\d+)$', views.NorthDetail, name='NorthDetail'),

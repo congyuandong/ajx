@@ -2,8 +2,31 @@
 var codeTime = 60,
     lastTime = codeTime;
 
-$(document).ready(function() {
-    $('.popup').on('click', function() {
+$(document).ready(function () {
+    $('.search_but').on('click', function () {
+        $.ajax({
+            url: '/w/search/',
+            type: 'POST',
+            data: {
+                d: $('.search_in input').val()
+            }
+        });
+    });
+
+    $('.search_in').bind('keydown', function (e) {
+        if (e.keyCode == '13') {
+            $.ajax({
+                url: '/w/search/',
+                type: 'POST',
+                data: {
+                    d: $('.search_in input').val()
+                }
+            });
+            e.preventDefault();
+        }
+    });
+
+    $('.popup').on('click', function () {
         var $layer = '';
         if ($('#J-layer').size() == 0) {
             $layer = $('<div id="J-layer"></div>');
@@ -24,7 +47,7 @@ $(document).ready(function() {
         var $div = $('.detail_t').clone(true);
         $('body').append($layer);
         $('body').append($div.show());
-        $div.attr('id', 'J-picBox').on('click', '.detail_close,.detail_x', function() {
+        $div.attr('id', 'J-picBox').on('click', '.detail_close,.detail_x', function () {
             $layer.hide();
             $div.remove();
         });
@@ -38,7 +61,7 @@ $(document).ready(function() {
     });
 
     //快速登录
-    $('#btn_quick_login').on('click', function() {
+    $('#btn_quick_login').on('click', function () {
         var form = $(this).parentsUntil('li');
         var account = form.find('#account').val();
         var code = form.find('#code').val();
@@ -55,7 +78,7 @@ $(document).ready(function() {
                     code: code,
                     remember: checked
                 },
-                success: function(data) {
+                success: function (data) {
                     if (data.code == 1) {
                         location.reload(true);
                     } else {
@@ -72,7 +95,7 @@ $(document).ready(function() {
     });
 
     //注册逻辑
-    $('#btn_reg').on('click', function() {
+    $('#btn_reg').on('click', function () {
         var form = $(this).parentsUntil('li');
         var user_account = form.find('#account').val();
         var user_password = form.find('#user_password').val();
@@ -97,9 +120,9 @@ $(document).ready(function() {
                                 code: verify,
                                 account: user_account,
                                 password: user_password,
-                                type:regType
+                                type: regType
                             },
-                            success: function(data) {
+                            success: function (data) {
                                 if (data.code == -1) {
                                     successTip.text('');
                                     errorTip.text('验证码错误');
@@ -128,9 +151,9 @@ $(document).ready(function() {
             errorTip.text('账户格式不正确');
         }
     });
-    
+
     //登录逻辑
-    $('#btn_login').on('click', function() {
+    $('#btn_login').on('click', function () {
         var form = $(this).parentsUntil('li');
         var account = form.find('#user_account').val();
         var password = form.find('#user_password').val();
@@ -145,7 +168,7 @@ $(document).ready(function() {
                 password: password,
                 remember: checked
             },
-            success: function(data) {
+            success: function (data) {
                 if (data.code == 1) {
                     location.reload(true);
                 } else {
@@ -156,7 +179,7 @@ $(document).ready(function() {
     });
 
     //获取短信或者邮件验证码
-    $('.getLoginCode').on('click', function() {
+    $('.getLoginCode').on('click', function () {
         $(this).addClass('disabled');
         disable_getcode();
         var form = $(this).parentsUntil('li');
@@ -170,11 +193,11 @@ $(document).ready(function() {
                 $.ajax({
                     type: 'GET',
                     url: '/w/code/?tel=' + account,
-                    success: function(data) {
+                    success: function (data) {
                         if (data.code == 1) {
                             errorTip.text('');
                             successTip.text('发送成功,请注意查收');
-                        } else if(data.code == 2) {
+                        } else if (data.code == 2) {
                             errorTip.text('');
                             successTip.text('验证码未失效,请稍后再试');
                         } else {
@@ -191,7 +214,7 @@ $(document).ready(function() {
                     $.ajax({
                         type: 'GET',
                         url: '/w/code/?tel=' + account,
-                        success: function(data) {
+                        success: function (data) {
                             if (data.code == 1) {
                                 errorTip.text('');
                                 successTip.text('发送成功，请注意查收');
@@ -204,7 +227,7 @@ $(document).ready(function() {
                     $.ajax({
                         type: 'GET',
                         url: '/w/mcode/?mail=' + account,
-                        success: function(data) {
+                        success: function (data) {
                             if (data.code == 1) {
                                 errorTip.text('');
                                 successTip.text('发送成功，请注意查收');
@@ -252,13 +275,13 @@ function tabs(tabTit, on, tabCon, tabIndex) {
     $(tabTit).children().removeClass(on);
     $(tabCon).children().hide();
 
-    $(tabCon).each(function() {
+    $(tabCon).each(function () {
         $(this).children().eq(tabIndex).show();
     });
-    $(tabTit).each(function() {
+    $(tabTit).each(function () {
         $(this).children().eq(tabIndex).addClass(on);
     });
-    $(tabTit).children().click(function() {
+    $(tabTit).children().click(function () {
         $(this).addClass(on).siblings().removeClass(on);
         var index = $(tabTit).children().index(this);
         $(tabCon).children().eq(index).show().siblings().hide();
